@@ -1,93 +1,49 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-
 <style>
-body {
-  margin: 0;
-  font-family: 'Noto Sans JP', sans-serif;
-  background: #f4f7fb;
-  color: #1a1a1a;
-}
-
-/* ヘッダー */
 .hero {
-  background: linear-gradient(135deg, #1e3a5f, #2f5f9e);
+  position: relative;
   color: white;
   padding: 70px 20px;
+  overflow: hidden;
+}
+
+/* 背景画像 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover;
+  z-index: 0;
+}
+
+/* 青いオーバーレイ */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30,58,95,0.9), rgba(47,95,158,0.8));
+  z-index: 1;
+}
+
+/* テキスト前面 */
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
   font-size: 22px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .hero p {
+  font-size: 14px;
   opacity: 0.9;
-  font-size: 14px;
-}
-
-/* セクション */
-.section {
-  padding: 20px;
-}
-
-.section-title {
-  font-weight: bold;
-  margin: 25px 0 10px;
-  font-size: 16px;
-  color: #2f5f9e;
-}
-
-/* カード */
-.card {
-  background: white;
-  padding: 16px;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-}
-
-.title {
-  font-weight: bold;
-  color: #2f5f9e;
-  margin-bottom: 6px;
-}
-
-p {
-  line-height: 1.6;
-  font-size: 14px;
 }
 </style>
-</head>
-
-<body>
 
 <div class="hero">
-  <h1>懇親会だより｜4月号</h1>
-  <p>今月の活動・お知らせ</p>
-</div>
-
-<div class="section">
-
-  <div class="section-title">📄 議事録</div>
-
-  <div class="card">
-    <div class="title">第13回 役員会議</div>
-    <p>🗓 4月3日(金) 11:00<br>📍 3階講堂</p>
+  <div class="hero-content">
+    <h1>懇親会だより</h1>
+    <p>つながる・支え合う・よりよい未来へ</p>
   </div>
-
-  <div class="card">
-    <div class="title">主な内容</div>
-    <p>・欠勤・退職者の確認<br>
-       ・新入社員：古市真介さん</p>
-  </div>
-
 </div>
-
-</body>
-</html>
