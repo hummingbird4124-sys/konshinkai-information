@@ -1,4 +1,15 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
 <style>
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #f4f7fb;
+  color: #1a1a1a;
+}
+
+/* ===== ヘッダー ===== */
 .hero {
   position: relative;
   color: white;
@@ -6,7 +17,6 @@
   overflow: hidden;
 }
 
-/* 背景画像 */
 .hero::before {
   content: "";
   position: absolute;
@@ -15,7 +25,6 @@
   z-index: 0;
 }
 
-/* 青いオーバーレイ */
 .hero::after {
   content: "";
   position: absolute;
@@ -24,7 +33,6 @@
   z-index: 1;
 }
 
-/* テキスト前面 */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -39,11 +47,154 @@
   font-size: 14px;
   opacity: 0.9;
 }
+
+/* ===== セクション ===== */
+.section {
+  padding: 15px;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #2f5f9e;
+  margin: 20px 0 10px;
+}
+
+/* ===== カード ===== */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* 2カラム */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sub {
+  font-weight: bold;
+  font-size: 13px;
+  color: #2f5f9e;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ===== 画像カード ===== */
+.image-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.image-card img {
+  width: 90px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.badge {
+  background: #2f5f9e;
+  color: white;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+
+.link {
+  color: #2f5f9e;
+  font-size: 13px;
+  margin-top: 5px;
+  display: inline-block;
+}
 </style>
 
+<!-- ===== ヘッダー ===== -->
 <div class="hero">
   <div class="hero-content">
     <h1>懇親会だより</h1>
     <p>つながる・支え合う・よりよい未来へ</p>
   </div>
+</div>
+
+<!-- ===== 本文 ===== -->
+<div class="section">
+
+  <div class="section-title">📄 議事録</div>
+
+  <div class="card">
+    <p><b>第13回 役員会議（要約）</b><br>
+    🗓 4月3日(金) 11:00　📍 3階講堂</p>
+
+    <div class="grid">
+      <div>
+        <div class="sub">■ 主な内容</div>
+        <p>・欠勤・退職者の確認<br>
+        ・新入社員：古市真介さん</p>
+
+        <div class="sub">■ 2階事務からのお願い</div>
+        <p>・チケットは経路記入必須<br>
+        ・年金手数料 協議中</p>
+      </div>
+
+      <div>
+        <div class="sub">■ 協議事項</div>
+        <p>・規約改正<br>
+        ・LINE見直し<br>
+        ・会計監査：4月14日</p>
+
+        <div class="sub">■ 総会について</div>
+        <p>来月実施予定</p>
+      </div>
+    </div>
+
+    <div class="sub">📌 来月予定</div>
+    <p>・健康診断<br>・配車ノウハウ</p>
+
+    <div class="sub">📩 お問い合わせ</div>
+    <p>懇親会役員まで<br>会長 須賀孝志</p>
+  </div>
+
+  <div class="section-title">✨ 特集記事</div>
+
+  <div class="card image-card">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+    <div>
+      <b>つながりが生む力</b>
+      <p>協力し合うことで、より良いチームに。</p>
+      <span class="link">記事を読む →</span>
+    </div>
+  </div>
+
+  <div class="section-title">👤 今月のドライバー紹介</div>
+
+  <div class="card image-card">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+    <div>
+      <b>山田 太郎 <span class="badge">今月のドライバー</span></b>
+      <p>いつも安全運転を心がけています。</p>
+      <span class="link">インタビューを読む →</span>
+    </div>
+  </div>
+
+  <div class="section-title">💙 ヘルスケア</div>
+
+  <div class="card image-card">
+    <img src="https://images.unsplash.com/photo-1526401485004-2fda9f9c4c69">
+    <div>
+      <b>春の体調管理</b>
+      <p>水分補給と睡眠を意識しましょう。</p>
+      <span class="link">記事を読む →</span>
+    </div>
+  </div>
+
 </div>
