@@ -1,291 +1,439 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  background: #f4f7fb;
+  background: #f5f8fc;
   color: #1a1a1a;
 }
 
-/* 上部ロゴエリア */
+/* 上部 */
 .topbar {
-  background: white;
-  padding: 10px 16px;
+  height: 62px;
+  background: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .logo-icon {
-  background: #1656a3;
-  color: white;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
+  color: #0d5bbb;
+  font-size: 28px;
 }
 
 .logo-title {
-  font-size: 14px;
-  font-weight: bold;
-  color: #1e3a5f;
+  font-size: 15px;
+  font-weight: 700;
+  color: #17477d;
+  line-height: 1.1;
 }
 
 .logo-sub {
   font-size: 11px;
-  color: #666;
+  color: #333;
 }
 
-/* ヘッダー */
+.menu {
+  font-size: 28px;
+  color: #222;
+}
+
+/* ヒーロー */
 .hero {
+  height: 210px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 28px 24px;
   background:
-    linear-gradient(rgba(22, 86, 163, 0.88), rgba(30, 58, 95, 0.88)),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c') center/cover no-repeat;
-  color: white;
-  padding: 55px 20px;
+    linear-gradient(90deg, rgba(0,54,132,.95) 0%, rgba(0,72,150,.78) 45%, rgba(0,72,150,.18) 100%),
+    url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+}
+
+.hero .catch {
+  font-size: 13px;
+  margin-bottom: 8px;
 }
 
 .hero h1 {
-  font-size: 28px;
-  margin: 6px 0 8px;
+  font-size: 34px;
+  margin: 0 0 10px;
+  font-weight: 700;
+  letter-spacing: .02em;
 }
 
-.hero p {
-  margin: 0;
+.hero .subcopy {
   font-size: 14px;
-  opacity: 0.95;
 }
 
-.catch {
-  font-size: 12px;
-  opacity: 0.85;
-  margin-bottom: 6px;
+/* ドット */
+.dots {
+  text-align: center;
+  padding: 10px 0 8px;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: #d0d4da;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+.dot.active {
+  background: #0d65d9;
 }
 
 /* 全体 */
-.section {
-  max-width: 520px;
+.container {
+  max-width: 620px;
   margin: auto;
-  padding: 18px;
+  padding: 0 18px 30px;
 }
 
-/* 見出し */
+/* セクション見出し */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 22px 0 10px;
+}
+
 .section-title {
   display: flex;
   align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #1656a3;
-  margin: 26px 0 12px;
+  color: #064b9f;
+  font-size: 21px;
+  font-weight: 700;
 }
 
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: #1656a3;
-  color: white;
-  border-radius: 50%;
-  font-size: 14px;
+.section-icon {
+  font-size: 22px;
   margin-right: 8px;
-  flex-shrink: 0;
+  color: #0b63c7;
+}
+
+.see-all {
+  color: #0b63c7;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 /* カード */
 .card {
   background: #fff;
-  border-radius: 16px;
-  padding: 18px;
-  margin-bottom: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 17px;
-  color: #1e3a5f;
-}
-
-.card p {
-  font-size: 14px;
-  line-height: 1.75;
-  margin: 0;
+  border-radius: 14px;
+  box-shadow: 0 5px 16px rgba(0,0,0,.08);
+  overflow: hidden;
+  margin-bottom: 18px;
 }
 
 /* 議事録 */
+.meeting-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: #f2f6fb;
+  padding: 15px 18px;
+}
+
+.meeting-title h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #111;
+}
+
+.meeting-meta {
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.meeting-body {
+  padding: 16px 18px 12px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
 }
 
-.sub {
-  font-weight: bold;
-  color: #1656a3;
-  margin-bottom: 6px;
+.block {
+  min-height: 92px;
+}
+
+.block-title {
   font-size: 14px;
+  color: #074fa6;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
-/* 画像カード */
-.image-card {
+.block p {
+  font-size: 12.5px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.bottom-grid {
+  border-top: 1px solid #e5e9ef;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+/* 記事カード */
+.article-card {
   display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  gap: 16px;
+  padding: 12px;
+  align-items: center;
 }
 
-.image-card img {
-  width: 105px;
-  height: 80px;
+.article-card img {
+  width: 150px;
+  height: 92px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 8px;
   flex-shrink: 0;
+}
+
+.article-text h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.article-text p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.link-text {
+  color: #0b63c7;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .badge {
   display: inline-block;
-  background: #1656a3;
-  color: white;
+  background: #0b63c7;
+  color: #fff;
   font-size: 11px;
   padding: 3px 8px;
-  border-radius: 999px;
+  border-radius: 20px;
   margin-left: 6px;
+}
+
+/* お問い合わせ */
+.contact-btn {
+  background: linear-gradient(135deg, #0b63c7, #034ca3);
+  color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 20px;
 }
 
 /* フッター */
 .footer {
   text-align: center;
   font-size: 12px;
-  color: #888;
-  padding: 32px 20px;
+  color: #777;
+  padding: 26px 0 16px;
+}
+
+/* スマホ幅 */
+@media (max-width: 420px) {
+  .hero {
+    height: 190px;
+    padding: 24px 20px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .container {
+    padding: 0 14px 28px;
+  }
+
+  .meeting-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meeting-meta {
+    white-space: normal;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 14px;
+  }
+
+  .block-title {
+    font-size: 13px;
+  }
+
+  .block p {
+    font-size: 11.5px;
+  }
+
+  .article-card img {
+    width: 120px;
+    height: 80px;
+  }
+
+  .article-text h3 {
+    font-size: 14px;
+  }
+
+  .article-text p {
+    font-size: 12px;
+  }
 }
 </style>
 
-<!-- 上部ロゴエリア -->
 <div class="topbar">
   <div class="logo">
-    <span class="logo-icon">👥</span>
+    <div class="logo-icon">👥</div>
     <div>
       <div class="logo-title">懇親会</div>
       <div class="logo-sub">公式ホームページ</div>
     </div>
   </div>
+  <div class="menu">☰</div>
 </div>
 
-<!-- ヘッダー -->
 <div class="hero">
-  <p class="catch">つながる・支え合う・より良い未来へ</p>
-  <h1>懇親会だより</h1>
-  <p>今月の活動・お知らせをお届けします</p>
+  <div>
+    <div class="catch">つながる・支え合う・よりよい未来へ</div>
+    <h1>懇親会だより</h1>
+    <div class="subcopy">今月の活動・お知らせをお届けします</div>
+  </div>
 </div>
 
-<div class="section">
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
 
-  <div class="section-title"><span class="icon">文</span>議事録</div>
+<div class="container">
 
-  <div class="card">
-    <h3>第13回 役員会議（要約）</h3>
-    <p>🗓 4月3日(金) 11:00<br>📍 3階講堂</p>
+  <div class="section-head">
+    <div class="section-title"><span class="section-icon">📋</span>議事録</div>
+    <div class="see-all">すべて見る 〉</div>
   </div>
 
   <div class="card">
-    <div class="grid">
+    <div class="meeting-title">
+      <h2>第13回 役員会議（要約）</h2>
+      <div class="meeting-meta">🗓 4月3日(金) 11:00　📍 3階講堂</div>
+    </div>
 
-      <div>
-        <div class="sub">■ 主な内容</div>
-        <p>・欠勤・退職者の確認<br>・新入社員：古市真介さん</p>
+    <div class="meeting-body">
+      <div class="grid">
+        <div class="block">
+          <div class="block-title">■ 主な内容</div>
+          <p>・欠勤・退職者の確認<br>・新入社員：古市真介さん</p>
+        </div>
+
+        <div class="block">
+          <div class="block-title">■ 協議事項</div>
+          <p>・規約改正（総会で決議予定）<br>→ 部活援助金／旅行積立金／イベント見直し<br>・LINE配信内容の見直し<br>・会計監査：4月14日</p>
+        </div>
+
+        <div class="block">
+          <div class="block-title">■ ２階事務からのお願い</div>
+          <p>🎫 チケットは「乗車経路」記入必須（鉛筆）<br>・はぐくみ年金手数料 → 協議中</p>
+        </div>
+
+        <div class="block">
+          <div class="block-title">■ 総会について</div>
+          <p>・来月実施（7:30〜8:30／2日間）<br>※詳細は後日案内</p>
+        </div>
       </div>
 
-      <div>
-        <div class="sub">■ 協議事項</div>
-        <p>
-          ・規約改正（総会で決議予定）<br>
-          ・部活援助金／旅行積立金／イベント見直し<br>
-          ・LINE配信内容の見直し<br>
-          ・会計監査：4月14日
-        </p>
-      </div>
+      <div class="grid bottom-grid">
+        <div class="block">
+          <div class="block-title">📌 来月予定</div>
+          <p>・春の健康診断<br>・GO配車ノウハウ配信<br>・売上向上「達人紹介」</p>
+        </div>
 
-      <div>
-        <div class="sub">■ 2階事務からのお願い</div>
-        <p>
-          🎫 チケットは「乗車経路」記入必須（鉛筆）<br>
-          ・はぐくみ年金手数料 → 協議中
-        </p>
+        <div class="block">
+          <div class="block-title">✉ お問い合わせ</div>
+          <p>懇親会役員までお気軽にご連絡ください<br>（GO配車の相談もリッチメニューからOK）<br><b>懇親会 会長　須賀 孝志</b></p>
+        </div>
       </div>
-
-      <div>
-        <div class="sub">■ 総会について</div>
-        <p>
-          来月実施予定<br>
-          7:30～8:30／2日間<br>
-          ※詳細は後日案内
-        </p>
-      </div>
-
-      <div>
-        <div class="sub">📌 来月予定</div>
-        <p>
-          ・春の健康診断<br>
-          ・GO配車ノウハウ配信<br>
-          ・売上向上「達人紹介」
-        </p>
-      </div>
-
-      <div>
-        <div class="sub">📩 お問い合わせ</div>
-        <p>
-          懇親会役員までお気軽にご連絡ください<br>
-          懇親会 会長　須賀孝志
-        </p>
-      </div>
-
     </div>
   </div>
 
-  <div class="section-title"><span class="icon">特</span>特集記事</div>
+  <div class="section-head">
+    <div class="section-title"><span class="section-icon">🔖</span>特集記事</div>
+    <div class="see-all">すべて見る 〉</div>
+  </div>
 
-  <div class="card image-card">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-    <div>
+  <div class="card article-card">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80">
+    <div class="article-text">
       <h3>つながりが生む、大きな力</h3>
       <p>協力し合うことで、私たちはもっと強く、もっと良いチームになります。</p>
+      <div class="link-text">記事を読む 〉</div>
     </div>
   </div>
 
-  <div class="section-title"><span class="icon">人</span>今月のドライバー紹介</div>
+  <div class="section-head">
+    <div class="section-title"><span class="section-icon">👤</span>今月のドライバー紹介</div>
+    <div class="see-all">すべて見る 〉</div>
+  </div>
 
-  <div class="card image-card">
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-    <div>
+  <div class="card article-card">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=500&q=80">
+    <div class="article-text">
       <h3>山田 太郎 さん <span class="badge">今月のドライバー</span></h3>
-      <p>いつも笑顔で安全運転を心がけています。お客様からの信頼が励みです。</p>
+      <p>いつも笑顔で安全運転を心がけています。お客様からの信頼が励みです！</p>
+      <div class="link-text">インタビューを読む 〉</div>
     </div>
   </div>
 
-  <div class="section-title"><span class="icon">健</span>ヘルスケア</div>
+  <div class="section-head">
+    <div class="section-title"><span class="section-icon">💙</span>ヘルスケア</div>
+    <div class="see-all">すべて見る 〉</div>
+  </div>
 
-  <div class="card image-card">
-    <img src="https://images.unsplash.com/photo-1526401485004-2fda9f9c4c69">
-    <div>
+  <div class="card article-card">
+    <img src="https://images.unsplash.com/photo-1526401485004-2fda9f9c4c69?auto=format&fit=crop&w=500&q=80">
+    <div class="article-text">
       <h3>春の体調管理のポイント</h3>
-      <p>季節の変わり目は体調を崩しやすい時期です。睡眠と水分補給を意識しましょう。</p>
+      <p>季節の変わり目は体調を崩しやすい時期です。しっかり睡眠と水分補給を心がけましょう。</p>
+      <div class="link-text">記事を読む 〉</div>
     </div>
   </div>
 
-</div>
+  <div class="contact-btn">
+    ✉ お問い合わせはこちら
+  </div>
 
-<div class="footer">
-  © 2026 懇親会 All rights reserved.
+  <div class="footer">
+    © 2026 懇親会 All rights reserved.
+  </div>
+
 </div>
