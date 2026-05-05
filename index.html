@@ -12,7 +12,6 @@ body {
   color: #1a1a1a;
 }
 
-/* 上部 */
 .topbar {
   height: 62px;
   background: #fff;
@@ -48,7 +47,6 @@ body {
   font-size: 26px;
 }
 
-/* ヘッダー */
 .hero {
   height: 205px;
   display: flex;
@@ -70,7 +68,6 @@ body {
   margin: 0;
 }
 
-/* ドット */
 .dots {
   text-align: center;
   padding: 10px 0;
@@ -84,16 +81,15 @@ body {
   margin: 0 3px;
   background: #ccc;
 }
+
 .dot.active { background: #0b63c7; }
 
-/* 全体 */
 .container {
   max-width: 620px;
   margin: auto;
   padding: 0 16px 30px;
 }
 
-/* 見出し */
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -109,19 +105,12 @@ body {
   align-items: center;
 }
 
-.see-all {
-  font-size: 12px;
-  color: #0b63c7;
-}
-
-/* アイコン */
 .material-icons {
   font-size: 20px;
   margin-right: 6px;
   color: #0b63c7;
 }
 
-/* カード */
 .card {
   background: #fff;
   border-radius: 14px;
@@ -130,7 +119,6 @@ body {
   overflow: hidden;
 }
 
-/* 議事録 */
 .meeting-title {
   background: #f1f5fb;
   padding: 12px 16px;
@@ -142,23 +130,22 @@ body {
   font-size: 12px;
   color: #444;
   padding: 0 16px 10px;
+  line-height: 1.7;
 }
 
 .meeting-body {
   padding: 12px 16px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.block {
+  margin-bottom: 16px;
 }
 
 .block-title {
   font-size: 13px;
   color: #0b63c7;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .block-title::before {
@@ -171,41 +158,29 @@ body {
 .block p {
   font-size: 12px;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
-.bottom {
-  border-top: 1px solid #eee;
-  margin-top: 10px;
-  padding-top: 10px;
-}
-
-/* 記事 */
-.article {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  align-items: center;
-}
-
-.article img {
-  width: 110px;
-  height: 75px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.article h3 {
-  font-size: 14px;
-  margin: 0 0 4px;
-}
-
-.article p {
+ul {
+  margin: 4px 0 0 18px;
+  padding: 0;
   font-size: 12px;
-  margin: 0;
+  line-height: 1.75;
 }
 
-/* フッター */
+a {
+  color: #0b63c7;
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.notice {
+  background: #f8fbff;
+  border-left: 4px solid #0b63c7;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
 .footer {
   text-align: center;
   font-size: 11px;
@@ -245,101 +220,94 @@ body {
     <div class="section-title">
       <span class="material-icons">description</span>議事録
     </div>
-    <div class="see-all">すべて見る</div>
   </div>
 
   <div class="card">
-    <div class="meeting-title">第13回 役員会議（要約）</div>
-    <div class="meeting-meta">4月3日(金) 11:00　3階講堂</div>
+    <div class="meeting-title">第14回 役員会議 議事録（要約）</div>
+    <div class="meeting-meta">
+      日時：令和8年5月3日（日）11:00<br>
+      場所：3階講堂<br>
+      出席者：会長／渉外部長／厚生部長／書記長
+    </div>
 
     <div class="meeting-body">
-      <div class="grid">
-        <div>
-          <div class="block-title">主な内容</div>
-          <p>欠勤・退職者の確認<br>新入社員
-<br>
-<ruby>米川和行<rt>よねかわかずゆき</rt></ruby>
-<br>
-<ruby>池田義典<rt>いけだよしのり</rt></ruby>
-<br>
-<ruby>坂寄竜治<rt>さかよりりゅうじ</rt></ruby>
-</p>
-        </div>
 
-        <div>
-          <div class="block-title">協議事項</div>
-          <p>規約改正／イベント見直し<br>LINE見直し／会計監査</p>
-        </div>
+      <div class="block">
+        <div class="block-title">主な内容</div>
+        <p>
+          ① 欠勤・退職者の確認<br>
+          ② 新入社員紹介
+        </p>
+        <ul>
+          <li>米川和之さん</li>
+          <li>池田義典さん</li>
+          <li>坂寄竜治さん</li>
+        </ul>
+      </div>
 
-        <div>
-          <div class="block-title">事務から</div>
-          <p>チケット記入必須<br>年金手数料 協議中</p>
-        </div>
+      <div class="block">
+        <div class="block-title">協議事項</div>
+        <p>
+          ▶ 会社連絡について<br>
+          「直前の通達は困る」との意見多数。早めの情報共有を要望。<br><br>
 
-        <div>
-          <div class="block-title">総会</div>
-          <p>来月実施予定</p>
+          ▶ トラブル対応ガイド<br>
+          作成済み。今後は会社側での活用と、内容の改善・更新を継続。<br>
+          <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">トラブル対応ガイドを見る</a><br><br>
+
+          ▶ 懇親会LINEについて<br>
+          LINEブーム廃止予定に伴い、懇親会Instagramを開設し代替予定。<br>
+          スムーズな移行完了後、詳細を配信。<br><br>
+
+          ▶ 要望書について<br>
+          継続検討。
+        </p>
+      </div>
+
+      <div class="block">
+        <div class="block-title">規約改正・総会準備</div>
+        <p>
+          総会で決議予定。質疑応答の時間を重視し、皆さんの意見をしっかり集約します。
+        </p>
+        <ul>
+          <li>部活動援助金の見直し</li>
+          <li>旅行積立金の廃止検討</li>
+          <li>旅行・イベントのあり方見直し</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title">今後の予定</div>
+        <div class="notice">
+          <p>
+            【春の健康診断】<br>
+            5月7日（木）8時より<br>
+            受付：2階事務所<br>
+            当日出番の方を優先にご協力ください<br><br>
+
+            【総会開催】<br>
+            6月 明番集会にて実施予定
+          </p>
         </div>
       </div>
 
-      <div class="grid bottom">
-        <div>
-          <div class="block-title">来月予定</div>
-          <p>健康診断／配車ノウハウ</p>
-        </div>
+      <div class="block">
+        <div class="block-title">困ったときは</div>
+        <p>
+          🚨 トラブル即対応（まず確認）<br>
+          <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">トラブル対応ガイド</a><br><br>
 
-        <div>
-          <div class="block-title">お問い合わせ</div>
-          <p>懇親会役員まで</p>
-        </div>
+          📝 お問い合わせ（解決しない場合）<br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">お問い合わせフォーム</a>
+        </p>
       </div>
-    </div>
-  </div>
 
-  <div class="section-head">
-    <div class="section-title">
-      <span class="material-icons">article</span>特集記事
-    </div>
-  </div>
-
-  <div class="card article">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-    <div>
-      <h3>つながりが生む力</h3>
-      <p>チームの強さを高めます</p>
-    </div>
-  </div>
-
-  <div class="section-head">
-    <div class="section-title">
-      <span class="material-icons">person</span>ドライバー紹介
-    </div>
-  </div>
-
-  <div class="card article">
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-    <div>
-      <h3>山田 太郎</h3>
-      <p>安全運転を心がけています</p>
-    </div>
-  </div>
-
-  <div class="section-head">
-    <div class="section-title">
-      <span class="material-icons">favorite</span>ヘルスケア
-    </div>
-  </div>
-
-  <div class="card article">
-    <img src="https://images.unsplash.com/photo-1526401485004-2fda9f9c4c69">
-    <div>
-      <h3>体調管理のポイント</h3>
-      <p>睡眠と水分補給を意識</p>
     </div>
   </div>
 
 </div>
 
 <div class="footer">
+懇親会 会長　須賀孝志<br>
 © 2026 懇親会 All rights reserved.
 </div>
