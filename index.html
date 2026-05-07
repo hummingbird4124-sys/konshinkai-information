@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>懇親会だより</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  width:100%;
+  overflow-x:hidden;
+}
 
 body{
   margin:0;
@@ -18,12 +32,15 @@ body{
   color:#1a1a1a;
 }
 
+/* ===== TOP ===== */
+
 .topbar{
   height:62px;
   background:#fff;
   display:flex;
   align-items:center;
   padding:0 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
 }
 
 .logo{
@@ -34,6 +51,7 @@ body{
 
 .logo-icon{
   font-size:26px;
+  color:#0b63c7;
 }
 
 .logo-title{
@@ -47,28 +65,39 @@ body{
   color:#666;
 }
 
+/* ===== HERO ===== */
+
 .hero{
   height:160px;
   display:flex;
   align-items:center;
   padding:20px 22px;
   color:#fff;
+
   background:
-    linear-gradient(90deg,rgba(0,60,140,.9),rgba(0,80,160,.6),rgba(0,80,160,.1)),
-    url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80') center/cover;
+  linear-gradient(
+    90deg,
+    rgba(0,60,140,.9),
+    rgba(0,80,160,.6),
+    rgba(0,80,160,.1)
+  ),
+  url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80')
+  center/cover;
 }
 
 .hero h1{
-  font-size:24px;
   margin:5px 0;
+  font-size:24px;
   line-height:1.25;
 }
 
 .hero p{
-  font-size:12px;
   margin:0;
+  font-size:12px;
   line-height:1.5;
 }
+
+/* ===== DOT ===== */
 
 .dots{
   text-align:center;
@@ -88,11 +117,16 @@ body{
   background:#0b63c7;
 }
 
+/* ===== CONTAINER ===== */
+
 .container{
+  width:100%;
   max-width:620px;
   margin:auto;
   padding:0 16px 30px;
 }
+
+/* ===== SECTION ===== */
 
 .section-head{
   margin:20px 0 10px;
@@ -112,7 +146,10 @@ body{
   color:#0b63c7;
 }
 
+/* ===== CARD ===== */
+
 .card{
+  width:100%;
   background:#fff;
   border-radius:14px;
   box-shadow:0 4px 12px rgba(0,0,0,.06);
@@ -135,10 +172,14 @@ body{
 }
 
 .meeting-body{
+  width:100%;
   padding:12px 16px;
 }
 
+/* ===== BLOCK ===== */
+
 .block{
+  width:100%;
   margin-bottom:18px;
 }
 
@@ -157,10 +198,12 @@ body{
 }
 
 .block p{
-  font-size:12px;
   margin:0;
-  line-height:1.8;
+  font-size:12px;
+  line-height:1.9;
 }
+
+/* ===== LIST ===== */
 
 ul{
   margin:6px 0 0 18px;
@@ -173,20 +216,42 @@ ul{
   margin-top:10px;
 }
 
+/* ===== TEXT FIX ===== */
+
+p,
+a,
+li,
+.notice,
+.health-box{
+  overflow-wrap:break-word;
+  word-break:keep-all;
+}
+
+.notice p{
+  white-space:normal;
+}
+
+/* ===== LINK ===== */
+
 a{
   color:#0b63c7;
   text-decoration:none;
-  word-break:break-all;
 }
 
+/* ===== NOTICE ===== */
+
 .notice{
+  width:100%;
   background:#f8fbff;
   border-left:4px solid #0b63c7;
   padding:10px 12px;
   border-radius:8px;
 }
 
+/* ===== HEALTH ===== */
+
 .health-box{
+  width:100%;
   border-left:5px solid #42a57a;
   background:#f8fcfa;
   padding:14px 14px 14px 16px;
@@ -194,11 +259,15 @@ a{
   border-radius:12px;
 }
 
+/* ===== CHAIRMAN ===== */
+
 .chairman{
   margin-top:18px;
   font-size:12px;
   color:#555;
 }
+
+/* ===== FOOTER ===== */
 
 .footer{
   text-align:center;
@@ -206,28 +275,59 @@ a{
   color:#777;
   padding:18px 0 24px;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- TOP -->
+
 <div class="topbar">
+
   <div class="logo">
-    <div class="logo-icon">👥</div>
-    <div>
-      <div class="logo-title">懇親会</div>
-      <div class="logo-sub">公式ホームページ</div>
+
+    <div class="logo-icon">
+      👥
     </div>
+
+    <div>
+      <div class="logo-title">
+        懇親会
+      </div>
+
+      <div class="logo-sub">
+        公式ホームページ
+      </div>
+    </div>
+
   </div>
+
 </div>
 
+<!-- HERO -->
+
 <div class="hero">
+
   <div>
-    <p>つながる・支え合う・より良い未来へ</p>
-    <h1>懇親会だより</h1>
-    <p>今月の活動・お知らせをお届けします</p>
+
+    <p>
+      つながる・支え合う・より良い未来へ
+    </p>
+
+    <h1>
+      懇親会だより
+    </h1>
+
+    <p>
+      今月の活動・お知らせをお届けします
+    </p>
+
   </div>
+
 </div>
+
+<!-- DOT -->
 
 <div class="dots">
   <span class="dot active"></span>
@@ -235,12 +335,19 @@ a{
   <span class="dot"></span>
 </div>
 
+<!-- MAIN -->
+
 <div class="container">
 
   <div class="section-head">
+
     <div class="section-title">
-      <span class="material-icons">description</span>議事録
+      <span class="material-icons">
+        description
+      </span>
+      議事録
     </div>
+
   </div>
 
   <div class="card">
@@ -257,48 +364,99 @@ a{
 
     <div class="meeting-body">
 
+      <!-- 主な内容 -->
+
       <div class="block">
-        <div class="block-title">主な内容</div>
+
+        <div class="block-title">
+          主な内容
+        </div>
+
         <p>
           ① 欠勤・退職者の確認<br>
           ② 新入社員紹介
         </p>
 
         <ul>
-          <li><ruby>米川和行<rt>よねかわかずゆき</rt></ruby>さん</li>
-          <li><ruby>池田義典<rt>いけだよしのり</rt></ruby>さん</li>
-          <li><ruby>坂寄竜治<rt>さかよりりゅうじ</rt></ruby>さん</li>
+          <li>
+            <ruby>
+              米川和行
+              <rt>よねかわかずゆき</rt>
+            </ruby>
+            さん
+          </li>
+
+          <li>
+            <ruby>
+              池田義典
+              <rt>いけだよしのり</rt>
+            </ruby>
+            さん
+          </li>
+
+          <li>
+            <ruby>
+              坂寄竜治
+              <rt>さかよりりゅうじ</rt>
+            </ruby>
+            さん
+          </li>
         </ul>
 
-        <p class="welcome">🤝 皆さんよろしくお願いします</p>
+        <p class="welcome">
+          🤝 皆さんよろしくお願いします
+        </p>
+
       </div>
 
+      <!-- 協議事項 -->
+
       <div class="block">
-        <div class="block-title">協議事項</div>
+
+        <div class="block-title">
+          協議事項
+        </div>
+
         <p>
+
           ▶ 会社連絡について<br>
-          「直前の通達は困る」との意見多数。早めの情報共有を要望。<br><br>
+          「直前の通達は困る」との意見多数。<br>
+          早めの情報共有を要望。<br><br>
 
           ▶ トラブル対応ガイド<br>
-          作成済み。今後は会社側での活用と内容改善・更新を継続。<br>
+          作成済み。今後は会社側での活用と、
+          内容改善・更新を継続。<br>
 
           <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">
             トラブル対応ガイドを見る
-          </a><br><br>
+          </a>
+
+          <br><br>
 
           ▶ 懇親会LINEについて<br>
-          LINEブーム廃止予定に伴い、懇親会Instagramを開設し代替予定。<br>
-          スムーズな移行完了後、詳細を配信。<br><br>
+          LINEブーム廃止予定に伴い、
+          懇親会Instagramを開設し代替予定。<br>
+          スムーズな移行完了後、
+          詳細を配信。<br><br>
 
           ▶ 要望書について<br>
           継続検討。
+
         </p>
+
       </div>
 
+      <!-- 規約 -->
+
       <div class="block">
-        <div class="block-title">規約改正・総会準備</div>
+
+        <div class="block-title">
+          規約改正・総会準備
+        </div>
+
         <p>
-          総会で決議予定。質疑応答の時間を重視し、
+          総会で決議予定。<br>
+          質疑応答の時間を重視し、
           皆さんの意見をしっかり集約します。
         </p>
 
@@ -307,11 +465,19 @@ a{
           <li>旅行積立金の廃止検討</li>
           <li>旅行・イベントのあり方見直し</li>
         </ul>
+
       </div>
 
+      <!-- 今後の予定 -->
+
       <div class="block">
-        <div class="block-title">今後の予定</div>
+
+        <div class="block-title">
+          今後の予定
+        </div>
+
         <div class="notice">
+
           <p>
             【春の健康診断】<br>
             5月7日（木）8時より<br>
@@ -321,50 +487,90 @@ a{
             【総会開催】<br>
             6月 明番集会にて実施予定
           </p>
+
         </div>
+
       </div>
+
+      <!-- ヘルスケア -->
 
       <div class="health-box">
-        <div class="block">
-          <div class="block-title">ヘルスケア</div>
-          <div class="notice">
-            <p>
-              健康は、毎日の小さな積み重ねから。<br>
-              バランスの良い食事、無理のない運動、質の良い睡眠、そして心のケア。<br>
-              自分の体と心に向き合い、無理せず続けることが健康管理の第一歩です。<br><br>
 
-              規則正しい生活を心がけ、オンとオフのバランスを大切にしながら、
-              それぞれの目標に向かって頑張っていきましょう。<br><br>
+        <div class="block">
+
+          <div class="block-title">
+            ヘルスケア
+          </div>
+
+          <div class="notice">
+
+            <p>
+
+              健康は、毎日の小さな積み重ねから。<br>
+
+              バランスの良い食事、<br>
+              無理のない運動、<br>
+              質の良い睡眠、<br>
+              そして心のケア。<br><br>
+
+              自分の体と心に向き合い、<br>
+              無理せず続けることが<br>
+              健康管理の第一歩です。<br><br>
+
+              規則正しい生活を心がけ、<br>
+              オンとオフのバランスを大切にしながら、<br>
+              それぞれの目標に向かって<br>
+              頑張っていきましょう。<br><br>
 
               6月 明番集会にて実施予定
+
             </p>
+
           </div>
+
         </div>
+
       </div>
 
+      <!-- 困ったときは -->
+
       <div class="block">
-        <div class="block-title">困ったときは</div>
+
+        <div class="block-title">
+          困ったときは
+        </div>
+
         <p>
+
           🚨 トラブル即対応（まず確認）<br>
+
           <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">
             トラブル対応ガイド
-          </a><br><br>
+          </a>
+
+          <br><br>
 
           📝 お問い合わせ（解決しない場合）<br>
+
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">
             お問い合わせフォーム
           </a>
+
         </p>
 
         <div class="chairman">
           懇親会 会長　須賀孝志
         </div>
+
       </div>
 
     </div>
+
   </div>
 
 </div>
+
+<!-- FOOTER -->
 
 <div class="footer">
   © 2026 懇親会 All rights reserved.
