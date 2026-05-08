@@ -196,13 +196,19 @@ a{
   border-left:5px solid #1f6fe5;
 }
 
+/* 今月のドライバー */
+.driver-box{
+  border:1.5px solid #1f6fe5;
+  border-left:5px solid #1f6fe5;
+}
+
 /* ヘルスケア */
 .health-box{
   border:1.5px solid #39a96b;
   border-left:5px solid #39a96b;
 }
 
-/* 枠内タイトル＝①の文字スタイル */
+/* 枠内タイトル */
 .info-title{
   font-size:13px;
   font-weight:700;
@@ -230,6 +236,36 @@ a{
 
 .health-box .dotted-line{
   border-bottom-color:#cfe8da;
+}
+
+.driver-box .dotted-line{
+  border-bottom-color:#d7dfe8;
+}
+
+/* ドライバー枠 */
+.driver-content{
+  text-align:center;
+}
+
+.driver-image{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:12px;
+  border:1px solid #dbe4ef;
+}
+
+.driver-name{
+  font-size:13px;
+  font-weight:700;
+  color:#333;
+  margin-bottom:8px;
+}
+
+.driver-link{
+  font-size:12px;
+  font-weight:500;
 }
 
 .trouble-title{
@@ -325,6 +361,7 @@ a{
 
       <div class="block">
         <div class="block-title">協議事項</div>
+
         <p>
           ▶ 会社連絡について<br>
           「直前の通達は困る」との意見多数。早めの情報共有を要望。<br><br>
@@ -347,6 +384,7 @@ a{
 
       <div class="block">
         <div class="block-title">規約改正・総会準備</div>
+
         <p>
           総会で決議予定。質疑応答の時間を重視し、
           皆さんの意見をしっかり集約します。
@@ -359,6 +397,7 @@ a{
         </ul>
       </div>
 
+      <!-- 今後の予定 -->
       <div class="info-box schedule-box">
 
         <div class="info-title blue">
@@ -379,6 +418,34 @@ a{
 
       </div>
 
+      <!-- 今月のドライバー -->
+      <div class="info-box driver-box">
+
+        <div class="info-title blue">
+          今月のドライバー
+        </div>
+
+        <div class="dotted-line"></div>
+
+        <div class="driver-content">
+
+          <img src="driver.jpg" alt="吉本健二郎" class="driver-image">
+
+          <div class="driver-name">
+            吉本健二郎さん
+          </div>
+
+          <div class="driver-link">
+            <a href="#">
+              「仕事の流儀を見る →」
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ヘルスケア -->
       <div class="info-box health-box">
 
         <div class="info-title green">
@@ -390,13 +457,12 @@ a{
         <p>
           健康は、毎日の小さな積み重ねから。<br>
           バランスの良い食事、無理のない運動、質の良い睡眠、そして心のケア。<br>
-          自分の体と心に向き合い、無理せず続けることが健康管理の第一歩です。<br>
-
-          
+          自分の体と心に向き合い、無理せず続けることが健康管理の第一歩です。
         </p>
 
       </div>
 
+      <!-- 困ったとき -->
       <div class="trouble-area">
 
         <div class="trouble-title">
@@ -405,11 +471,13 @@ a{
 
         <p>
           🚨 トラブル即対応（まず確認）<br>
+
           <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">
             トラブル対応ガイドを見る
           </a><br><br>
 
           📝 お問い合わせ（解決しない場合）<br>
+
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">
             お問い合わせフォームへ
           </a>
