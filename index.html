@@ -3,135 +3,404 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>吉本さん紹介</title>
+<title>懇親会だより</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
-  color: #1f2d45;
-  background: #f8fafc;
+*{
+  box-sizing:border-box;
 }
 
-.message-wrap {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 46px 24px 70px;
-  background: #ffffff;
+html,body{
+  margin:0;
+  width:100%;
+  overflow-x:hidden;
 }
 
-.top-area {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 34px;
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:#f5f8fc;
+  color:#1a1a1a;
 }
 
-.side-title {
-  writing-mode: vertical-rl;
-  color: #10203a;
-  letter-spacing: 0.08em;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+/* ===== 上部 ===== */
+.topbar{
+  height:64px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
 }
 
-.side-title .en {
-  font-size: 16px;
-  letter-spacing: 0.08em;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.side-title {
-  writing-mode: vertical-rl;
-  color: #10203a;
-  letter-spacing: 0.08em;
-  position: relative;
+.logo-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#0b63c7;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
 }
 
-.side-title .en {
-  position: absolute;
-  top: 0;
-  right: -20px;
-  font-size: 15px;
-  letter-spacing: 0.08em;
+.logo-title{
+  font-size:15px;
+  font-weight:800;
+  color:#17477d;
+  line-height:1.1;
 }
 
-.side-title h1 {
-  font-size: 1px;
-  font-weight: 500;
-  line-height: 1.15;
-  margin: 0;
-  white-space: nowrap;
-}
-.photo-area {
-  text-align: center;
+.logo-sub{
+  font-size:11px;
+  color:#333;
 }
 
-.photo-area img {
-  width: 260px;
-  max-width: 100%;
-  height: auto;
-  display: block;
+.menu{
+  font-size:28px;
+  color:#222;
 }
 
-.photo-area p {
-  font-size: 14px;
-  color: #777;
-  margin-top: 12px;
+/* ===== ヒーロー ===== */
+.hero{
+  height:190px;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  padding:26px 24px;
+  background:
+    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.75) 46%, rgba(0,70,150,.08) 100%),
+    url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
 }
 
-.body-text {
-  max-width: 620px;
-  margin: 48px auto 0;
-  font-size: 17px;
-  line-height: 2.05;
-  letter-spacing: 0.04em;
+.hero-catch{
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:8px;
 }
 
-.body-text h2 {
-  font-size: 15px;
-  margin-bottom: 24px;
-  color: #24385c;
-  font-weight: 700;
+.hero h1{
+  font-size:32px;
+  line-height:1.2;
+  margin:0 0 8px;
+  font-weight:800;
+  letter-spacing:.02em;
 }
 
-.body-text p {
-  margin-bottom: 28px;
+.hero-sub{
+  font-size:14px;
+  font-weight:500;
 }
 
-@media (max-width: 700px) {
-  .message-wrap {
-    padding: 36px 20px 60px;
+/* ===== ドット ===== */
+.dots{
+  text-align:center;
+  background:#fff;
+  padding:10px 0 18px;
+}
+
+.dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  background:#d4d8df;
+  border-radius:50%;
+  margin:0 4px;
+}
+
+.dot.active{
+  background:#0b63c7;
+}
+
+/* ===== 全体 ===== */
+.container{
+  max-width:620px;
+  margin:auto;
+  padding:0 18px 34px;
+}
+
+/* ===== セクション見出し ===== */
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:18px 0 10px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  font-size:20px;
+  font-weight:800;
+  color:#064b9f;
+}
+
+.section-title .material-icons{
+  font-size:22px;
+  margin-right:7px;
+  color:#0b63c7;
+}
+
+.see-all{
+  font-size:13px;
+  font-weight:700;
+  color:#0b63c7;
+}
+
+/* ===== 共通カード ===== */
+.card{
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 5px 16px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+/* ===== 議事録カード ===== */
+.meeting-card{
+  margin-bottom:20px;
+}
+
+.meeting-head{
+  background:#f2f6fb;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:13px 16px;
+}
+
+.meeting-head h2{
+  margin:0;
+  font-size:16px;
+  font-weight:800;
+  color:#111;
+}
+
+.meeting-meta{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  white-space:nowrap;
+  font-size:12px;
+  color:#555;
+}
+
+.meeting-meta span{
+  display:inline-flex;
+  align-items:center;
+}
+
+.meeting-body{
+  padding:16px;
+}
+
+.meeting-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px 18px;
+}
+
+.meeting-block{
+  min-height:84px;
+}
+
+.block-title{
+  font-size:13px;
+  color:#0b63c7;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.block-title::before{
+  content:"■";
+  font-size:8px;
+  margin-right:5px;
+}
+
+.meeting-block p,
+.meeting-block ul{
+  font-size:11.5px;
+  line-height:1.65;
+  color:#333;
+  margin:0;
+}
+
+.meeting-block ul{
+  padding-left:16px;
+}
+
+.meeting-bottom{
+  border-top:1px solid #e5e9ef;
+  margin-top:12px;
+  padding-top:12px;
+}
+
+/* ===== 横長記事カード ===== */
+.article-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:12px;
+  margin-bottom:18px;
+}
+
+.article-card img{
+  width:126px;
+  height:82px;
+  object-fit:cover;
+  border-radius:8px;
+  flex-shrink:0;
+}
+
+.article-text{
+  flex:1;
+  min-width:0;
+}
+
+.article-title{
+  font-size:14px;
+  font-weight:800;
+  color:#222;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.article-desc{
+  font-size:12px;
+  line-height:1.55;
+  color:#444;
+  margin-bottom:5px;
+}
+
+.article-link{
+  font-size:12px;
+  font-weight:800;
+  color:#0b63c7;
+}
+
+.badge{
+  display:inline-block;
+  background:#0b63c7;
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  padding:3px 8px;
+  border-radius:999px;
+}
+
+/* ===== 困ったとき ===== */
+.help-card{
+  padding:14px 16px;
+  margin-bottom:16px;
+}
+
+.help-title{
+  font-size:14px;
+  font-weight:800;
+  color:#0b63c7;
+  margin-bottom:10px;
+}
+
+.help-title::before{
+  content:"■";
+  font-size:8px;
+  margin-right:5px;
+}
+
+.help-card p{
+  font-size:12px;
+  line-height:1.8;
+  color:#555;
+  margin:0;
+}
+
+.help-card a{
+  color:#0b63c7;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.chairman{
+  font-size:12px;
+  color:#555;
+  margin-top:16px;
+}
+
+/* ===== フッター ===== */
+.footer{
+  text-align:center;
+  font-size:11px;
+  color:#777;
+  padding:28px 0 80px;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* ===== スマホ微調整 ===== */
+@media(max-width:420px){
+
+  .hero{
+    height:184px;
+    padding:24px 20px;
   }
 
-  .top-area {
-    gap: 22px;
+  .hero h1{
+    font-size:30px;
   }
 
-  .side-title h1 {
-    font-size: 30px;
+  .container{
+    padding:0 14px 34px;
   }
 
-  .side-title .en {
-    font-size: 14px;
+  .meeting-head{
+    align-items:flex-start;
   }
 
-  .photo-area img {
-    width: 210px;
+  .meeting-head h2{
+    font-size:15px;
+    line-height:1.4;
   }
 
-  .photo-area p {
-    font-size: 13px;
+  .meeting-meta{
+    font-size:11px;
+    gap:8px;
   }
 
-  .body-text {
-    margin-top: 15px;
-    font-size: 10px;
-    line-height: 2;
+  .meeting-grid{
+    grid-template-columns:1fr 1fr;
+    gap:14px 14px;
   }
 
-  .body-text h2 {
-    font-size: 15px;
+  .meeting-block p,
+  .meeting-block ul{
+    font-size:11px;
+  }
+
+  .article-card img{
+    width:118px;
+    height:78px;
+  }
+
+  .article-title{
+    font-size:13.5px;
+  }
+
+  .article-desc{
+    font-size:11.5px;
   }
 }
 </style>
@@ -139,59 +408,220 @@ body {
 
 <body>
 
-<div class="message-wrap">
-
-  <div class="top-area">
-
-    <div class="side-title">
-      <span class="en">MESSAGE</span>
-      <h1>仕事の流儀</h1>
+<!-- ===== 上部ロゴ ===== -->
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon">👥</div>
+    <div>
+      <div class="logo-title">懇親会</div>
+      <div class="logo-sub">公式ホームページ</div>
     </div>
+  </div>
+  <div class="menu">☰</div>
+</div>
 
-    <div class="photo-area">
-      <img src="yoshimoto.jpg" alt="吉本さん">
-      <p>吉本 健二郎さん（在籍28年）</p>
+<!-- ===== ヒーロー ===== -->
+<div class="hero">
+  <div>
+    <div class="hero-catch">つながる・支え合う・より良い未来へ</div>
+    <h1>懇親会だより</h1>
+    <div class="hero-sub">今月の活動・お知らせをお届けします</div>
+  </div>
+</div>
+
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<div class="container">
+
+  <!-- ===== 議事録 ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">description</span>
+      議事録
     </div>
-
+    <div class="see-all">すべて見る 〉</div>
   </div>
 
-  <div class="body-text">
-    <h2>「時を読む男」</h2>
+  <div class="card meeting-card">
 
+    <div class="meeting-head">
+      <h2>第14回 役員会議（要約）</h2>
+      <div class="meeting-meta">
+        <span>5月3日(日)</span>
+        <span>3階講堂</span>
+      </div>
+    </div>
+
+    <div class="meeting-body">
+
+      <div class="meeting-grid">
+
+        <div class="meeting-block">
+          <div class="block-title">主な内容</div>
+          <p>
+            ・欠勤・退職者の確認<br>
+            ・新入社員紹介
+          </p>
+          <ul>
+            <li>米川和行さん</li>
+            <li>池田義典さん</li>
+            <li>坂寄竜治さん</li>
+          </ul>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">協議事項</div>
+          <p>
+            ・会社連絡の早期共有を要望<br>
+            ・トラブル対応ガイドの活用<br>
+            ・LINE配信内容の見直し<br>
+            ・要望書は継続検討
+          </p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">規約改正・総会準備</div>
+          <p>
+            総会で決議予定。質疑応答を重視し、皆さんの意見を集約します。
+          </p>
+          <ul>
+            <li>部活動援助金の見直し</li>
+            <li>旅行積立金の廃止検討</li>
+            <li>旅行・イベントの見直し</li>
+          </ul>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">今後の予定</div>
+          <p>
+            【春の健康診断】<br>
+            5月7日（木）8時より<br>
+            受付：2階事務所<br><br>
+            【総会開催】<br>
+            6月 明番集会にて実施予定
+          </p>
+        </div>
+
+      </div>
+
+      <div class="meeting-grid meeting-bottom">
+
+        <div class="meeting-block">
+          <div class="block-title">ヘルスケア</div>
+          <p>
+            健康は毎日の小さな積み重ねから。食事・運動・睡眠・心のケアを大切に。
+          </p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">お問い合わせ</div>
+          <p>
+            懇親会役員までお気軽にご連絡ください。<br>
+            懇親会 会長　須賀孝志
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== 特集記事 ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">bookmark</span>
+      特集記事
+    </div>
+    <div class="see-all">すべて見る 〉</div>
+  </div>
+
+  <div class="card article-card">
+    <img src="guide.jpg" alt="業務ガイド">
+    <div class="article-text">
+      <div class="article-title">漫画でわかる業務・安全ガイド</div>
+      <div class="article-desc">
+現場で起こりやすい事例や対応を、
+漫画と図解でわかりやすく紹介。
+<br>新人さんからベテランまで、
+日々の業務に役立つ内容を
+今後も継続的に更新していきます。
+      </div>
+      <div class="article-link">記事を読む 〉</div>
+    </div>
+  </div>
+
+  <!-- ===== 今月のドライバー ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">person</span>
+      今月のドライバー紹介
+    </div>
+    <div class="see-all">すべて見る 〉</div>
+  </div>
+
+  <div class="card article-card">
+    <img src="driver.jpg" alt="吉本健二郎">
+    <div class="article-text">
+      <div class="article-title">
+        吉本健二郎さん
+        <span class="badge">今月のドライバー</span>
+      </div>
+      <div class="article-desc">
+        「アプリを超える故知と知恵」<br>
+        穏やかな接客と経験値で、夜の街を支えています。
+      </div>
+      <div class="article-link">仕事の流儀を見る 〉</div>
+    </div>
+  </div>
+
+  <!-- ===== ヘルスケア ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">favorite</span>
+      ヘルスケア
+    </div>
+    <div class="see-all">すべて見る 〉</div>
+  </div>
+
+  <div class="card article-card">
+    <img src="health%20care.jpg" alt="ヘルスケア">
+    <div class="article-text">
+      <div class="article-title">健康は毎日の積み重ねから</div>
+      <div class="article-desc">
+        食事・運動・睡眠・心のケアを大切に、無理なく続けましょう。
+      </div>
+      <div class="article-link">記事を読む 〉</div>
+    </div>
+  </div>
+
+  <!-- ===== 困ったとき ===== -->
+  <div class="card help-card">
+    <div class="help-title">困ったときは</div>
     <p>
-アプリを超える故知と知恵<br>  
+      🚨 トラブル即対応（まず確認）<br>
+      <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">
+        トラブル対応ガイドを見る
+      </a><br><br>
 
-夜の街の満干きを知る穏やかな出で立ちはまるで仙人のよう…
-<br>  
-何も足さない…何も引かない…
-<br>   
-男はつぶやいた…<br> 
-人の売り上げなど気にせず
-自分の成長速度を大切にしなさい。
-<br>  
-男は今日も夜の街へとけて行った…
-<br>  <br> 
-プロフィール<br> 
-吉本健二郎<br>  
-出身地　長野県<br>  
-営業エリア　新宿・港区・中央区・千代田区<br>  
-GO戦略<br>  
-午前から15時
-夜は流し
-<br>
-キャラクター<br>
-酒と山を愛するインテリ派<br>  
-でも、実はデジタル難民
-<br>  <br>  
-あとがき<br>  
-いつも変わらぬ笑顔は壁を感じず
-優しく背中押してくれます。
-<br>  <br>
-次回仕事の流儀<br>  
-女はなぜ夜の街を制したのか…
+      📝 お問い合わせ（解決しない場合）<br>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">
+        お問い合わせフォームへ
+      </a>
+    </p>
 
+    <div class="chairman">
+      懇親会 会長　須賀孝志
+    </div>
   </div>
 
+</div>
+
+<div class="footer">
+  © 2026 懇親会 All rights reserved.
 </div>
 
 </body>
