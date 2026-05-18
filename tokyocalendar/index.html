@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>東京を読む｜営業イベントガイド</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Noto Sans JP',sans-serif;
+  background:#f4f7fb;
+  color:#333;
+}
+
+/* ===== ヘッダー ===== */
+
+header{
+  position:relative;
+
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(10,45,110,.88),
+      rgba(25,90,180,.72)
+    ),
+    url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1400&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+
+  color:white;
+
+  padding:70px 20px 60px;
+}
+
+header h1{
+  margin:0;
+  font-size:48px;
+  font-weight:900;
+  line-height:1.1;
+}
+
+header p{
+  margin-top:14px;
+  font-size:18px;
+  opacity:.95;
+  line-height:1.7;
+}
+
+/* ===== コンテンツ ===== */
+
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:16px;
+}
+
+.lead{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  line-height:1.8;
+  font-size:14px;
+}
+
+.section-title{
+  margin:28px 0 12px;
+  color:#1e3a5f;
+  font-size:20px;
+  font-weight:900;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin:0 0 8px;
+  font-size:19px;
+  color:#1e3a5f;
+}
+
+.card p{
+  margin:0;
+  line-height:1.8;
+  font-size:14px;
+}
+
+/* ===== ラベル ===== */
+
+.badge{
+  display:inline-block;
+  background:#3f6fa3;
+  color:white;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+
+/* ===== 月別 ===== */
+
+.month-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.month{
+  background:white;
+  border-radius:16px;
+  padding:14px;
+  text-decoration:none;
+  color:#333;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.month:hover{
+  transform:translateY(-2px);
+}
+
+.month strong{
+  display:block;
+  color:#1e3a5f;
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.month span{
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* ===== 開閉エリア ===== */
+
+details{
+  background:white;
+  border-radius:16px;
+  margin-bottom:14px;
+  overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+summary{
+  list-style:none;
+  cursor:pointer;
+  padding:18px;
+  font-weight:700;
+  font-size:17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+summary::-webkit-details-marker{
+  display:none;
+}
+
+summary::after{
+  content:"＋";
+  font-size:22px;
+  color:#3f6fa3;
+}
+
+details[open] summary::after{
+  content:"－";
+}
+
+.content{
+  padding:0 18px 18px;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.point{
+  background:#eef5ff;
+  padding:12px;
+  border-radius:10px;
+  margin-top:12px;
+}
+
+/* ===== ボタン ===== */
+
+.link-button{
+  display:inline-block;
+  margin-top:12px;
+  background:#1e3a5f;
+  color:white;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+/* ===== フッター ===== */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#888;
+  font-size:12px;
+}
+
+/* ===== スマホ ===== */
+
+@media(max-width:480px){
+
+  header{
+    padding:60px 20px 50px;
+  }
+
+  header h1{
+    font-size:38px;
+  }
+
+  header p{
+    font-size:15px;
+  }
+
+  .month-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>東京を読む</h1>
+  <p>
+    イベント・交通・街の流れ情報<br>
+    営業イベントガイド
+  </p>
+</header>
+
+<div class="container">
+
+  <div class="lead">
+    東京のイベント・交通規制・季節の流れを、
+    営業目線で簡単に確認できるページです。<br>
+    今月の重要情報と、月別アーカイブをここから確認できます。
+  </div>
+
+  <div class="section-title">
+    今月の重要情報
+  </div>
+
+  <details open>
+    <summary>🏃 東京マラソン2027</summary>
+
+    <div class="content">
+
+      <span class="badge">今月の重要情報</span><br>
+
+      都心部を中心に大規模交通規制。<br>
+      営業ルートや流れが通常と大きく変化します。
+
+      <div class="point">
+        <strong>影響エリア</strong><br>
+        銀座・日本橋・浅草・皇居周辺
+      </div>
+
+      <div class="point">
+        <strong>営業ヒント</strong><br>
+        午前中は空港営業や郊外営業も有効です。
+      </div>
+
+      <div class="point">
+        <strong>注意</strong><br>
+        「いつもの感覚」で都心へ入ると
+        渋滞に巻き込まれる場合があります。
+      </div>
+
+      <a class="link-button" href="2027-03/">
+        3月号を見る
+      </a>
+
+    </div>
+  </details>
+
+  <details>
+    <summary>🌸 桜シーズン情報</summary>
+
+    <div class="content">
+
+      上野・目黒川・千鳥ヶ淵周辺で混雑傾向。
+
+      <div class="point">
+        <strong>夜営業変化</strong><br>
+        花見帰り需要増加
+      </div>
+
+    </div>
+  </details>
+
+  <details>
+    <summary>✈ 春休み・羽田空港情報</summary>
+
+    <div class="content">
+
+      春休み期間中は空港利用者増加。
+
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
+
+    </div>
+  </details>
+
+  <div class="section-title">
+    月別アーカイブ
+  </div>
+
+  <div class="month-grid">
+
+    <a class="month" href="2027-01/">
+      <strong>1月</strong>
+      <span>三が日・初詣・箱根駅伝・帰省</span>
+    </a>
+
+    <a class="month" href="2027-02/">
+      <strong>2月</strong>
+      <span>受験・展示会・春節・雨雪注意</span>
+    </a>
+
+    <a class="month" href="2027-03/">
+      <strong>3月</strong>
+      <span>東京マラソン・卒業式・引越し</span>
+    </a>
+
+    <a class="month" href="2027-04/">
+      <strong>4月</strong>
+      <span>新年度・桜・新歓・観光増</span>
+    </a>
+
+    <a class="month" href="2027-05/">
+      <strong>5月</strong>
+      <span>GW・三社祭・浅草周辺</span>
+    </a>
+
+    <a class="month" href="2027-06/">
+      <strong>6月</strong>
+      <span>梅雨・雨営業・株主総会</span>
+    </a>
+
+    <a class="month" href="2027-07/">
+      <strong>7月</strong>
+      <span>花火大会・夏休み・夜需要</span>
+    </a>
+
+    <a class="month" href="2027-08/">
+      <strong>8月</strong>
+      <span>お盆・コミケ・空港・高速</span>
+    </a>
+
+    <a class="month" href="2027-09/">
+      <strong>9月</strong>
+      <span>行楽・屋形船・大型展示会</span>
+    </a>
+
+    <a class="month" href="2027-10/">
+      <strong>10月</strong>
+      <span>ハロウィン・野球CS・秋観光</span>
+    </a>
+
+    <a class="month" href="2027-11/">
+      <strong>11月</strong>
+      <span>酉の市・紅葉・学園祭</span>
+    </a>
+
+    <a class="month" href="2027-12/">
+      <strong>12月</strong>
+      <span>忘年会・年末繁忙・終電後需要</span>
+    </a>
+
+  </div>
+
+  <div class="section-title">
+    保存版・年間テーマ
+  </div>
+
+  <div class="card">
+    <h2>⚾ スポーツ・大型イベント</h2>
+    <p>
+      プロ野球開幕、東京ドーム、神宮球場、
+      CS、日本シリーズ、大型ライブなど。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🎆 季節イベント</h2>
+    <p>
+      花火大会、祭り、紅葉、クリスマス、
+      年末年始など。営業の流れが大きく変わる
+      時期を整理します。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🚧 交通規制・注意情報</h2>
+    <p>
+      東京マラソン、祭礼、花火大会、
+      警備規制など営業に影響する情報をまとめます。
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  東京を読む｜営業イベントガイド<br>
+  Copyright © 懇親会 All Rights Reserved.
+</footer>
+
+</body>
+</html>
