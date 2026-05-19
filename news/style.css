@@ -25,11 +25,8 @@
   color:#555;
 }
 
-.news-image{
+details img{
   width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:16px;
+  border-radius:14px;
   margin-top:14px;
-  display:block;
 }
