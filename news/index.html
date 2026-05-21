@@ -1,66 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>最新ニュース</title>
 
-<link rel="stylesheet" href="style.css?v=3">
+<title>最新情報｜イベントガイド</title>
 
+<link href="https://github.com/hummingbird4124-sys/kyodo-konshinkai/blob/main/news/news.jpg" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Noto Sans JP',sans-serif;
+  background:#f4f7fb;
+  color:#333;
+}
+
+/* ===== ヘッダー ===== */
+
+header{
+  position:relative;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0,45,120,.92) 0%,
+      rgba(0,70,170,.78) 45%,
+      rgba(0,70,170,.35) 70%,
+      rgba(0,70,170,.10) 100%
+    ),
+    url('shibuya_x.jpg');
+
+  background-size:cover;
+  background-position:top;
+
+  color:white;
+
+  padding:15px 10px 10px;
+}
+
+header h1{
+  margin:0;
+  font-size:40px;
+  font-weight:900;
+  line-height:1.15;
+}
+
+header p{
+  margin-top:12px;
+  font-size:12px;
+  line-height:1.7;
+  opacity:.96;
+}
+
+/* ===== コンテンツ ===== */
+
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:16px;
+}
+
+.lead{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  line-height:1.8;
+  font-size:14px;
+}
+
+.section-title{
+  margin:28px 0 12px;
+  color:#1e3a5f;
+  font-size:20px;
+  font-weight:900;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin:0 0 8px;
+  font-size:19px;
+  color:#1e3a5f;
+}
+
+.card p{
+  margin:0;
+  line-height:1.8;
+  font-size:14px;
+}
+
+/* ===== ラベル ===== */
+
+.badge{
+  display:inline-block;
+  background:#3f6fa3;
+  color:white;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+
+/* ===== 月別 ===== */
+
+.month-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.month{
+  background:white;
+  border-radius:16px;
+  padding:14px;
+  text-decoration:none;
+  color:#333;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.month:hover{
+  transform:translateY(-2px);
+}
+
+.month strong{
+  display:block;
+  color:#1e3a5f;
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.month span{
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* ===== 開閉エリア ===== */
+
+details{
+  background:white;
+  border-radius:16px;
+  margin-bottom:14px;
+  overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+summary{
+  list-style:none;
+  cursor:pointer;
+  padding:18px;
+  font-weight:700;
+  font-size:17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+summary::-webkit-details-marker{
+  display:none;
+}
+
+summary::after{
+  content:"＋";
+  font-size:22px;
+  color:#3f6fa3;
+}
+
+details[open] summary::after{
+  content:"－";
+}
+
+.content{
+  padding:0 18px 18px;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.point{
+  background:#eef5ff;
+  padding:12px;
+  border-radius:10px;
+  margin-top:12px;
+}
+
+/* ===== ボタン ===== */
+
+.link-button{
+  display:inline-block;
+  margin-top:12px;
+  background:#1e3a5f;
+  color:white;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+/* ===== フッター ===== */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#888;
+  font-size:12px;
+}
+
+/* ===== スマホ ===== */
+
+@media(max-width:480px){
+
+  header{
+    padding:60px 20px 50px;
+  }
+
+  header h1{
+    font-size:38px;
+  }
+
+  header p{
+    font-size:15px;
+  }
+
+  .month-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
 </head>
+
+<body>
+
+<header>
+  <p>
+    東京を読む・名所アーカイブ
+  </p>
+  <h1>TOKYO CALENDAR</h1>
+  <p>
+    イベント・交通・タウン情報
+  </p>
+</header>
 
 <div class="container">
 
   <div class="lead">
-    必要な情報だけを開いて確認できます。<br>
-    詳細は「＋」を押してご覧ください。
+    東京のイベント・交通規制・季節の流れを、
+    営業目線で簡単に確認できるページです。<br>
+    今月の情報・アーカイブディクショナリー。
   </div>
 
-  <div class="section-title">最新のお知らせ</div>
+  <div class="section-title">
+    6月の東京おでかけ
+  </div>
 
-  <details>
-    <summary>屋形船イベントのお知らせ</summary>
+  <details open>
+    <summary>6月の風物詩！あじさい・花菖蒲の名所</summary>
 
     <div class="content">
-      <span class="badge">イベント</span><br>
-      9月23日・24日に屋形船イベントを予定しています。
 
-      <img src="images/yakata.jpg" class="news-image" alt="屋形船">
+      <span class="badge">初夏の風情を感じられるスポット</span><br>
+
+      白山神社・白山公園（文京区）<br>
+      ：境内に約3,000株の多様なあじさいが咲き誇り、「文京あじさいまつり」が開催されます。<br>
+      堀切花菖蒲園（葛飾区）<br>
+      ：江戸時代から伝わる名所で、6月中旬には200種6,000本の花菖蒲が辺り一面を彩ります。<br>
+      営業ルートや流れが通常と大きく変化します。
 
       <div class="point">
-        <strong>内容</strong><br>
-        東京の屋形船は、浅草・お台場・隅田川などの名所を周遊しながら、揚げたての天ぷらや季節の料理を楽しめる観光クルーズです。
+        <strong>アクセス</strong><br>
+         <strong> 白山神社</strong><br><br>
+        所在地 〒112-0001 東京都文京区白山5-31-26<br>
+       <strong>  堀切花菖蒲園</strong><br><br>
+        東京都葛飾区堀切2-19-1<br>
+        開園時間 午前9時から午後5時まで
       </div>
+
+      <div class="point">
+        <strong>営業ヒント</strong><br>
+        午前中は空港営業や郊外営業も有効です。
+      </div>
+
+      <div class="point">
+        <strong>注意</strong><br>
+        「いつもの感覚」で都心へ入ると
+        渋滞に巻き込まれる場合があります。
+      </div>
+
+      <a class="link-button" href="2027-03/">
+        3月号を見る
+      </a>
+
     </div>
   </details>
 
   <details>
-    
-    <summary>「結びの後はお客様で溢れます。」</summary>
-     <div class="content">
-      <span class="badge">大相撲</span><br>
-      大相撲「両国場所」
- <img src="images/sumou.png" class="news-image" alt="大相撲">
-       <div class="point">
-        <strong>大相撲「両国場所」</strong><br>
-    両国国技館 で開催される大相撲の本場所です。
-東京では年3回開催されます。<br>
-1月場所（初場所）<br>
-5月場所（夏場所）<br>
-9月場所（秋場所）<br>
-特に 土日・千秋楽・結びの一番後 は、一気にお客様が動くため周辺は非常に混雑します。<br>
-営業ポイント 🚖<br>
-結びの一番後が最大の動き終了直後は国技館周辺にタクシー待ちのお客様が集中します。<br>
-特に…ご年配のお客様グループ客駅混雑を避けたいお客様ホテル・東京駅方面へ向かうお客様の利用が多い傾向ですし、ミドル客、ロング客も多い乗り場です。製作者本人の経験談ですと、大宮ソニックシティがありますし、羽田空港へは何度も行きました。
-<br>
-注意ポイント ⚠️<br>
-周辺道路は混雑<br>
-国技館正面付近は人と車で非常に混み合います。<br>
-乗り場の方が単価は望めますが、タクシーの行列が出来るので、乗せるまでに時間がかかる事も多いので、清澄通り(江戸東京博物館周辺)、京葉道路周辺などで手上げのお客様をお乗せするのもひとつです。
-<br>
-狙い目の時間帯 ⏰<br>
-18時頃の「結びの一番」終了後がピーク。<br>
-一気に配車アプリ・流し需要が増えます。<br><br>
-但し、最終日の千秋楽は、優勝決定戦・表彰式がある為に、結びの一番の時間が早まるので、17時半頃からピークが始まりますが、NHKラジオの相撲中継を頼りにする事をお勧めします。
-    </div>
+    <summary> 桜シーズン情報</summary>
+
+    <div class="content">
+
+      上野・目黒川・千鳥ヶ淵周辺で混雑傾向。
+
+      <div class="point">
+        <strong>夜営業変化</strong><br>
+        花見帰り需要増加
+      </div>
+
     </div>
   </details>
 
+  <details>
+    <summary> 春休み・羽田空港情報</summary>
+
+    <div class="content">
+
+      春休み期間中は空港利用者増加。
+
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
+
+    </div>
+  </details>
+
+  <div class="section-title">
+    月別アーカイブ
+  </div>
+
+  <div class="month-grid">
+
+    <a class="month" href="2027-01/">
+      <strong>1月</strong>
+      <span>三が日・初詣・箱根駅伝・帰省</span>
+    </a>
+
+    <a class="month" href="2027-02/">
+      <strong>2月</strong>
+      <span>受験・展示会・春節・雨雪注意</span>
+    </a>
+
+    <a class="month" href="2027-03/">
+      <strong>3月</strong>
+      <span>東京マラソン・卒業式・引越し</span>
+    </a>
+
+    <a class="month" href="2027-04/">
+      <strong>4月</strong>
+      <span>新年度・桜・新歓・観光増</span>
+    </a>
+
+    <a class="month" href="2027-05/">
+      <strong>5月</strong>
+      <span>GW・三社祭・浅草周辺</span>
+    </a>
+
+    <a class="month" href="2027-06/">
+      <strong>6月</strong>
+      <span>梅雨・雨営業・株主総会</span>
+    </a>
+
+    <a class="month" href="2027-07/">
+      <strong>7月</strong>
+      <span>花火大会・夏休み・夜需要</span>
+    </a>
+
+    <a class="month" href="2027-08/">
+      <strong>8月</strong>
+      <span>お盆・コミケ・空港・高速</span>
+    </a>
+
+    <a class="month" href="2027-09/">
+      <strong>9月</strong>
+      <span>行楽・屋形船・大型展示会</span>
+    </a>
+
+    <a class="month" href="2027-10/">
+      <strong>10月</strong>
+      <span>ハロウィン・野球CS・秋観光</span>
+    </a>
+
+    <a class="month" href="2027-11/">
+      <strong>11月</strong>
+      <span>酉の市・紅葉・学園祭</span>
+    </a>
+
+    <a class="month" href="2027-12/">
+      <strong>12月</strong>
+      <span>忘年会・年末繁忙・終電後需要</span>
+    </a>
+
+  </div>
+
+  <div class="section-title">
+    保存版・年間テーマ
+  </div>
+
+  <div class="card">
+    <h2>⚾スポーツ・大型イベント</h2>
+    <p>
+      プロ野球開幕、東京ドーム、神宮球場、
+      CS、日本シリーズ、大型ライブなど。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2> 季節イベント</h2>
+    <p>
+      花火大会、祭り、紅葉、クリスマス、
+      年末年始など。営業の流れが大きく変わる
+      時期を整理します。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2> 交通規制・注意情報</h2>
+    <p>
+      東京マラソン、祭礼、花火大会、
+      警備規制など営業に影響する情報をまとめます。
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  最新情報｜イベントガイド<br><br>
+  © 懇親会 All Rights Reserved.
+</footer>
+
+</body>
+</html>
