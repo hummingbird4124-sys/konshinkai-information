@@ -1,94 +1,78 @@
 body{
   margin:0;
-  font-family:'Noto Sans JP',sans-serif;
   background:#f4f7fb;
+  font-family:'Noto Sans JP',sans-serif;
   color:#333;
 }
 
-/* ===== ヘッダー ===== */
-
 .hero{
-  background:
-  linear-gradient(rgba(20,40,80,.55), rgba(20,40,80,.55)),
-  url("images/news.jpg") center/cover no-repeat;
-  padding:90px 40px 70px;
-  color:#fff;
+  background:#fff;
+  padding:36px 24px 30px;
+  border-bottom:1px solid #e5e9ef;
 }
 
 .hero-sub{
-  font-size:15px;
+  color:#1e67b1;
+  font-size:14px;
   font-weight:700;
-  margin-bottom:10px;
-  color:#dce7f7;
+  margin:0 0 8px;
 }
 
 .hero-mini{
-  font-size:13px;
+  color:#7b8794;
+  font-size:12px;
   letter-spacing:2px;
-  text-transform:uppercase;
-  color:#c9d7eb;
-  margin-bottom:8px;
+  margin:0 0 8px;
 }
 
 .hero h1{
   margin:0;
-  font-size:64px;
-  line-height:1.1;
+  color:#1e3a5f;
+  font-size:42px;
   font-weight:900;
 }
 
 .hero-text{
-  margin-top:16px;
-  font-size:20px;
-  color:#eef4ff;
+  margin:12px 0 0;
+  font-size:15px;
+  color:#555;
 }
-
-/* ===== コンテンツ ===== */
 
 .container{
   max-width:720px;
   margin:auto;
-  padding:32px 24px 80px;
+  padding:24px 20px 60px;
 }
-
-/* ===== 説明ボックス ===== */
 
 .intro-box{
   background:#fff;
-  border-radius:24px;
-  padding:28px;
+  border-radius:18px;
+  padding:20px;
   line-height:1.9;
-  font-size:16px;
-  margin-bottom:42px;
-  box-shadow:0 4px 14px rgba(0,0,0,.05);
+  margin-bottom:34px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
-
-/* ===== セクションタイトル ===== */
 
 .section-title{
-  font-size:28px;
-  color:#1d3d6e;
-  margin:0 0 20px;
+  color:#1e3a5f;
+  font-size:24px;
   font-weight:900;
+  margin:28px 0 16px;
 }
-
-/* ===== detailsカード ===== */
 
 details{
   background:#fff;
-  border-radius:24px;
-  margin-bottom:22px;
+  border-radius:18px;
+  margin-bottom:16px;
   overflow:hidden;
-  box-shadow:0 4px 14px rgba(0,0,0,.05);
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
-
-/* ===== summary ===== */
 
 summary{
   list-style:none;
   cursor:pointer;
-  padding:28px;
-  font-size:22px;
+  padding:20px;
+  font-size:18px;
   font-weight:800;
   display:flex;
   justify-content:space-between;
@@ -101,60 +85,49 @@ summary::-webkit-details-marker{
 
 summary::after{
   content:"＋";
-  font-size:42px;
-  color:#4b74a9;
-  font-weight:300;
+  color:#3f6fa3;
+  font-size:28px;
 }
 
 details[open] summary::after{
   content:"－";
 }
 
-/* ===== 開いた中身 ===== */
-
 .content{
-  padding:0 28px 28px;
-  font-size:16px;
-  line-height:2;
+  padding:0 20px 20px;
+  line-height:1.8;
+  font-size:15px;
 }
-
-/* ===== バッジ ===== */
 
 .badge{
   display:inline-block;
-  background:#4b74a9;
+  background:#3f6fa3;
   color:#fff;
-  font-size:13px;
-  padding:6px 14px;
+  font-size:12px;
+  padding:5px 12px;
   border-radius:999px;
-  margin-bottom:18px;
+  margin-bottom:12px;
 }
-
-/* ===== 画像 ===== */
 
 .news-image{
   width:100%;
-  height:auto;
+  max-height:220px;
+  object-fit:cover;
+  border-radius:16px;
+  margin:14px 0;
   display:block;
-  border-radius:18px;
-  margin:18px 0 22px;
 }
-
-/* ===== 内容ボックス ===== */
 
 .point{
-  background:#eef3fb;
-  border-radius:18px;
-  padding:22px;
-  line-height:2;
+  background:#eef5ff;
+  border-radius:14px;
+  padding:16px;
+  margin-top:14px;
 }
-
-/* ===== コピーライト ===== */
 
 footer{
   text-align:center;
+  padding:36px 20px;
   color:#888;
-  font-size:13px;
-  margin-top:60px;
-  padding-bottom:40px;
+  font-size:12px;
 }
