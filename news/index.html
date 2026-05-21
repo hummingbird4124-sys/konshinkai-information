@@ -19,25 +19,34 @@ body{
 
 /* ===== ヘッダー ===== */
 
-header{
-  position:relative;
+.header{
+  height:190px;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  padding:26px 24px;
+  background:
+    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.75) 46%, rgba(0,70,150,.08) 100%),
+    url('https://github.com/hummingbird4124-sys/kyodo-konshinkai/blob/main/news/news.jpg') center/cover no-repeat;
+}
 
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(0,45,120,.92) 0%,
-      rgba(0,70,170,.78) 45%,
-      rgba(0,70,170,.35) 70%,
-      rgba(0,70,170,.10) 100%
-    ),
-    url('news.jpg');
+.header-catch{
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:8px;
+}
 
-  background-size:cover;
-  background-position:top;
+.header h1{
+  font-size:32px;
+  line-height:1.2;
+  margin:0 0 8px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
 
-  color:white;
-
-  padding:15px 10px 10px;
+.header-sub{
+  font-size:14px;
+  font-weight:500;
 }
 
 header h1{
@@ -243,24 +252,23 @@ footer{
 
 <header>
   <p>
-   最新情報・イベント情報
+    東京を読む・名所アーカイブ
   </p>
-  <h1>NEWS Topic</h1>
+  <h1>TOKYO CALENDAR</h1>
   <p>
-    会社連絡・懇親会連絡
+    イベント・交通・タウン情報
   </p>
 </header>
 
 <div class="container">
 
   <div class="lead">
-    東京のイベント・交通規制・季節の流れを、
-    営業目線で簡単に確認できるページです。<br>
-    今月の情報・アーカイブディクショナリー。
+    必要な情報だけを開いて確認できます。<br>
+    詳細は「＋」を押してご覧ください。
   </div>
 
   <div class="section-title">
-    6月の東京おでかけ
+    最新情報
   </div>
 
   <details open>
@@ -337,69 +345,91 @@ footer{
     保存版・年間テーマ
   </div>
 
-  <div class="month-grid">
+  <details>
+    <summary> 春休み・羽田空港情報</summary>
 
-    <a class="month" href="2027-01/">
-      <strong>1月</strong>
-      <span>三が日・初詣・箱根駅伝・帰省</span>
-    </a>
+    <div class="content">
 
-    <a class="month" href="2027-02/">
-      <strong>2月</strong>
-      <span>受験・展示会・春節・雨雪注意</span>
-    </a>
+      春休み期間中は空港利用者増加。
 
-    <a class="month" href="2027-03/">
-      <strong>3月</strong>
-      <span>東京マラソン・卒業式・引越し</span>
-    </a>
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
 
-    <a class="month" href="2027-04/">
-      <strong>4月</strong>
-      <span>新年度・桜・新歓・観光増</span>
-    </a>
+    </div>
+  </details>
+<details>
+    <summary> 春休み・羽田空港情報</summary>
 
-    <a class="month" href="2027-05/">
-      <strong>5月</strong>
-      <span>GW・三社祭・浅草周辺</span>
-    </a>
+    <div class="content">
 
-    <a class="month" href="2027-06/">
-      <strong>6月</strong>
-      <span>梅雨・雨営業・株主総会</span>
-    </a>
+      春休み期間中は空港利用者増加。
 
-    <a class="month" href="2027-07/">
-      <strong>7月</strong>
-      <span>花火大会・夏休み・夜需要</span>
-    </a>
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
 
-    <a class="month" href="2027-08/">
-      <strong>8月</strong>
-      <span>お盆・コミケ・空港・高速</span>
-    </a>
+    </div>
+  </details>
+<details>
+    <summary> 春休み・羽田空港情報</summary>
 
-    <a class="month" href="2027-09/">
-      <strong>9月</strong>
-      <span>行楽・屋形船・大型展示会</span>
-    </a>
+    <div class="content">
 
-    <a class="month" href="2027-10/">
-      <strong>10月</strong>
-      <span>ハロウィン・野球CS・秋観光</span>
-    </a>
+      春休み期間中は空港利用者増加。
 
-    <a class="month" href="2027-11/">
-      <strong>11月</strong>
-      <span>酉の市・紅葉・学園祭</span>
-    </a>
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
 
-    <a class="month" href="2027-12/">
-      <strong>12月</strong>
-      <span>忘年会・年末繁忙・終電後需要</span>
-    </a>
+    </div>
+  </details>
+<details>
+    <summary> 春休み・羽田空港情報</summary>
 
-  </div>
+    <div class="content">
+
+      春休み期間中は空港利用者増加。
+
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
+
+    </div>
+  </details>
+<details>
+    <summary> 春休み・羽田空港情報</summary>
+
+    <div class="content">
+
+      春休み期間中は空港利用者増加。
+
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
+
+    </div>
+  </details>
+<details>
+    <summary> 春休み・羽田空港情報</summary>
+
+    <div class="content">
+
+      春休み期間中は空港利用者増加。
+
+      <div class="point">
+        <strong>傾向</strong><br>
+        午前便・夕方便の集中あり
+      </div>
+
+    </div>
+  </details>
+
 
   
 
@@ -413,3 +443,6 @@ footer{
 </body>
 </html>
 
+
+
+https://github.com/hummingbird4124-sys/kyodo-konshinkai/blob/main/news/news.jpg
