@@ -1,137 +1,86 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>最新ニュース</title>
-
+<title>最新情報｜懇親会</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<!-- ===== ヘッダー ===== -->
+<main class="page">
 
-<header class="hero">
-
-  <div class="hero-overlay">
-
-    <p class="hero-sub">
-      懇親会からのお知らせ
+  <header class="page-header">
+    <div class="label">懇親会からのお知らせ</div>
+    <h1>最新情報</h1>
+    <p>
+      必要な情報だけを開いて確認できます。<br>
+      詳細は「＋」を押してご覧ください。
     </p>
+  </header>
 
-    <h1>最新ニュース</h1>
+  <section>
+    <h2>最新情報</h2>
 
-    <p class="hero-text">
-      イベント・交通・更新情報
-    </p>
-
-  </div>
-
-</header>
-
-<!-- ===== コンテンツ ===== -->
-
-<div class="container">
-
-  <div class="lead">
-    必要な情報だけを開いて確認できます。<br>
-    詳細は「＋」を押してご覧ください。
-  </div>
-
-  <h2 class="section-title">最新情報</h2>
-
-  <!-- ===== ニュース１ ===== -->
-
-  <details open>
-
-    <summary>
-      6月の風物詩！あじさい・花菖蒲の名所
-    </summary>
-
-    <div class="content">
-
-      <div class="badge">
-        初夏の東京
+    <details open>
+      <summary>屋形船イベントのお知らせ</summary>
+      <div class="content">
+        <span class="badge">イベント</span>
+        <p>9月23日・24日に屋形船イベントを予定しています。</p>
+        <img src="images/news.jpg" class="news-image" alt="屋形船イベント">
+        <div class="point">
+          <strong>内容</strong><br>
+          詳細が決まり次第、こちらでお知らせします。
+        </div>
       </div>
+    </details>
 
-      <img src="images/news.jpg"
-      class="news-image"
-      alt="東京情報">
-
-      <div class="point">
-
-        <strong>白山神社・白山公園</strong><br>
-        約3,000株のあじさいが咲き誇ります。<br><br>
-
-        <strong>堀切菖蒲園</strong><br>
-        江戸時代から続く花菖蒲の名所です。
-
+    <details>
+      <summary>東京カレンダーを更新しました</summary>
+      <div class="content">
+        6月の東京おでかけ情報を追加しました。
       </div>
+    </details>
 
-    </div>
+    <details>
+      <summary>総会関連のお知らせ</summary>
+      <div class="content">
+        詳細が決まり次第、こちらでお知らせします。
+      </div>
+    </details>
+  </section>
 
-  </details>
+  <section>
+    <h2>重要アーカイブ</h2>
 
-  <!-- ===== ニュース２ ===== -->
+    <details>
+      <summary>大相撲「両国場所」営業ガイド</summary>
+      <div class="content">
+        両国国技館周辺の営業ポイントをまとめています。
+      </div>
+    </details>
 
-  <details>
+    <details>
+      <summary>東京マラソン交通規制ガイド</summary>
+      <div class="content">
+        都心部の大規模交通規制に関する保存版情報です。
+      </div>
+    </details>
 
-    <summary>
-      桜シーズン情報
-    </summary>
+    <details>
+      <summary>羽田空港・繁忙期情報</summary>
+      <div class="content">
+        空港利用が増える時期の営業ヒントをまとめています。
+      </div>
+    </details>
+  </section>
 
-    <div class="content">
+</main>
 
-      春は都内各地で混雑が予想されます。<br>
-      上野・千鳥ヶ淵・目黒川周辺は特に混雑します。
-
-    </div>
-
-  </details>
-
-  <!-- ===== ニュース３ ===== -->
-
-  <details>
-
-    <summary>
-      春休み・羽田空港情報
-    </summary>
-
-    <div class="content">
-
-      羽田空港周辺は朝夕を中心に混雑。<br>
-      空港定額利用も増加します。
-
-    </div>
-
-  </details>
-
-  <!-- ===== 保存版 ===== -->
-
-  <h2 class="section-title">
-    保存版・年間テーマ
-  </h2>
-
-  <details>
-
-    <summary>
-      東京マラソン2027
-    </summary>
-
-    <div class="content">
-
-      都心部を中心に大規模交通規制。<br>
-      銀座・浅草・日本橋周辺は注意です。
-
-    </div>
-
-  </details>
-
-</div>
+<footer>
+  © 懇親会 All Rights Reserved.
+</footer>
 
 </body>
 </html>
