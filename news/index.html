@@ -19,34 +19,25 @@ body{
 
 /* ===== ヘッダー ===== */
 
-.header{
-  height:190px;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  padding:26px 24px;
-  background:
-    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.75) 46%, rgba(0,70,150,.08) 100%),
-    url('https://github.com/hummingbird4124-sys/kyodo-konshinkai/blob/main/news/news.jpg') center/cover no-repeat;
-}
+header{
+  position:relative;
 
-.header-catch{
-  font-size:13px;
-  font-weight:500;
-  margin-bottom:8px;
-}
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0,45,120,.92) 0%,
+      rgba(0,70,170,.78) 45%,
+      rgba(0,70,170,.35) 70%,
+      rgba(0,70,170,.10) 100%
+    ),
+    url('news.jpg');
 
-.header h1{
-  font-size:32px;
-  line-height:1.2;
-  margin:0 0 8px;
-  font-weight:800;
-  letter-spacing:.02em;
-}
+  background-size:cover;
+  background-position:top;
 
-.header-sub{
-  font-size:14px;
-  font-weight:500;
+  color:white;
+
+  padding:15px 10px 10px;
 }
 
 header h1{
