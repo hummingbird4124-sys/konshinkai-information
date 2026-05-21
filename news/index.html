@@ -1,236 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>最新情報｜イベントガイド</title>
+<title>最新ニュース</title>
 
-<link href="https://github.com/hummingbird4124-sys/kyodo-konshinkai/blob/main/news/news.jpg" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-
-body{
-  margin:0;
-  font-family:'Noto Sans JP',sans-serif;
-  background:#f4f7fb;
-  color:#333;
-}
-
-/* ===== ヘッダー ===== */
-
-<header class="hero">
-  <div class="hero-overlay">
-
-    <p class="hero-sub">
-      東京を読む・名所アーカイブ
-    </p>
-
-    <h1>TOKYO CALENDAR</h1>
-
-    <p class="hero-text">
-      イベント・交通・タウン情報
-    </p>
-
-  </div>
-</header>
-
-/* ===== コンテンツ ===== */
-
-.container{
-  max-width:720px;
-  margin:auto;
-  padding:16px;
-}
-
-.lead{
-  background:white;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
-  line-height:1.8;
-  font-size:14px;
-}
-
-.section-title{
-  margin:28px 0 12px;
-  color:#1e3a5f;
-  font-size:20px;
-  font-weight:900;
-}
-
-.card{
-  background:white;
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:14px;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
-}
-
-.card h2{
-  margin:0 0 8px;
-  font-size:19px;
-  color:#1e3a5f;
-}
-
-.card p{
-  margin:0;
-  line-height:1.8;
-  font-size:14px;
-}
-
-/* ===== ラベル ===== */
-
-.badge{
-  display:inline-block;
-  background:#3f6fa3;
-  color:white;
-  font-size:12px;
-  padding:4px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
-}
-
-/* ===== 月別 ===== */
-
-.month-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.month{
-  background:white;
-  border-radius:16px;
-  padding:14px;
-  text-decoration:none;
-  color:#333;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
-  transition:.2s;
-}
-
-.month:hover{
-  transform:translateY(-2px);
-}
-
-.month strong{
-  display:block;
-  color:#1e3a5f;
-  font-size:17px;
-  margin-bottom:5px;
-}
-
-.month span{
-  font-size:12px;
-  line-height:1.6;
-}
-
-/* ===== 開閉エリア ===== */
-
-details{
-  background:white;
-  border-radius:16px;
-  margin-bottom:14px;
-  overflow:hidden;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
-}
-
-summary{
-  list-style:none;
-  cursor:pointer;
-  padding:18px;
-  font-weight:700;
-  font-size:17px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-summary::-webkit-details-marker{
-  display:none;
-}
-
-summary::after{
-  content:"＋";
-  font-size:22px;
-  color:#3f6fa3;
-}
-
-details[open] summary::after{
-  content:"－";
-}
-
-.content{
-  padding:0 18px 18px;
-  line-height:1.8;
-  font-size:14px;
-}
-
-.point{
-  background:#eef5ff;
-  padding:12px;
-  border-radius:10px;
-  margin-top:12px;
-}
-
-/* ===== ボタン ===== */
-
-.link-button{
-  display:inline-block;
-  margin-top:12px;
-  background:#1e3a5f;
-  color:white;
-  text-decoration:none;
-  padding:10px 14px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:bold;
-}
-
-/* ===== フッター ===== */
-
-footer{
-  text-align:center;
-  padding:40px 20px;
-  color:#888;
-  font-size:12px;
-}
-
-/* ===== スマホ ===== */
-
-@media(max-width:480px){
-
-  header{
-    padding:60px 20px 50px;
-  }
-
-  header h1{
-    font-size:38px;
-  }
-
-  header p{
-    font-size:15px;
-  }
-
-  .month-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-</style>
 </head>
 
 <body>
 
-<header>
-  <p>
-    東京を読む・名所アーカイブ
-  </p>
-  <h1>TOKYO CALENDAR</h1>
-  <p>
-    イベント・交通・タウン情報
-  </p>
+<!-- ===== ヘッダー ===== -->
+
+<header class="hero">
+
+  <div class="hero-overlay">
+
+    <p class="hero-sub">
+      懇親会からのお知らせ
+    </p>
+
+    <h1>最新ニュース</h1>
+
+    <p class="hero-text">
+      イベント・交通・更新情報
+    </p>
+
+  </div>
+
 </header>
+
+<!-- ===== コンテンツ ===== -->
 
 <div class="container">
 
@@ -239,182 +42,96 @@ footer{
     詳細は「＋」を押してご覧ください。
   </div>
 
-  <div class="section-title">
-    最新情報
-  </div>
+  <h2 class="section-title">最新情報</h2>
+
+  <!-- ===== ニュース１ ===== -->
 
   <details open>
-    <summary>6月の風物詩！あじさい・花菖蒲の名所</summary>
+
+    <summary>
+      6月の風物詩！あじさい・花菖蒲の名所
+    </summary>
 
     <div class="content">
 
-      <span class="badge">初夏の風情を感じられるスポット</span><br>
-
-      白山神社・白山公園（文京区）<br>
-      ：境内に約3,000株の多様なあじさいが咲き誇り、「文京あじさいまつり」が開催されます。<br>
-      堀切花菖蒲園（葛飾区）<br>
-      ：江戸時代から伝わる名所で、6月中旬には200種6,000本の花菖蒲が辺り一面を彩ります。<br>
-      営業ルートや流れが通常と大きく変化します。
-
-      <div class="point">
-        <strong>アクセス</strong><br>
-         <strong> 白山神社</strong><br><br>
-        所在地 〒112-0001 東京都文京区白山5-31-26<br>
-       <strong>  堀切花菖蒲園</strong><br><br>
-        東京都葛飾区堀切2-19-1<br>
-        開園時間 午前9時から午後5時まで
+      <div class="badge">
+        初夏の東京
       </div>
 
-      <div class="point">
-        <strong>営業ヒント</strong><br>
-        午前中は空港営業や郊外営業も有効です。
-      </div>
+      <img src="images/news.jpg"
+      class="news-image"
+      alt="東京情報">
 
       <div class="point">
-        <strong>注意</strong><br>
-        「いつもの感覚」で都心へ入ると
-        渋滞に巻き込まれる場合があります。
-      </div>
 
-      <a class="link-button" href="2027-03/">
-        3月号を見る
-      </a>
+        <strong>白山神社・白山公園</strong><br>
+        約3,000株のあじさいが咲き誇ります。<br><br>
+
+        <strong>堀切菖蒲園</strong><br>
+        江戸時代から続く花菖蒲の名所です。
+
+      </div>
 
     </div>
+
   </details>
+
+  <!-- ===== ニュース２ ===== -->
 
   <details>
-    <summary> 桜シーズン情報</summary>
+
+    <summary>
+      桜シーズン情報
+    </summary>
 
     <div class="content">
 
-      上野・目黒川・千鳥ヶ淵周辺で混雑傾向。
-
-      <div class="point">
-        <strong>夜営業変化</strong><br>
-        花見帰り需要増加
-      </div>
+      春は都内各地で混雑が予想されます。<br>
+      上野・千鳥ヶ淵・目黒川周辺は特に混雑します。
 
     </div>
+
   </details>
+
+  <!-- ===== ニュース３ ===== -->
 
   <details>
-    <summary> 春休み・羽田空港情報</summary>
+
+    <summary>
+      春休み・羽田空港情報
+    </summary>
 
     <div class="content">
 
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
+      羽田空港周辺は朝夕を中心に混雑。<br>
+      空港定額利用も増加します。
 
     </div>
+
   </details>
 
-  <div class="section-title">
+  <!-- ===== 保存版 ===== -->
+
+  <h2 class="section-title">
     保存版・年間テーマ
-  </div>
+  </h2>
 
   <details>
-    <summary> 春休み・羽田空港情報</summary>
+
+    <summary>
+      東京マラソン2027
+    </summary>
 
     <div class="content">
 
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
+      都心部を中心に大規模交通規制。<br>
+      銀座・浅草・日本橋周辺は注意です。
 
     </div>
+
   </details>
-<details>
-    <summary> 春休み・羽田空港情報</summary>
-
-    <div class="content">
-
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
-
-    </div>
-  </details>
-<details>
-    <summary> 春休み・羽田空港情報</summary>
-
-    <div class="content">
-
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
-
-    </div>
-  </details>
-<details>
-    <summary> 春休み・羽田空港情報</summary>
-
-    <div class="content">
-
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
-
-    </div>
-  </details>
-<details>
-    <summary> 春休み・羽田空港情報</summary>
-
-    <div class="content">
-
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
-
-    </div>
-  </details>
-<details>
-    <summary> 春休み・羽田空港情報</summary>
-
-    <div class="content">
-
-      春休み期間中は空港利用者増加。
-
-      <div class="point">
-        <strong>傾向</strong><br>
-        午前便・夕方便の集中あり
-      </div>
-
-    </div>
-  </details>
-
-
-  
 
 </div>
 
-<footer>
-  最新情報｜イベントガイド<br><br>
-  © 懇親会 All Rights Reserved.
-</footer>
-
 </body>
 </html>
-
-
-
-https://github.com/hummingbird4124-sys/kyodo-konshinkai/blob/main/news/news.jpg
