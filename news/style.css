@@ -4,7 +4,44 @@ body{
   font-family:'Noto Sans JP',sans-serif;
   color:#333;
 }
+.hero{
+  position:relative;
+  height:320px;
 
+  background:
+    linear-gradient(
+      rgba(10,40,90,.65),
+      rgba(10,40,90,.65)
+    ("url("images/news.jpg")");
+
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  align-items:flex-end;
+}
+
+.hero-overlay{
+  padding:32px 24px 40px;
+  color:#fff;
+}
+
+.hero-sub{
+  font-size:15px;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:54px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.hero-text{
+  margin-top:18px;
+  font-size:18px;
+}
 .news-header{
   background:#fff;
   padding:36px 24px 30px;
