@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>懇親会だより</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -23,6 +25,12 @@ body{
   font-family:'Noto Sans JP',sans-serif;
   background:#f5f8fc;
   color:#1a1a1a;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 /* ===== 上部 ===== */
@@ -32,7 +40,10 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 20px;
+  padding:0 18px;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
 .logo{
@@ -51,6 +62,7 @@ body{
   align-items:center;
   justify-content:center;
   font-size:20px;
+  flex-shrink:0;
 }
 
 .logo-title{
@@ -72,13 +84,13 @@ body{
 
 /* ===== ヒーロー ===== */
 .hero{
-  height:190px;
+  min-height:184px;
   color:#fff;
   display:flex;
   align-items:center;
-  padding:26px 24px;
+  padding:24px 20px;
   background:
-    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.75) 46%, rgba(0,70,150,.08) 100%),
+    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.78) 52%, rgba(0,70,150,.18) 100%),
     url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
 }
 
@@ -89,7 +101,7 @@ body{
 }
 
 .hero h1{
-  font-size:32px;
+  font-size:30px;
   line-height:1.2;
   margin:0 0 8px;
   font-weight:800;
@@ -124,8 +136,8 @@ body{
 /* ===== 全体 ===== */
 .container{
   max-width:620px;
-  margin:auto;
-  padding:0 18px 34px;
+  margin:0 auto;
+  padding:0 14px 34px;
 }
 
 /* ===== セクション見出し ===== */
@@ -133,27 +145,31 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:12px;
   margin:18px 0 10px;
 }
 
 .section-title{
   display:flex;
   align-items:center;
-  font-size:20px;
+  font-size:19px;
   font-weight:800;
   color:#064b9f;
+  min-width:0;
 }
 
 .section-title .material-icons{
   font-size:22px;
   margin-right:7px;
   color:#0b63c7;
+  flex-shrink:0;
 }
 
 .see-all{
   font-size:13px;
   font-weight:700;
   color:#0b63c7;
+  white-space:nowrap;
 }
 
 /* ===== 共通カード ===== */
@@ -172,7 +188,7 @@ body{
 .meeting-head{
   background:#f2f6fb;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:space-between;
   gap:10px;
   padding:13px 16px;
@@ -180,23 +196,21 @@ body{
 
 .meeting-head h2{
   margin:0;
-  font-size:16px;
+  font-size:15px;
+  line-height:1.4;
   font-weight:800;
   color:#111;
 }
 
 .meeting-meta{
   display:flex;
-  gap:10px;
-  align-items:center;
+  flex-direction:column;
+  gap:2px;
+  align-items:flex-end;
   white-space:nowrap;
-  font-size:12px;
+  font-size:11px;
   color:#555;
-}
-
-.meeting-meta span{
-  display:inline-flex;
-  align-items:center;
+  flex-shrink:0;
 }
 
 .meeting-body{
@@ -205,12 +219,12 @@ body{
 
 .meeting-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px 18px;
+  grid-template-columns:1fr;
+  gap:16px;
 }
 
 .meeting-block{
-  min-height:84px;
+  min-width:0;
 }
 
 .block-title{
@@ -228,37 +242,40 @@ body{
 
 .meeting-block p,
 .meeting-block ul{
-  font-size:11.5px;
-  line-height:1.65;
+  font-size:12px;
+  line-height:1.75;
   color:#333;
   margin:0;
+  word-break:normal;
+  overflow-wrap:anywhere;
 }
 
 .meeting-block ul{
-  padding-left:16px;
+  padding-left:18px;
 }
 
 .meeting-bottom{
   border-top:1px solid #e5e9ef;
-  margin-top:12px;
-  padding-top:12px;
+  margin-top:14px;
+  padding-top:14px;
 }
 
 /* ===== 横長記事カード ===== */
 .article-card{
   display:flex;
-  align-items:center;
-  gap:14px;
+  align-items:flex-start;
+  gap:12px;
   padding:12px;
   margin-bottom:18px;
 }
 
 .article-card img{
-  width:126px;
-  height:82px;
+  width:112px;
+  height:78px;
   object-fit:cover;
   border-radius:8px;
   flex-shrink:0;
+  background:#e9eef5;
 }
 
 .article-text{
@@ -268,6 +285,7 @@ body{
 
 .article-title{
   font-size:14px;
+  line-height:1.45;
   font-weight:800;
   color:#222;
   margin-bottom:5px;
@@ -279,15 +297,9 @@ body{
 
 .article-desc{
   font-size:12px;
-  line-height:1.55;
+  line-height:1.65;
   color:#444;
-  margin-bottom:5px;
-}
-
-.article-link{
-  font-size:12px;
-  font-weight:800;
-  color:#0b63c7;
+  margin-bottom:7px;
 }
 
 .badge{
@@ -328,8 +340,20 @@ body{
 
 .help-card a{
   color:#0b63c7;
-  text-decoration:none;
   font-weight:700;
+}
+
+.sns-links{
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.sns-links img{
+  width:36px;
+  height:36px;
+  border-radius:8px;
 }
 
 .chairman{
@@ -339,80 +363,73 @@ body{
 }
 
 /* ===== フッター ===== */
-.footer{
-  text-align:center;
-  font-size:12px;
-  color:#777;
-  padding:28px 0 80px;
-}
-
-a{
-  text-decoration:none;
-}
-/* ←ここに追加 */
-
 .footer-copy{
   margin-top:18px;
   padding-top:14px;
   border-top:1px solid #e5e9ef;
-
   font-size:12px;
   color:#888;
-
   text-align:center;
   line-height:1.8;
 }
-/* ===== スマホ微調整 ===== */
-@media(max-width:420px){
 
-  .hero{
-    height:184px;
-    padding:24px 20px;
-  }
-
+/* ===== 小さめスマホ ===== */
+@media(max-width:360px){
   .hero h1{
-    font-size:30px;
+    font-size:27px;
   }
 
-  .container{
-    padding:0 14px 34px;
+  .section-title{
+    font-size:17px;
   }
 
-  .meeting-head{
-    align-items:flex-start;
-  }
-
-  .meeting-head h2{
-    font-size:15px;
-    line-height:1.4;
-  }
-
-  .meeting-meta{
-    font-size:11px;
-    gap:8px;
-  }
-
-  .meeting-grid{
-    grid-template-columns:1fr 1fr;
-    gap:14px 14px;
-  }
-
-  .meeting-block p,
-  .meeting-block ul{
-    font-size:11px;
+  .article-card{
+    gap:10px;
   }
 
   .article-card img{
-    width:118px;
-    height:78px;
+    width:96px;
+    height:72px;
   }
 
   .article-title{
-    font-size:13.5px;
+    font-size:13px;
   }
 
   .article-desc{
     font-size:11.5px;
+  }
+}
+
+/* ===== タブレット以上 ===== */
+@media(min-width:560px){
+  .container{
+    padding:0 18px 34px;
+  }
+
+  .hero{
+    min-height:190px;
+    padding:26px 24px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .meeting-meta{
+    flex-direction:row;
+    gap:10px;
+    align-items:center;
+  }
+
+  .meeting-grid{
+    grid-template-columns:1fr 1fr;
+    gap:16px 18px;
+  }
+
+  .article-card img{
+    width:126px;
+    height:82px;
   }
 }
 </style>
@@ -420,8 +437,7 @@ a{
 
 <body>
 
-<!-- ===== 上部ロゴ ===== -->
-<div class="topbar">
+<header class="topbar">
   <div class="logo">
     <div class="logo-icon">👥</div>
     <div>
@@ -430,16 +446,15 @@ a{
     </div>
   </div>
   <div class="menu">☰</div>
-</div>
+</header>
 
-<!-- ===== ヒーロー ===== -->
-<div class="hero">
+<section class="hero">
   <div>
     <div class="hero-catch">つながる・支え合う・より良い未来へ</div>
     <h1>懇親会だより</h1>
     <div class="hero-sub">今月の活動・お知らせをお届けします</div>
   </div>
-</div>
+</section>
 
 <div class="dots">
   <span class="dot active"></span>
@@ -447,19 +462,16 @@ a{
   <span class="dot"></span>
 </div>
 
-<div class="container">
+<main class="container">
 
-  <!-- ===== 議事録 ===== -->
   <div class="section-head">
     <div class="section-title">
       <span class="material-icons">description</span>
       議事録
     </div>
-    <div class="see-all"></div>
   </div>
 
-  <div class="card meeting-card">
-
+  <section class="card meeting-card">
     <div class="meeting-head">
       <h2>第15回 役員会議（要約）</h2>
       <div class="meeting-meta">
@@ -469,7 +481,6 @@ a{
     </div>
 
     <div class="meeting-body">
-
       <div class="meeting-grid">
 
         <div class="meeting-block">
@@ -480,7 +491,7 @@ a{
           </p>
           <ul>
             <li><ruby>村田真也<rt>むらたしんや</rt></ruby>さん</li>
-            <li><ruby>山内一真<rt>はまうちかずま</rt></ruby>さん</li>
+            <li><ruby>山内一真<rt>やまうちかずま</rt></ruby>さん</li>
             <li><ruby>藤倉雪也<rt>ふじくらゆきや</rt></ruby>さん</li>
             <li><ruby>安井力也<rt>やすいりきや</rt></ruby>さん</li>
             <li><ruby>松岡漓空<rt>まつおかりく</rt></ruby>さん</li>
@@ -494,27 +505,23 @@ a{
             ・構内事故防止のため白線引き直しを要望<br>
             ・会社決定事項は早めの周知を要望<br>
             ・新人乗務員教育期間の見直しを提案<br>
-            ・はぐくみ年金について 👉導入過程への説明不足を指摘 👉加入後の不安の声も報告<br>
-            ・洗車備品について 👉個人所有備品の紛失が多発 👉貸出タオルは管理上の理由により廃止 👉備品は各自で用意・管理をお願いする
+            ・はぐくみ年金について、導入過程への説明不足を指摘し、加入後の不安の声も報告<br>
+            ・洗車備品について、個人所有備品の紛失が多発しているため、備品は各自で用意・管理をお願いする
           </p>
         </div>
 
         <div class="meeting-block">
           <div class="block-title">第76回定期総会について</div>
           <p>
-            開催日時
-　　　　　　　6月24.25日明け番集会後８時頃から開始予定
+            開催日時：6月24日・25日、明け番集会後8時頃から開始予定
           </p>
           <ul>
-            <li>告知ポスターと出欠一覧を表示
-　　　　　　　　　早めのご記入よろしくお願いします。</li>
-            <li>例年より質疑応答の時間を確保し、会員との意見交換を重視</li>
-            <li>旅行・イベントの見直し</li>
-            <li>準備期間や開催希望時期を考慮し、本年度は中止
-　　　　　　　　　節目の年に向け、より良い旅行を企画予定</li>
-              <li>簡易マニュアルを配布しやすいよう設置</li>
-            <li>入金処理時の私語に関する苦情があり注意喚起</li>
-　　　　　</li>
+            <li>告知ポスターと出欠一覧を掲示。早めの記入をお願いします。</li>
+            <li>例年より質疑応答の時間を確保し、会員との意見交換を重視します。</li>
+            <li>旅行・イベント内容を見直します。</li>
+            <li>本年度の旅行は中止し、節目の年に向けてより良い旅行を企画予定です。</li>
+            <li>簡易マニュアルを配布しやすい場所へ設置します。</li>
+            <li>入金処理時の私語に関する苦情があり、注意喚起を行いました。</li>
           </ul>
         </div>
 
@@ -522,10 +529,8 @@ a{
           <div class="block-title">今後の予定</div>
           <p>
             第76回定期総会<br>
-            6月24.25日明け番集会後８時頃から開始予定<br>
-            <br>
-            上期会計監査<br>
-            
+            6月24日・25日、明け番集会後8時頃から開始予定<br><br>
+            上期会計監査
           </p>
         </div>
 
@@ -537,8 +542,7 @@ a{
           <div class="block-title">ヘルスケア</div>
           <p>
             「良い仕事は、良い体調から始まります。」<br>
-良質な休憩は、疲労回復と接客の向上につながります。
-営業と休息のバランスを考え、最適な一日のスケジュールを組み、無理のない乗務を心がけましょう。
+            良質な休憩は、疲労回復と接客の向上につながります。営業と休息のバランスを考え、無理のない乗務を心がけましょう。
           </p>
         </div>
 
@@ -551,56 +555,43 @@ a{
         </div>
 
       </div>
-
     </div>
-  </div>
+  </section>
 
-  <!-- ===== 特集記事 ===== -->
   <div class="section-head">
     <div class="section-title">
       <span class="material-icons">bookmark</span>
       特集記事
     </div>
     <div class="see-all">
-<a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgASAVfUg22fNg7dtz1Opd1AU?e=KlpWF3">
-    すべて見る
-  </a>
-</div>
+      <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgASAVfUg22fNg7dtz1Opd1AU?e=KlpWF3">すべて見る</a>
+    </div>
   </div>
 
-  <div class="card article-card">
+  <section class="card article-card">
     <img src="guide.jpg" alt="業務ガイド">
     <div class="article-text">
       <div class="article-title">漫画でわかる業務・安全ガイド</div>
       <div class="article-desc">
-現場で起こりやすい事例や対応を、
-漫画と図解でわかりやすく紹介。
-<br>新人さんからベテランまで、
-日々の業務に役立つ内容を
-今後も継続的に更新していきます。
+        現場で起こりやすい事例や対応を、漫画と図解でわかりやすく紹介。新人さんからベテランまで、日々の業務に役立つ内容を更新していきます。
       </div>
       <div class="see-all">
-<a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgASAVfUg22fNg7dtz1Opd1AU?e=KlpWF3">
-    記事を読む
-  </a>
-</div>
+        <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgASAVfUg22fNg7dtz1Opd1AU?e=KlpWF3">記事を読む</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ===== 今月のドライバー ===== -->
   <div class="section-head">
     <div class="section-title">
       <span class="material-icons">person</span>
       今月のドライバー紹介
     </div>
     <div class="see-all">
-  <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/yoshimoto/">
-    すべて見る
-  </a>
-</div>
+      <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/yoshimoto/">すべて見る</a>
+    </div>
   </div>
 
-  <div class="card article-card">
+  <section class="card article-card">
     <img src="driver.jpg" alt="吉本健二郎">
     <div class="article-text">
       <div class="article-title">
@@ -609,85 +600,66 @@ a{
       </div>
       <div class="article-desc">
         「時を読む男」<br>
-        アプリを超える故知と知恵　男は今日も夜の街へとけて行った…
+        アプリを超える故知と知恵。男は今日も夜の街へとけて行った…
       </div>
-       <div class="see-all">
-<a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/yoshimoto/index.html">
-      仕事の流儀を見る
-    </a></div>
-   </div>
-  </div>
+      <div class="see-all">
+        <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/yoshimoto/index.html">仕事の流儀を見る</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- ===== ヘルスケア ===== -->
   <div class="section-head">
     <div class="section-title">
       <span class="material-icons">favorite</span>
       ヘルスケア
     </div>
     <div class="see-all">
-<a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/healthcare/index.html">
-    すべて見る
-  </a>
-</div>
+      <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/healthcare/index.html">すべて見る</a>
+    </div>
   </div>
 
-  <div class="card article-card">
+  <section class="card article-card">
     <img src="health%20care.jpg" alt="ヘルスケア">
     <div class="article-text">
       <div class="article-title">良い仕事は、良い体調から始まります。</div>
       <div class="article-desc">
-        
-
-無理な乗務は疲労による判断ミスにつながります。<br>
-
-良質な休憩は疲労回復と接客の向上につながります。<br>
-
-健康でいることが何よりも大切です。<br>
-
-日頃のゆとりは安全と営業成績につながります。
+        無理な乗務は疲労による判断ミスにつながります。良質な休憩は疲労回復と接客の向上につながります。健康でいることが何よりも大切です。
       </div>
       <div class="see-all">
-<a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/healthcare/index.html">
-    記事を読む
-  </a>
-</div>
+        <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/healthcare/index.html">記事を読む</a>
+      </div>
     </div>
-  </div>
+  </section>
 
- <!-- ===== 困ったとき ===== -->
-<div class="card help-card">
-  <div class="help-title">困ったときは</div>
-  <p>
-    🚨 トラブル即対応（まず確認）<br>
-    <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">
-      トラブル対応ガイドを見る
-    </a><br><br>
+  <section class="card help-card">
+    <div class="help-title">困ったときは</div>
+    <p>
+      🚨 トラブル即対応（まず確認）<br>
+      <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">トラブル対応ガイドを見る</a><br><br>
 
-    📝 お問い合わせ（解決しない場合）<br>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">
-      お問い合わせフォームへ
-    </a>
-  </p>
+      📝 お問い合わせ（解決しない場合）<br>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">お問い合わせフォームへ</a>
+    </p>
 
-  <div style="margin-top:18px; display:flex; gap:14px; align-items:center;">
-    <a href="https://line.me/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111498.png"
-           alt="LINE"
-           style="width:36px; height:36px; border-radius:8px;">
-    </a>
+    <div class="sns-links">
+      <a href="https://line.me/" target="_blank" rel="noopener">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111498.png" alt="LINE">
+      </a>
+      <a href="https://www.instagram.com/tokyokyodo.taxi.konshinkai/" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+    </div>
 
-    <a href="https://www.instagram.com/tokyokyodo.taxi.konshinkai/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-           alt="Instagram"
-           style="width:36px; height:36px; border-radius:8px;">
-    </a>
-  </div>
+    <div class="chairman">
+      懇親会 会長　須賀孝志
+    </div>
 
-  <div class="chairman">
-  懇親会 会長　須賀孝志
-</div>
+    <div class="footer-copy">
+      © 懇親会 All Rights Reserved.
+    </div>
+  </section>
 
-<div class="footer-copy">
-  © 懇親会 All Rights Reserved.
-</div>
-  
+</main>
+
+</body>
+</html>
