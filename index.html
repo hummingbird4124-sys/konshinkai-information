@@ -11,9 +11,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 html,body{
   margin:0;
@@ -129,9 +127,7 @@ a{
   margin:0 4px;
 }
 
-.dot.active{
-  background:#0b63c7;
-}
+.dot.active{background:#0b63c7;}
 
 /* ===== 全体 ===== */
 .container{
@@ -181,9 +177,7 @@ a{
 }
 
 /* ===== 議事録カード ===== */
-.meeting-card{
-  margin-bottom:20px;
-}
+.meeting-card{margin-bottom:20px;}
 
 .meeting-head{
   background:#f2f6fb;
@@ -213,9 +207,7 @@ a{
   flex-shrink:0;
 }
 
-.meeting-body{
-  padding:16px;
-}
+.meeting-body{padding:16px;}
 
 .meeting-grid{
   display:grid;
@@ -223,9 +215,7 @@ a{
   gap:16px;
 }
 
-.meeting-block{
-  min-width:0;
-}
+.meeting-block{min-width:0;}
 
 .block-title{
   font-size:13px;
@@ -250,9 +240,7 @@ a{
   overflow-wrap:anywhere;
 }
 
-.meeting-block ul{
-  padding-left:18px;
-}
+.meeting-block ul{padding-left:18px;}
 
 .meeting-bottom{
   border-top:1px solid #e5e9ef;
@@ -302,14 +290,120 @@ a{
   margin-bottom:7px;
 }
 
-.badge{
+/* ===== 東京カレンダー ===== */
+.calendar-card{
+  margin-bottom:18px;
+}
+
+.calendar-hero{
+  min-height:154px;
+  color:#fff;
+  padding:16px;
+  display:flex;
+  align-items:flex-end;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,35,85,.86) 100%),
+    url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+}
+
+.calendar-label{
   display:inline-block;
+  background:#ff6b00;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:999px;
+  margin-bottom:7px;
+}
+
+.calendar-title{
+  font-size:20px;
+  font-weight:800;
+  line-height:1.35;
+  margin-bottom:4px;
+}
+
+.calendar-date{
+  font-size:13px;
+  font-weight:700;
+}
+
+.calendar-body{
+  padding:14px 16px 16px;
+}
+
+.calendar-body p{
+  margin:0 0 12px;
+  font-size:12px;
+  line-height:1.75;
+  color:#444;
+}
+
+.calendar-info{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:7px;
+  margin-bottom:14px;
+}
+
+.info-pill{
+  background:#f2f6fb;
+  color:#234;
+  border-radius:10px;
+  padding:8px 10px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.primary-link{
+  display:block;
+  text-align:center;
   background:#0b63c7;
   color:#fff;
-  font-size:10px;
-  font-weight:700;
-  padding:3px 8px;
-  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+  border-radius:10px;
+  padding:10px 12px;
+}
+
+/* ===== 会場カード ===== */
+.venue-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.venue-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);
+  padding:13px 12px;
+  min-height:88px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.venue-name{
+  font-size:13px;
+  font-weight:800;
+  color:#222;
+  line-height:1.35;
+}
+
+.venue-note{
+  font-size:11px;
+  color:#666;
+  margin-top:5px;
+}
+
+.venue-link{
+  font-size:12px;
+  font-weight:800;
+  color:#0b63c7;
+  margin-top:8px;
 }
 
 /* ===== 困ったとき ===== */
@@ -375,46 +469,25 @@ a{
 
 /* ===== 小さめスマホ ===== */
 @media(max-width:360px){
-  .hero h1{
-    font-size:27px;
-  }
-
-  .section-title{
-    font-size:17px;
-  }
-
-  .article-card{
-    gap:10px;
-  }
-
-  .article-card img{
-    width:96px;
-    height:72px;
-  }
-
-  .article-title{
-    font-size:13px;
-  }
-
-  .article-desc{
-    font-size:11.5px;
-  }
+  .hero h1{font-size:27px;}
+  .section-title{font-size:17px;}
+  .article-card{gap:10px;}
+  .article-card img{width:96px;height:72px;}
+  .article-title{font-size:13px;}
+  .article-desc{font-size:11.5px;}
+  .venue-grid{grid-template-columns:1fr;}
 }
 
 /* ===== タブレット以上 ===== */
 @media(min-width:560px){
-  .container{
-    padding:0 18px 34px;
-  }
+  .container{padding:0 18px 34px;}
 
   .hero{
     min-height:190px;
     padding:26px 24px;
   }
 
-  .hero h1{
-    font-size:32px;
-  }
+  .hero h1{font-size:32px;}
 
   .meeting-meta{
     flex-direction:row;
@@ -430,6 +503,10 @@ a{
   .article-card img{
     width:126px;
     height:82px;
+  }
+
+  .calendar-info{
+    grid-template-columns:1fr 1fr;
   }
 }
 </style>
@@ -464,6 +541,7 @@ a{
 
 <main class="container">
 
+  <!-- ===== 議事録 ===== -->
   <div class="section-head">
     <div class="section-title">
       <span class="material-icons">description</span>
@@ -558,6 +636,7 @@ a{
     </div>
   </section>
 
+  <!-- ===== 特集記事 ===== -->
   <div class="section-head">
     <div class="section-title">
       <span class="material-icons">bookmark</span>
@@ -581,56 +660,163 @@ a{
     </div>
   </section>
 
+  <!-- ===== 東京カレンダー ===== -->
   <div class="section-head">
     <div class="section-title">
-      <span class="material-icons">person</span>
-      今月のドライバー紹介
+      <span class="material-icons">event</span>
+      東京カレンダー
     </div>
-    <div class="see-all">
-      <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/yoshimoto/">すべて見る</a>
-    </div>
+    <div class="see-all">7月注目</div>
   </div>
 
-  <section class="card article-card">
-    <img src="driver.jpg" alt="吉本健二郎">
-    <div class="article-text">
-      <div class="article-title">
-        吉本健二郎さん
-        <span class="badge">今月のドライバー</span>
+  <section class="card calendar-card">
+    <div class="calendar-hero">
+      <div>
+        <div class="calendar-label">TOPIC</div>
+        <div class="calendar-title">第49回 隅田川花火大会</div>
+        <div class="calendar-date">2026年7月25日（土）午後7時 開催予定</div>
       </div>
-      <div class="article-desc">
-        「時を読む男」<br>
-        アプリを超える故知と知恵。男は今日も夜の街へとけて行った…
+    </div>
+
+    <div class="calendar-body">
+      <p>
+        東京の夏を代表する花火大会。浅草・隅田川周辺は大変な混雑が予想されるため、乗務・移動の際は交通規制や周辺道路の混雑情報にご注意ください。
+      </p>
+
+      <div class="calendar-info">
+        <div class="info-pill">場所：隅田川周辺</div>
+        <div class="info-pill">時間：午後7時開始予定</div>
+        <div class="info-pill">内容：花火大会</div>
+        <div class="info-pill">確認：公式情報を参照</div>
       </div>
-      <div class="see-all">
-        <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/yoshimoto/index.html">仕事の流儀を見る</a>
-      </div>
+
+      <a class="primary-link" href="https://www.sumidagawa-hanabi.com/" target="_blank" rel="noopener">
+        公式サイトで確認する
+      </a>
     </div>
   </section>
 
+  <!-- ===== イベント会場ガイド ===== -->
   <div class="section-head">
     <div class="section-title">
-      <span class="material-icons">favorite</span>
-      ヘルスケア
-    </div>
-    <div class="see-all">
-      <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/healthcare/index.html">すべて見る</a>
+      <span class="material-icons">location_city</span>
+      イベント会場ガイド
     </div>
   </div>
 
-  <section class="card article-card">
-    <img src="health%20care.jpg" alt="ヘルスケア">
-    <div class="article-text">
-      <div class="article-title">良い仕事は、良い体調から始まります。</div>
-      <div class="article-desc">
-        無理な乗務は疲労による判断ミスにつながります。良質な休憩は疲労回復と接客の向上につながります。健康でいることが何よりも大切です。
-      </div>
-      <div class="see-all">
-        <a href="https://hummingbird4124-sys.github.io/kyodo-konshinkai/healthcare/index.html">記事を読む</a>
-      </div>
-    </div>
-  </section>
+  <div class="venue-grid">
 
+    <a class="venue-card" href="https://www.tokyo-dome.co.jp/dome/event/schedule.html" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京ドーム</div>
+        <div class="venue-note">野球・ライブ・大型イベント</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.nipponbudokan.or.jp/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">日本武道館</div>
+        <div class="venue-note">ライブ・武道大会・式典</div>
+      </div>
+      <div class="venue-link">公式サイトへ →</div>
+    </a>
+
+    <a class="venue-card" href="https://ariake-arena.tokyo/event/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">有明アリーナ</div>
+        <div class="venue-note">ライブ・スポーツ・催事</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京ガーデンシアター</div>
+        <div class="venue-note">コンサート・ショー</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.t-i-forum.co.jp/visitors/event/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京国際フォーラム</div>
+        <div class="venue-note">公演・展示会・会議</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.tokyo-dome.co.jp/tdc-hall/event/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">Kanadevia Hall</div>
+        <div class="venue-note">ライブ・舞台・イベント</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.toyota-arena-tokyo.jp/events/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">TOYOTA ARENA TOKYO</div>
+        <div class="venue-note">スポーツ・ライブ・大型催事</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://linecubeshibuya.com/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">LINE CUBE SHIBUYA</div>
+        <div class="venue-note">音楽・舞台・ホール公演</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+  </div>
+
+  <!-- ===== クラシック・ホール公演 ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">music_note</span>
+      クラシック・ホール公演
+    </div>
+  </div>
+
+  <div class="venue-grid">
+
+    <a class="venue-card" href="https://www.suntory.co.jp/suntoryhall/schedule/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">サントリーホール</div>
+        <div class="venue-note">クラシック・オーケストラ</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.operacity.jp/concert/calendar/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京オペラシティ</div>
+        <div class="venue-note">コンサート・リサイタル</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.t-bunka.jp/stage/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京文化会館</div>
+        <div class="venue-note">オペラ・クラシック</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://kioihall.jp/concert" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">紀尾井ホール</div>
+        <div class="venue-note">室内楽・クラシック</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+  </div>
+
+  <!-- ===== 困ったとき ===== -->
   <section class="card help-card">
     <div class="help-title">困ったときは</div>
     <p>
@@ -645,6 +831,7 @@ a{
       <a href="https://line.me/" target="_blank" rel="noopener">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111498.png" alt="LINE">
       </a>
+
       <a href="https://www.instagram.com/tokyokyodo.taxi.konshinkai/" target="_blank" rel="noopener">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
       </a>
