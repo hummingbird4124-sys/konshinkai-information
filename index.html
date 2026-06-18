@@ -405,7 +405,31 @@ a{
   color:#0b63c7;
   margin-top:8px;
 }
+.archive-detail{
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  background:#f2f6fb;
+  border-radius:12px;
+  font-size:12px;
+  line-height:1.75;
+  color:#333;
+}
 
+.archive-card.open .archive-detail{
+  display:block;
+}
+
+.archive-toggle{
+  margin-left:auto;
+  font-size:28px;
+  color:#0b63c7;
+  font-weight:500;
+}
+
+.archive-card.open .archive-toggle{
+  transform:rotate(45deg);
+}
 /* ===== 困ったとき ===== */
 .help-card{
   padding:14px 16px;
@@ -1288,44 +1312,55 @@ a{
   </div>
 
   <!-- ===== 重要アーカイブ ===== -->
-  <div class="section-head">
-    <div class="section-title">
-      <span class="material-icons">inventory_2</span>
-      重要アーカイブ
+<div class="section-head">
+  <div class="section-title">
+    <span class="material-icons">inventory_2</span>
+    重要アーカイブ
+  </div>
+  <div class="see-all">営業攻略</div>
+</div>
+
+<div class="card archive-card" onclick="this.classList.toggle('open')">
+
+  <img src="sumo-guide.jpg" alt="大相撲両国場所 営業ガイド">
+
+  <div class="article-text">
+    <div style="display:flex; align-items:flex-start; gap:8px;">
+      <div>
+        <div class="archive-kicker">永久保存版</div>
+
+        <div class="archive-title">
+          大相撲 両国場所<br>
+          営業攻略ガイド
+        </div>
+
+        <div class="archive-desc">
+          結びの一番後の人流、狙い目時間帯、
+          周辺道路の注意点をまとめています。
+        </div>
+
+        <div class="see-all">詳細を見る</div>
+      </div>
+
+      <div class="archive-toggle">＋</div>
     </div>
-    <div class="see-all">
-      営業攻略
+
+    <div class="archive-detail">
+      <strong>大相撲「両国場所」</strong><br>
+      両国国技館で開催される大相撲の本場所です。東京では年3回、1月場所・5月場所・9月場所が開催されます。<br><br>
+
+      <strong>営業ポイント 🚖</strong><br>
+      特に土日・千秋楽・結びの一番後は、一気にお客様が動くため周辺は非常に混雑します。国技館周辺にはタクシー待ちのお客様が集中します。<br><br>
+
+      <strong>狙い目の時間帯 ⏰</strong><br>
+      18時頃の結びの一番終了後がピークです。千秋楽は表彰式などの影響で、17時半頃から動き始めることがあります。<br><br>
+
+      <strong>注意ポイント ⚠️</strong><br>
+      国技館正面付近は人と車で混み合います。清澄通り、江戸東京博物館周辺、京葉道路周辺など、少し離れた場所で待機するのも有効です。
     </div>
   </div>
 
-  <a class="card archive-card" href="sumo-guide.html">
-
-    <img src="sumo-guide.jpg" alt="大相撲両国場所 営業ガイド">
-
-    <div class="article-text">
-
-      <div class="archive-kicker">
-        永久保存版
-      </div>
-
-      <div class="archive-title">
-        大相撲 両国場所<br>
-        営業攻略ガイド
-      </div>
-
-      <div class="archive-desc">
-        結びの一番後の人流、狙い目時間帯、
-        周辺道路の注意点をまとめています。
-      </div>
-
-      <div class="see-all">
-        詳細を見る →
-      </div>
-
-    </div>
-
-  </a>
-
+</div>
   <!-- ===== 困ったとき ===== -->
   <section class="card help-card">
     <div class="help-title">困ったときは</div>
