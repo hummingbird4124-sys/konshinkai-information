@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>懇親会だより</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+html,body{
+  margin:0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:#f5f8fc;
+  color:#1a1a1a;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== 上部 ===== */
+.topbar{
+  height:64px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#0b63c7;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+
+.logo-title{
+  font-size:15px;
+  font-weight:800;
+  color:#17477d;
+  line-height:1.1;
+}
+
+.logo-sub{
+  font-size:11px;
+  color:#333;
+}
+
+.menu{
+  font-size:28px;
+  color:#222;
+}
+
+/* ===== ヒーロー ===== */
+.hero{
+  min-height:184px;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  padding:24px 20px;
+  background:
+    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.78) 52%, rgba(0,70,150,.18) 100%),
+    url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+}
+
+.hero-catch{
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:8px;
+}
+
+.hero h1{
+  font-size:30px;
+  line-height:1.2;
+  margin:0 0 8px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+
+.hero-sub{
+  font-size:14px;
+  font-weight:500;
+}
+
+/* ===== ドット ===== */
+.dots{
+  text-align:center;
+  background:#fff;
+  padding:10px 0 18px;
+}
+
+.dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  background:#d4d8df;
+  border-radius:50%;
+  margin:0 4px;
+}
+
+.dot.active{background:#0b63c7;}
+
+/* ===== 全体 ===== */
+.container{
+  max-width:620px;
+  margin:0 auto;
+  padding:0 14px 34px;
+}
+
+/* ===== セクション見出し ===== */
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:18px 0 10px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  font-size:19px;
+  font-weight:800;
+  color:#064b9f;
+  min-width:0;
+}
+
+.section-title .material-icons{
+  font-size:22px;
+  margin-right:7px;
+  color:#0b63c7;
+  flex-shrink:0;
+}
+
+.see-all{
+  font-size:13px;
+  font-weight:700;
+  color:#0b63c7;
+  white-space:nowrap;
+}
+
+/* ===== 共通カード ===== */
+.card{
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 5px 16px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+/* ===== 議事録カード ===== */
+.meeting-card{margin-bottom:20px;}
+
+.meeting-head{
+  background:#f2f6fb;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  padding:13px 16px;
+}
+
+.meeting-head h2{
+  margin:0;
+  font-size:15px;
+  line-height:1.4;
+  font-weight:800;
+  color:#111;
+}
+
+.meeting-meta{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  align-items:flex-end;
+  white-space:nowrap;
+  font-size:11px;
+  color:#555;
+  flex-shrink:0;
+}
+
+.meeting-body{padding:16px;}
+
+.meeting-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+.meeting-block{min-width:0;}
+
+.block-title{
+  font-size:13px;
+  color:#0b63c7;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.block-title::before{
+  content:"■";
+  font-size:8px;
+  margin-right:5px;
+}
+
+.meeting-block p,
+.meeting-block ul{
+  font-size:12px;
+  line-height:1.75;
+  color:#333;
+  margin:0;
+  word-break:normal;
+  overflow-wrap:anywhere;
+}
+
+.meeting-block ul{padding-left:18px;}
+
+.meeting-bottom{
+  border-top:1px solid #e5e9ef;
+  margin-top:14px;
+  padding-top:14px;
+}
+
+/* ===== 横長記事カード ===== */
+.article-card{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:12px;
+  margin-bottom:18px;
+}
+
+.article-card img{
+  width:112px;
+  height:78px;
+  object-fit:cover;
+  border-radius:8px;
+  flex-shrink:0;
+  background:#e9eef5;
+}
+
+.article-text{
+  flex:1;
+  min-width:0;
+}
+
+.article-title{
+  font-size:14px;
+  line-height:1.45;
+  font-weight:800;
+  color:#222;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.article-desc{
+  font-size:12px;
+  line-height:1.65;
+  color:#444;
+  margin-bottom:7px;
+}
+
+/* ===== 東京カレンダー ===== */
+.calendar-card{
+  margin-bottom:18px;
+}
+
+.calendar-hero{
+  min-height:154px;
+  color:#fff;
+  padding:16px;
+  display:flex;
+  align-items:flex-end;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,35,85,.86) 100%),
+    url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+}
+
+.calendar-label{
+  display:inline-block;
+  background:#ff6b00;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:999px;
+  margin-bottom:7px;
+}
+
+.calendar-title{
+  font-size:20px;
+  font-weight:800;
+  line-height:1.35;
+  margin-bottom:4px;
+}
+
+.calendar-date{
+  font-size:13px;
+  font-weight:700;
+}
+
+.calendar-body{
+  padding:14px 16px 16px;
+}
+
+.calendar-body p{
+  margin:0 0 12px;
+  font-size:12px;
+  line-height:1.75;
+  color:#444;
+}
+
+.calendar-info{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:7px;
+  margin-bottom:14px;
+}
+
+.info-pill{
+  background:#f2f6fb;
+  color:#234;
+  border-radius:10px;
+  padding:8px 10px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.primary-link{
+  display:block;
+  text-align:center;
+  background:#0b63c7;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  border-radius:10px;
+  padding:10px 12px;
+}
+
+/* ===== 会場カード ===== */
+.venue-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.venue-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);
+  padding:13px 12px;
+  min-height:88px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.venue-name{
+  font-size:13px;
+  font-weight:800;
+  color:#222;
+  line-height:1.35;
+}
+
+.venue-note{
+  font-size:11px;
+  color:#666;
+  margin-top:5px;
+}
+
+.venue-link{
+  font-size:12px;
+  font-weight:800;
+  color:#0b63c7;
+  margin-top:8px;
+}
+
+/* ===== 重要アーカイブ ===== */
+.archive-card{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:12px;
+  margin-bottom:18px;
+}
+
+.archive-card img{
+  width:112px;
+  height:78px;
+  object-fit:cover;
+  border-radius:8px;
+  flex-shrink:0;
+  background:#e9eef5;
+}
+
+.archive-kicker{
+  display:inline-block;
+  background:#0b63c7;
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  padding:3px 8px;
+  border-radius:999px;
+  margin-bottom:5px;
+}
+
+.archive-title{
+  font-size:14px;
+  line-height:1.45;
+  font-weight:800;
+  color:#222;
+  margin-bottom:5px;
+}
+
+.archive-desc{
+  font-size:12px;
+  line-height:1.65;
+  color:#444;
+  margin-bottom:7px;
+}
+
+/* ===== 困ったとき ===== */
+.help-card{
+  padding:14px 16px;
+  margin-bottom:16px;
+}
+
+.help-title{
+  font-size:14px;
+  font-weight:800;
+  color:#0b63c7;
+  margin-bottom:10px;
+}
+
+.help-title::before{
+  content:"■";
+  font-size:8px;
+  margin-right:5px;
+}
+
+.help-card p{
+  font-size:12px;
+  line-height:1.8;
+  color:#555;
+  margin:0;
+}
+
+.help-card a{
+  color:#0b63c7;
+  font-weight:700;
+}
+
+.sns-links{
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.sns-links img{
+  width:36px;
+  height:36px;
+  border-radius:8px;
+}
+
+.chairman{
+  font-size:12px;
+  color:#555;
+  margin-top:14px;
+}
+
+/* ===== フッター ===== */
+.footer-copy{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid #e5e9ef;
+  font-size:12px;
+  color:#888;
+  text-align:center;
+  line-height:1.8;
+}
+
+/* ===== 小さめスマホ ===== */
+@media(max-width:360px){
+  .hero h1{font-size:27px;}
+  .section-title{font-size:17px;}
+  .article-card{gap:10px;}
+  .article-card img{width:96px;height:72px;}
+  .article-title{font-size:13px;}
+  .article-desc{font-size:11.5px;}
+  .venue-grid{grid-template-columns:1fr;}
+}
+
+/* ===== タブレット以上 ===== */
+@media(min-width:560px){
+  .container{padding:0 18px 34px;}
+
+  .hero{
+    min-height:190px;
+    padding:26px 24px;
+  }
+
+  .hero h1{font-size:32px;}
+
+  .meeting-meta{
+    flex-direction:row;
+    gap:10px;
+    align-items:center;
+  }
+
+  .meeting-grid{
+    grid-template-columns:1fr 1fr;
+    gap:16px 18px;
+  }
+
+  .article-card img{
+    width:126px;
+    height:82px;
+  }
+
+  .calendar-info{
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="logo">
+    <div class="logo-icon">👥</div>
+    <div>
+      <div class="logo-title">懇親会</div>
+      <div class="logo-sub">公式ホームページ</div>
+    </div>
+  </div>
+  <div class="menu">☰</div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="hero-catch">つながる・支え合う・より良い未来へ</div>
+    <h1>懇親会だより</h1>
+    <div class="hero-sub">今月の活動・お知らせをお届けします</div>
+  </div>
+</section>
+
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<main class="container">
+
+  <!-- ===== 議事録 ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">description</span>
+      議事録
+    </div>
+  </div>
+
+  <section class="card meeting-card">
+    <div class="meeting-head">
+      <h2>第15回 役員会議（要約）</h2>
+      <div class="meeting-meta">
+        <span>6月3日(水)</span>
+        <span>3階講堂</span>
+      </div>
+    </div>
+
+    <div class="meeting-body">
+      <div class="meeting-grid">
+
+        <div class="meeting-block">
+          <div class="block-title">主な内容</div>
+          <p>
+            ・欠勤・退職者の確認<br>
+            ・新入社員紹介
+          </p>
+          <ul>
+            <li><ruby>村田真也<rt>むらたしんや</rt></ruby>さん</li>
+            <li><ruby>山内一真<rt>やまうちかずま</rt></ruby>さん</li>
+            <li><ruby>藤倉雪也<rt>ふじくらゆきや</rt></ruby>さん</li>
+            <li><ruby>安井力也<rt>やすいりきや</rt></ruby>さん</li>
+            <li><ruby>松岡漓空<rt>まつおかりく</rt></ruby>さん</li>
+          </ul>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">協議事項</div>
+          <p>
+            ・労働環境改善について協議<br>
+            ・構内事故防止のため白線引き直しを要望<br>
+            ・会社決定事項は早めの周知を要望<br>
+            ・新人乗務員教育期間の見直しを提案<br>
+            ・はぐくみ年金について、導入過程への説明不足を指摘し、加入後の不安の声も報告<br>
+            ・洗車備品について、個人所有備品の紛失が多発しているため、備品は各自で用意・管理をお願いする
+          </p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">第76回定期総会について</div>
+          <p>
+            開催日時：6月24日・25日、明け番集会後8時頃から開始予定
+          </p>
+          <ul>
+            <li>告知ポスターと出欠一覧を掲示。早めの記入をお願いします。</li>
+            <li>例年より質疑応答の時間を確保し、会員との意見交換を重視します。</li>
+            <li>旅行・イベント内容を見直します。</li>
+            <li>本年度の旅行は中止し、節目の年に向けてより良い旅行を企画予定です。</li>
+            <li>簡易マニュアルを配布しやすい場所へ設置します。</li>
+            <li>入金処理時の私語に関する苦情があり、注意喚起を行いました。</li>
+          </ul>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">今後の予定</div>
+          <p>
+            第76回定期総会<br>
+            6月24日・25日、明け番集会後8時頃から開始予定<br><br>
+            上期会計監査
+          </p>
+        </div>
+
+      </div>
+
+      <div class="meeting-grid meeting-bottom">
+
+        <div class="meeting-block">
+          <div class="block-title">ヘルスケア</div>
+          <p>
+            「良い仕事は、良い体調から始まります。」<br>
+            良質な休憩は、疲労回復と接客の向上につながります。営業と休息のバランスを考え、無理のない乗務を心がけましょう。
+          </p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">お問い合わせ</div>
+          <p>
+            懇親会役員までお気軽にご連絡ください。<br>
+            懇親会 会長　須賀孝志
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 特集記事 ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">bookmark</span>
+      特集記事
+    </div>
+    <div class="see-all">
+      <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgASAVfUg22fNg7dtz1Opd1AU?e=KlpWF3">すべて見る</a>
+    </div>
+  </div>
+
+  <section class="card article-card">
+    <img src="guide.jpg" alt="業務ガイド">
+    <div class="article-text">
+      <div class="article-title">漫画でわかる業務・安全ガイド</div>
+      <div class="article-desc">
+        現場で起こりやすい事例や対応を、漫画と図解でわかりやすく紹介。新人さんからベテランまで、日々の業務に役立つ内容を更新していきます。
+      </div>
+      <div class="see-all">
+        <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgASAVfUg22fNg7dtz1Opd1AU?e=KlpWF3">記事を読む</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 東京カレンダー ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">event</span>
+      東京カレンダー
+    </div>
+    <div class="see-all">7月注目</div>
+  </div>
+
+  <section class="card calendar-card">
+    <div class="calendar-hero">
+      <div>
+        <div class="calendar-label">TOPIC</div>
+        <div class="calendar-title">第49回 隅田川花火大会</div>
+        <div class="calendar-date">2026年7月25日（土）午後7時 開催予定</div>
+      </div>
+    </div>
+
+    <div class="calendar-body">
+      <p>
+        東京の夏を代表する花火大会。浅草・隅田川周辺は大変な混雑が予想されるため、乗務・移動の際は交通規制や周辺道路の混雑情報にご注意ください。
+      </p>
+
+      <div class="calendar-info">
+        <div class="info-pill">場所：隅田川周辺</div>
+        <div class="info-pill">時間：午後7時開始予定</div>
+        <div class="info-pill">内容：花火大会</div>
+        <div class="info-pill">確認：公式情報を参照</div>
+      </div>
+
+      <a class="primary-link" href="https://www.sumidagawa-hanabi.com/" target="_blank" rel="noopener">
+        公式サイトで確認する
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== イベント会場ガイド ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">location_city</span>
+      イベント会場ガイド
+    </div>
+  </div>
+
+  <div class="venue-grid">
+
+    <a class="venue-card" href="https://www.tokyo-dome.co.jp/dome/event/schedule.html" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京ドーム</div>
+        <div class="venue-note">野球・ライブ・大型イベント</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.nipponbudokan.or.jp/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">日本武道館</div>
+        <div class="venue-note">ライブ・武道大会・式典</div>
+      </div>
+      <div class="venue-link">公式サイトへ →</div>
+    </a>
+
+    <a class="venue-card" href="https://ariake-arena.tokyo/event/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">有明アリーナ</div>
+        <div class="venue-note">ライブ・スポーツ・催事</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京ガーデンシアター</div>
+        <div class="venue-note">コンサート・ショー</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.t-i-forum.co.jp/visitors/event/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京国際フォーラム</div>
+        <div class="venue-note">公演・展示会・会議</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.tokyo-dome.co.jp/tdc-hall/event/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">Kanadevia Hall</div>
+        <div class="venue-note">ライブ・舞台・イベント</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.toyota-arena-tokyo.jp/events/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">TOYOTA ARENA TOKYO</div>
+        <div class="venue-note">スポーツ・ライブ・大型催事</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://linecubeshibuya.com/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">LINE CUBE SHIBUYA</div>
+        <div class="venue-note">音楽・舞台・ホール公演</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+  </div>
+
+  <!-- ===== クラシック・ホール公演 ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">music_note</span>
+      クラシック・ホール公演
+    </div>
+  </div>
+
+  <div class="venue-grid">
+
+    <a class="venue-card" href="https://www.suntory.co.jp/suntoryhall/schedule/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">サントリーホール</div>
+        <div class="venue-note">クラシック・オーケストラ</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.operacity.jp/concert/calendar/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京オペラシティ</div>
+        <div class="venue-note">コンサート・リサイタル</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://www.t-bunka.jp/stage/" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">東京文化会館</div>
+        <div class="venue-note">オペラ・クラシック</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+    <a class="venue-card" href="https://kioihall.jp/concert" target="_blank" rel="noopener">
+      <div>
+        <div class="venue-name">紀尾井ホール</div>
+        <div class="venue-note">室内楽・クラシック</div>
+      </div>
+      <div class="venue-link">予定を見る →</div>
+    </a>
+
+  </div>
+
+  <!-- ===== 重要アーカイブ ===== -->
+  <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">inventory_2</span>
+      重要アーカイブ
+    </div>
+    <div class="see-all">
+      営業攻略
+    </div>
+  </div>
+
+  <a class="card archive-card" href="sumo-guide.html">
+
+    <img src="https://hummingbird4124-sys.github.io/kyodo-konshinkai/image_1c5a9a3d.png"
+         alt="大相撲両国場所 営業ガイド">
+
+    <div class="article-text">
+
+      <div class="archive-kicker">
+        永久保存版
+      </div>
+
+      <div class="archive-title">
+        大相撲 両国場所<br>
+        営業攻略ガイド
+      </div>
+
+      <div class="archive-desc">
+        結びの一番後の人流、狙い目時間帯、
+        周辺道路の注意点をまとめています。
+      </div>
+
+      <div class="see-all">
+        詳細を見る →
+      </div>
+
+    </div>
+
+  </a>
+
+  <!-- ===== 困ったとき ===== -->
+  <section class="card help-card">
+    <div class="help-title">困ったときは</div>
+    <p>
+      🚨 トラブル即対応（まず確認）<br>
+      <a href="https://1drv.ms/p/c/fbe6f2c5bbd418cd/IQBaqWcb6ZhuRpvwbNQJ6_zgAesYH0stbjAjrIZvaQE6I2s?e=grPN3M">トラブル対応ガイドを見る</a><br><br>
+
+      📝 お問い合わせ（解決しない場合）<br>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7oi0TxbSnyV5KF-k6T71Su7hzoethEcpWrtS_1hJEeVViig/viewform">お問い合わせフォームへ</a>
+    </p>
+
+    <div class="sns-links">
+      <a href="https://line.me/" target="_blank" rel="noopener">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111498.png" alt="LINE">
+      </a>
+
+      <a href="https://www.instagram.com/tokyokyodo.taxi.konshinkai/" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+    </div>
+
+    <div class="chairman">
+      懇親会 会長　須賀孝志
+    </div>
+
+    <div class="footer-copy">
+      © 懇親会 All Rights Reserved.
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
