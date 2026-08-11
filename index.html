@@ -303,513 +303,7 @@ a{
   align-items:flex-end;
   background:
     linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,35,85,.86) 100%),
-    url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-}
-
-.calendar-label{
-  display:inline-block;
-  background:#ff6b00;
-  color:#fff;
-  font-size:11px;
-  font-weight:800;
-  padding:3px 9px;
-  border-radius:999px;
-  margin-bottom:7px;
-}
-
-.calendar-title{
-  font-size:20px;
-  font-weight:800;
-  line-height:1.35;
-  margin-bottom:4px;
-}
-
-.calendar-date{
-  font-size:13px;
-  font-weight:700;
-}
-
-.calendar-body{
-  padding:14px 16px 16px;
-}
-
-.calendar-body p{
-  margin:0 0 12px;
-  font-size:12px;
-  line-height:1.75;
-  color:#444;
-}
-
-.calendar-info{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:7px;
-  margin-bottom:14px;
-}
-
-.info-pill{
-  background:#f2f6fb;
-  color:#234;
-  border-radius:10px;
-  padding:8px 10px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.primary-link{
-  display:block;
-  text-align:center;
-  background:#0b63c7;
-  color:#fff;
-  font-size:13px;
-  font-weight:800;
-  border-radius:10px;
-  padding:10px 12px;
-}
-
-/* ===== 会場カード ===== */
-.venue-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:18px;
-}
-
-.venue-card{
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,.07);
-  padding:13px 12px;
-  min-height:88px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-
-.venue-name{
-  font-size:13px;
-  font-weight:800;
-  color:#222;
-  line-height:1.35;
-}
-
-.venue-note{
-  font-size:11px;
-  color:#666;
-  margin-top:5px;
-}
-
-.venue-link{
-  font-size:12px;
-  font-weight:800;
-  color:#0b63c7;
-  margin-top:8px;
-}
-
-/* ===== 重要アーカイブ ===== */
-.archive-item{
-  padding:0;
-  margin-bottom:18px;
-}
-
-.archive-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:18px 16px;
-}
-
-.archive-title{
-  font-size:15px;
-  line-height:1.45;
-  font-weight:800;
-  color:#222;
-}
-
-.archive-toggle{
-  font-size:30px;
-  color:#0b63c7;
-  line-height:1;
-  flex-shrink:0;
-}
-
-.archive-body{
-  display:none;
-  padding:0 16px 16px;
-}
-
-.archive-item.open .archive-body{
-  display:block;
-}
-
-.archive-item.open .archive-toggle{
-  transform:rotate(45deg);
-}
-
-.archive-kicker{
-  display:inline-block;
-  background:#0b63c7;
-  color:#fff;
-  font-size:11px;
-  font-weight:800;
-  padding:4px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
-}
-
-.archive-body img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px;
-  margin:10px 0 14px;
-}
-
-.archive-detail{
-  background:#f2f6fb;
-  border-radius:12px;
-  padding:14px;
-  font-size:12.5px;
-  line-height:1.8;
-  color:#333;
-}
-
-.archive-detail strong{
-  display:block;
-  font-size:13px;
-  color:#222;
-  margin-top:12px;
-}
-
-.archive-detail strong:first-child{
-  margin-top:0;
-}
-/* ===== 困ったとき ===== */
-.help-card{
-  padding:14px 16px;
-  margin-bottom:16px;
-}
-
-.help-title{
-  font-size:14px;
-  font-weight:800;
-  color:#0b63c7;
-  margin-bottom:10px;
-}
-
-.help-title::before{
-  content:"■";
-  font-size:8px;
-  margin-right:5px;
-}
-
-.help-ca<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>懇親会だより</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<style>
-*{box-sizing:border-box;}
-
-html,body{
-  margin:0;
-  width:100%;
-  overflow-x:hidden;
-}
-
-body{
-  font-family:'Noto Sans JP',sans-serif;
-  background:#f5f8fc;
-  color:#1a1a1a;
-  line-height:1.6;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* ===== 上部 ===== */
-.topbar{
-  height:64px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.logo-icon{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:#0b63c7;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  flex-shrink:0;
-}
-
-.logo-title{
-  font-size:15px;
-  font-weight:800;
-  color:#17477d;
-  line-height:1.1;
-}
-
-.logo-sub{
-  font-size:11px;
-  color:#333;
-}
-
-.menu{
-  font-size:28px;
-  color:#222;
-}
-
-/* ===== ヒーロー ===== */
-.hero{
-  min-height:184px;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  padding:24px 20px;
-  background:
-    linear-gradient(90deg, rgba(0,48,120,.96) 0%, rgba(0,70,150,.78) 52%, rgba(0,70,150,.18) 100%),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-}
-
-.hero-catch{
-  font-size:13px;
-  font-weight:500;
-  margin-bottom:8px;
-}
-
-.hero h1{
-  font-size:30px;
-  line-height:1.2;
-  margin:0 0 8px;
-  font-weight:800;
-  letter-spacing:.02em;
-}
-
-.hero-sub{
-  font-size:14px;
-  font-weight:500;
-}
-
-/* ===== ドット ===== */
-.dots{
-  text-align:center;
-  background:#fff;
-  padding:10px 0 18px;
-}
-
-.dot{
-  display:inline-block;
-  width:8px;
-  height:8px;
-  background:#d4d8df;
-  border-radius:50%;
-  margin:0 4px;
-}
-
-.dot.active{background:#0b63c7;}
-
-/* ===== 全体 ===== */
-.container{
-  max-width:620px;
-  margin:0 auto;
-  padding:0 14px 34px;
-}
-
-/* ===== セクション見出し ===== */
-.section-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin:18px 0 10px;
-}
-
-.section-title{
-  display:flex;
-  align-items:center;
-  font-size:19px;
-  font-weight:800;
-  color:#064b9f;
-  min-width:0;
-}
-
-.section-title .material-icons{
-  font-size:22px;
-  margin-right:7px;
-  color:#0b63c7;
-  flex-shrink:0;
-}
-
-.see-all{
-  font-size:13px;
-  font-weight:700;
-  color:#0b63c7;
-  white-space:nowrap;
-}
-
-/* ===== 共通カード ===== */
-.card{
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 5px 16px rgba(0,0,0,.08);
-  overflow:hidden;
-}
-
-/* ===== 議事録カード ===== */
-.meeting-card{margin-bottom:20px;}
-
-.meeting-head{
-  background:#f2f6fb;
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:10px;
-  padding:13px 16px;
-}
-
-.meeting-head h2{
-  margin:0;
-  font-size:15px;
-  line-height:1.4;
-  font-weight:800;
-  color:#111;
-}
-
-.meeting-meta{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  align-items:flex-end;
-  white-space:nowrap;
-  font-size:11px;
-  color:#555;
-  flex-shrink:0;
-}
-
-.meeting-body{padding:16px;}
-
-.meeting-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-
-.meeting-block{min-width:0;}
-
-.block-title{
-  font-size:13px;
-  color:#0b63c7;
-  font-weight:800;
-  margin-bottom:6px;
-}
-
-.block-title::before{
-  content:"■";
-  font-size:8px;
-  margin-right:5px;
-}
-
-.meeting-block p,
-.meeting-block ul{
-  font-size:12px;
-  line-height:1.75;
-  color:#333;
-  margin:0;
-  word-break:normal;
-  overflow-wrap:anywhere;
-}
-
-.meeting-block ul{padding-left:18px;}
-
-.meeting-bottom{
-  border-top:1px solid #e5e9ef;
-  margin-top:14px;
-  padding-top:14px;
-}
-
-/* ===== 横長記事カード ===== */
-.article-card{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  padding:12px;
-  margin-bottom:18px;
-}
-
-.article-card img{
-  width:112px;
-  height:78px;
-  object-fit:cover;
-  border-radius:8px;
-  flex-shrink:0;
-  background:#e9eef5;
-}
-
-.article-text{
-  flex:1;
-  min-width:0;
-}
-
-.article-title{
-  font-size:14px;
-  line-height:1.45;
-  font-weight:800;
-  color:#222;
-  margin-bottom:5px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  flex-wrap:wrap;
-}
-
-.article-desc{
-  font-size:12px;
-  line-height:1.65;
-  color:#444;
-  margin-bottom:7px;
-}
-
-/* ===== 東京カレンダー ===== */
-.calendar-card{
-  margin-bottom:18px;
-}
-
-.calendar-hero{
-  min-height:154px;
-  color:#fff;
-  padding:16px;
-  display:flex;
-  align-items:flex-end;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,35,85,.86) 100%),
-    url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    url('ultra-japan-calendar.jpg') center/cover no-repeat;
 }
 
 .calendar-label{
@@ -1101,10 +595,10 @@ a{
 
   <section class="card meeting-card">
     <div class="meeting-head">
-      <h2> 第16回 役員会議 議事録（要約）</h2>
+      <h2>第17回 役員会議（要約）</h2>
       <div class="meeting-meta">
-        <span>令和8年7月2日(水)</span>
-        <span>3階講堂</span>
+        <span>令和8年8月1日(土) 10:00</span>
+        <span>2階応接室</span>
       </div>
     </div>
 
@@ -1112,82 +606,101 @@ a{
       <div class="meeting-grid">
 
         <div class="meeting-block">
-          <div class="block-title">主な内容</div>
+          <div class="block-title">議題概要</div>
           <p>
             ・欠勤・退職者の確認<br>
             ・新入社員紹介
           </p>
           <ul>
-            <li><ruby>渡辺一樹<rt>わたなべかずき</rt></ruby>さん</li>
-            <li><ruby>山口璃音<rt>やまぐちりおん</rt></ruby>さん</li>
-            <li><ruby>田尾佑作<rt>たおゆうさく</rt></ruby>さん</li>
+            <li><ruby>吉田 建二<rt>よしだ けんじ</rt></ruby>さん</li>
+            <li><ruby>谷崎 秀行<rt>たにざき ひでゆき</rt></ruby>さん</li>
+            <li><ruby>新藤 泰也<rt>しんどう やすなり</rt></ruby>さん</li>
           </ul>
         </div>
 
         <div class="meeting-block">
-          <div class="block-title">第76回定期総会 総括</div>
+          <div class="block-title">出席者</div>
+          <p>会長、渉外部長、書記長</p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">顔合わせ総括</div>
           <p>
-            2日間で多くの会員が参加し、活発な意見交換が行われました。
-特に改善要望として次の4点を確認しました。<br>
-・歩率改定<br>
-・有給休暇の取得環境<br>
-・罰金制度<br>
-・高速帰路の取り扱い<br>
-今後も会社と乗務員が相互理解を深めながら、より良い職場環境づくりを目指します。
-</p>
-          <div class="block-title">協議事項</div>
-          <p>
-            ・マット洗浄機の設置は見送り<br>
-・秋のイベントは参加費無料で開催<br>
-屋形船イベント開催予定<br>
-開催予定日：9月15日・16日<br>
-詳細は後日お知らせします。
-<div class="meeting-block">
-          <div class="block-title">要望書提出について</div>
-          <p>
-            7月15日に会社へ要望書を提出します。
-要望内容（7項目）<br>
-            ・最短帰庫時間を午後11時へ変更<br>
-・明け乗務後勉強会の手当・講師報酬<br>
-・事故防止対策の強化<br>
-・連続有給休暇を取得しやすい環境づくり<br>
-・皆勤手当（歩率0.5％加算）の創設<br>
-・勤続5年以上の制服支給<br>
-・会社からの情報共有の徹底
+            今回の会社との顔合わせでは、皆勤手当と無事故手当について会社側から回答がありました。<br><br>
+            皆勤手当については、支給する方向で検討されましたが、その条件として、これまで病院の領収書を提出すれば免除されていた病欠時の5,000円控除については、理由に関係なく控除するという考えが示されました。<br><br>
+            また、無事故手当については、会社の現状の経営状況を考えると毎月の現金支給は難しく、年賀式などで物品として支給する方向で考えたいとの回答でした。<br><br>
+            今回の話し合いを通じて改めて感じたことがあります。<br>
+            私たち乗務員は、会社へ要望を伝える際、一方的に要望を並べるだけではなく、会社の経営状況や現状も理解したうえで話し合う姿勢が大切ではないでしょうか。
           </p>
         </div>
 
-        
+        <div class="meeting-block">
+          <div class="block-title">優先して取り組む4つの要望</div>
+          <p>
+            ・歩率改定<br>
+            ・有給休暇を取得しやすい環境づくり<br>
+            ・罰金制度の見直し<br>
+            ・高速帰路の取り扱い
+          </p>
+          <p style="margin-top:8px;">
+            要望を増やし過ぎると、本来実現したい重要な課題まで焦点がぼやけ、結果として皆勤手当や無事故手当のような要望も曖昧な回答になってしまう可能性があります。<br><br>
+            だからこそ、まずは会社と現状を共有し、お互いが努力しながら信頼関係を築いていくことが、本当の意味での良い労働環境につながるのではないでしょうか。
+          </p>
+        </div>
 
         <div class="meeting-block">
-          <div class="block-title">今後の予定</div>
+          <div class="block-title">私たちにもできること</div>
           <p>
-            7月15日　会社へ要望書提出<br>
-要望内容について会社と協議<br>
-協議結果はホームページ・公式LINEでお知らせします。
+            皆さんが日々売上向上のために努力していることは間違いありません。しかし、その一方で事故や違反が思うように減っていない現状があります。<br><br>
+            この事故や違反が、会社の経営に影響を与え、私たちの要望を実現するうえで足かせになっていることも事実です。<br><br>
+            だからこそ、まずは事故・違反を減らし、安全運転を徹底し、会社全体の成果を積み重ねていくことが大切です。
+          </p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">要望実現に向けて</div>
+          <p>
+            そして、その成果をもとに、<br>
+            「私たちはこれだけの結果を出しました。会社の経営状況も理解しています。そのうえで、この成果に見合う待遇改善をお願いします。」<br>
+            と、自信を持って会社へ伝えられる環境を皆でつくっていくことが、本当の意味で要望を実現する近道だと思います。<br><br>
+            小さな要望を増やしていくことが目的ではありません。<br>
+            本当に必要な要望を、皆で力を合わせ、一つひとつ着実に実現していく。<br>
+            その積み重ねが、より良い職場づくりにつながると考えます。<br><br>
+            皆さんで力を合わせ、本当に必要な要望を一つずつ勝ち取っていきましょう。
           </p>
         </div>
 
       </div>
 
       <div class="meeting-grid meeting-bottom">
+        <div class="meeting-block">
+          <div class="block-title">会計部より</div>
+          <p>
+            旅行積立金制度の廃止に伴い、給与天引きは8月分をもって終了します。積立金の返金については、後日ご案内します。
+          </p>
+        </div>
 
         <div class="meeting-block">
-          <div class="block-title">ヘルスケア</div>
+          <div class="block-title">渉外部より</div>
           <p>
-            「良い仕事は、良い体調から始まります。」<br>
-            良質な休憩は、疲労回復と接客の向上につながります。営業と休息のバランスを考え、無理のない乗務を心がけましょう。
+            屋形船イベントでは特別会計予算を運用します。詳細は後日お知らせします。
+          </p>
+        </div>
+
+        <div class="meeting-block">
+          <div class="block-title">厚生部より</div>
+          <p>
+            屋形船参加申込の締切は8月13日です。準備の都合上、期限までのご記入にご協力をお願いします。
           </p>
         </div>
 
         <div class="meeting-block">
           <div class="block-title">お問い合わせ</div>
           <p>
-            懇親会役員までお気軽にご連絡ください。<br>
+            ※配信内容についてご意見・ご質問は、お気軽に懇親会役員までお問い合わせください。<br>
             懇親会 会長　須賀孝志
           </p>
         </div>
-
       </div>
     </div>
   </section>
@@ -1222,31 +735,31 @@ a{
       <span class="material-icons">event</span>
       東京カレンダー
     </div>
-    <div class="see-all">7月注目</div>
+    <div class="see-all">9月注目</div>
   </div>
 
   <section class="card calendar-card">
     <div class="calendar-hero">
       <div>
         <div class="calendar-label">TOPIC</div>
-        <div class="calendar-title">第49回 隅田川花火大会</div>
-        <div class="calendar-date">2026年7月25日（土）午後7時 開催予定</div>
+        <div class="calendar-title">ULTRA JAPAN 2026</div>
+        <div class="calendar-date">2026年9月19日（土）・20日（日）</div>
       </div>
     </div>
 
     <div class="calendar-body">
       <p>
-        東京の夏を代表する花火大会。浅草・隅田川周辺は大変な混雑が予想されるため、乗務・移動の際は交通規制や周辺道路の混雑情報にご注意ください。
+        2026年9月19日（土）と9月20日（日）の2日間で開催されます。毎年10万人以上の来場があり、終演後はタクシー需要もピーク！土日開催のためタクシーの数も少なく、短時間で密な乗車ができます。但し渋滞も厳しく、経路の選択は必死！GOアプリのオン・オフも臨機応変が求められます。会場は東京・お台場のTOKYO ODAIBA ULTRA PARKです。
       </p>
 
       <div class="calendar-info">
-        <div class="info-pill">場所：隅田川周辺</div>
-        <div class="info-pill">時間：午後7時開始予定</div>
-        <div class="info-pill">内容：花火大会</div>
-        <div class="info-pill">確認：公式情報を参照</div>
+        <div class="info-pill">日程：2026年9月19日（土）・20日（日）</div>
+        <div class="info-pill">時間：開場 10:00 / 開演 11:00 / 終演 21:00（予定）</div>
+        <div class="info-pill">会場：TOKYO ODAIBA ULTRA PARK</div>
+        <div class="info-pill">住所：東京都江東区青海1-1</div>
       </div>
 
-      <a class="primary-link" href="https://www.sumidagawa-hanabi.com/" target="_blank" rel="noopener">
+      <a class="primary-link" href="https://ultrajapan.com/" target="_blank" rel="noopener">
         公式サイトで確認する
       </a>
     </div>
