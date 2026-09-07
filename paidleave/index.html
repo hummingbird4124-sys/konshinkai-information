@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>有休取得状況｜全乗務員版</title>
+<style>
+:root{--blue:#1266b3;--blue2:#eaf4ff;--navy:#123b67;--pink:#e93d75;--bg:#f3f7fb;--line:#d8e4ef;--text:#24313e;--muted:#667789;--gold:#fff7df;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;color:var(--text)}
+.wrap{max-width:680px;margin:auto;padding:18px 14px 48px}.hero{background:linear-gradient(135deg,#0f62aa,#318bce);color:#fff;border-radius:22px;padding:23px 18px;box-shadow:0 8px 24px rgba(26,83,132,.18)}
+.hero h1{font-size:27px;margin:0 0 6px}.hero p{margin:0;opacity:.92;font-size:14px}.card{background:#fff;border-radius:18px;padding:18px;margin-top:14px;box-shadow:0 5px 18px rgba(39,71,102,.08);border:1px solid #edf2f7}.title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:13px}.label{font-size:13px;color:var(--muted);font-weight:700;margin:10px 0 6px}.row{display:flex;gap:9px}.row input{flex:1}.input{width:100%;border:2px solid #d5e2ee;border-radius:13px;padding:14px;font-size:18px;background:#fff;outline:none}.input:focus{border-color:#4b9bd8;box-shadow:0 0 0 3px rgba(75,155,216,.13)}button{border:0;border-radius:13px;padding:13px 16px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:#fff}.sub{background:#e9f2fa;color:var(--navy)}.ghost{background:#f4f6f8;color:#586776;width:100%;margin-top:10px}.hide{display:none}.name{font-size:24px;font-weight:900;color:#173e64}.meta{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.box{background:#f7fafc;border:1px solid #e4ecf3;border-radius:13px;padding:12px}.box small{display:block;color:#738192;font-weight:700}.box strong{display:block;font-size:17px;margin-top:4px}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0}.kpi{text-align:center;border-radius:14px;padding:12px 6px;background:var(--blue2);border:1px solid #cde2f5}.kpi:nth-child(2){background:#fff4f7;border-color:#f6d2df}.kpi:nth-child(3){background:#f0faf2;border-color:#cee9d3}.kpi small{display:block;font-weight:700;color:#53687c}.kpi b{display:block;font-size:23px;margin-top:4px;color:var(--navy)}.note{font-size:13px;color:#677788;line-height:1.65}.warn{background:#fff6df;border-radius:13px;padding:12px 13px;font-size:13px;line-height:1.6;margin-top:12px;border:1px solid #f5df9f}.calc{background:linear-gradient(180deg,#fffaf0,#fff);border:1px solid #f0dfb0}.formula{background:#fff;border:2px dashed #e5c76e;border-radius:13px;padding:12px;text-align:center;font-weight:800;color:#705b1a;margin:10px 0}.amount{font-size:30px;font-weight:900;color:#d65221;text-align:center;margin:9px 0}.unit{text-align:center;font-size:14px;color:#72614b}.smallheading{font-weight:900;color:#183f65;margin:16px 0 7px}.foot{text-align:center;color:#7d8994;font-size:12px;margin-top:18px;line-height:1.6}.pill{display:inline-block;background:#eaf4ff;color:#17629f;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;margin-bottom:9px}.paytable{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 16px;overflow:hidden;border:1px solid #ead9a4;border-radius:13px;background:#fff}.paytable th,.paytable td{padding:9px 10px;border-bottom:1px solid #f0e5c4;text-align:center;font-size:14px}.paytable th{background:#fff4cf;color:#6c5717;font-weight:900}.paytable tr:last-child td{border-bottom:0}.avgrow{display:flex;align-items:center;gap:8px}.avgrow .input{flex:1}.yen{font-weight:800;color:#5d6770}
+@media(max-width:430px){.hero h1{font-size:23px}.meta{grid-template-columns:1fr}.kpi b{font-size:20px}.row{flex-direction:column}.row button{width:100%}}
+</style>
+</head>
+<body><div class="wrap">
+<div class="hero"><div class="pill">有休取得状況</div><h1>🏖️ あなたの有休取得状況</h1><p>社員番号から在籍情報を確認し、有休残数と有休手当の目安を試算します。</p></div>
+
+<div class="card">
+  <div class="title">社員番号を入力</div>
+  <div class="row"><input id="emp" class="input" type="number" inputmode="numeric" placeholder="例：543"><button class="primary" onclick="lookup()">確認する</button></div>
+  <button class="ghost" onclick="document.getElementById('emp').value='543';lookup()">テスト：社員番号543で確認</button>
+  <div id="err" class="warn hide">該当する社員番号が見つかりません。社員番号をご確認ください。</div>
+</div>
+
+<div id="result" class="hide">
+  <div class="card">
+    <div class="title">📋 登録情報</div>
+    <div id="name" class="name"></div>
+    <div class="meta">
+      <div class="box"><small>起算日（乗務員マスターの入社日）</small><strong id="hire"></strong></div>
+      <div class="box"><small>在籍期間</small><strong id="tenure"></strong></div>
+    </div>
+    <div class="warn">※ 現在は乗務員マスターの入社日を起算日として表示しています。</div>
+  </div>
+
+  <div class="card">
+    <div class="title">🏖️ 有休シミュレーター</div>
+    <div class="kpis">
+      <div class="kpi"><small>本年度付与</small><b id="granted"></b></div>
+      <div class="kpi"><small>本年度取得</small><b id="takenView">0出番</b></div>
+      <div class="kpi"><small>残り</small><b id="remain"></b></div>
+    </div>
+    <div class="note" style="margin:2px 0 8px">付与日数は現在の案内表（6か月・2年6か月・4年6か月・6年6か月以上）を基準に表示しています。</div><div class="label">本年度取得出番</div>
+    <input id="taken" class="input" type="number" min="0" step="0.5" value="0" inputmode="decimal" oninput="recalcLeave()">
+    <div class="note">※ 現在の乗務員マスターには取得実績が無いため、取得済み出番はここで入力して確認します。取得実績データと連携すれば自動表示できます。</div>
+  </div>
+
+  <div class="card calc">
+    <div class="title">💰 有休手当の算出方法</div>
+    <div class="smallheading">※平均報酬額とは？</div>
+    <div class="note">4月・5月・6月の報酬をもとに算定される金額です。<br>
+    ご自身の正確な平均報酬額が分からない場合は、事務所へご確認ください。</div>
+
+    <div class="smallheading">有休1出番の計算式</div>
+    <div class="formula">平均報酬額 ÷ 30 × 2</div>
+
+    <div class="smallheading">📊 計算例</div>
+    <table class="paytable">
+      <thead><tr><th>平均報酬額</th><th>有休1出番の目安</th></tr></thead>
+      <tbody>
+        <tr><td>50万円</td><td>約33,333円</td></tr>
+        <tr><td>60万円</td><td>約40,000円</td></tr>
+        <tr><td>70万円</td><td>約46,667円</td></tr>
+        <tr><td>80万円</td><td>約53,333円</td></tr>
+        <tr><td>90万円</td><td>約60,000円</td></tr>
+        <tr><td>100万円</td><td>約66,667円</td></tr>
+      </tbody>
+    </table>
+
+    <div class="label">ご自身の平均報酬額が分かる方</div>
+    <div class="avgrow">
+      <span style="font-weight:800">平均報酬額</span>
+      <input id="avg" class="input" type="number" inputmode="numeric" placeholder="例：500000" oninput="calcPay()">
+      <span class="yen">円</span>
+    </div>
+
+    <div class="smallheading" style="text-align:center">あなたの有休手当予想</div>
+    <div id="pay" class="amount">約 ― 円</div><div class="unit">／1出番</div>
+    <div class="warn">※表示額は参考・予想額です。</div>
+  </div>
+</div>
+
+  <div class="card" style="border:1px solid #f1d7a6;background:#fffaf0">
+    <div class="title">⚠️ 有休取得について</div>
+    <div class="note" style="font-size:14px;line-height:1.8;color:#5d5140">
+      有休取得日は手当が支給されますが、実際の乗務回数が減るため、通常勤務した場合と比べて月の収入が下がる場合があります。
+    </div>
+  </div>
+
+<div class="foot">有休取得状況｜全乗務員版<br>取得済み出番は現在手入力での確認となります。</div>
+</div>
+<script>
+const records={
+'133':{name:"端谷博史",hire:"1987年12月17日",hireIso:'1987-12-17'},
+'136':{name:"塩野　明",hire:"1989年5月5日",hireIso:'1989-05-05'},
+'166':{name:"永元正吾",hire:"1991年4月1日",hireIso:'1991-04-01'},
+'213':{name:"加藤春義",hire:"1994年1月6日",hireIso:'1994-01-06'},
+'332':{name:"吉本健次郎",hire:"2000年9月12日",hireIso:'2000-09-12'},
+'387':{name:"栗原宏明",hire:"2003年9月8日",hireIso:'2003-09-08'},
+'401':{name:"下国康二郎",hire:"2004年8月3日",hireIso:'2004-08-03'},
+'418':{name:"山本金一",hire:"2005年7月20日",hireIso:'2005-07-20'},
+'468':{name:"高村政衛",hire:"2008年3月29日",hireIso:'2008-03-29'},
+'494':{name:"大塚吉昭",hire:"2009年1月1日",hireIso:'2009-01-01'},
+'522':{name:"小岩　修",hire:"2009年9月12日",hireIso:'2009-09-12'},
+'531':{name:"遠藤武彦",hire:"2010年3月3日",hireIso:'2010-03-03'},
+'534':{name:"南部智昭",hire:"2010年5月11日",hireIso:'2010-05-11'},
+'535':{name:"一花　肇",hire:"2010年5月11日",hireIso:'2010-05-11'},
+'543':{name:"田島孝行",hire:"2010年8月12日",hireIso:'2010-08-12'},
+'554':{name:"寺田勝",hire:"2021年12月21日",hireIso:'2021-12-21'},
+'556':{name:"高見康義",hire:"2010年12月15日",hireIso:'2010-12-15'},
+'564':{name:"坂口庄二",hire:"2011年3月1日",hireIso:'2011-03-01'},
+'577':{name:"須賀孝志",hire:"2011年8月17日",hireIso:'2011-08-17'},
+'592':{name:"浅若圭克",hire:"2012年5月7日",hireIso:'2012-05-07'},
+'603':{name:"大塚幸光",hire:"2012年9月18日",hireIso:'2012-09-18'},
+'621':{name:"山崎陽平",hire:"2013年7月4日",hireIso:'2013-07-04'},
+'635':{name:"齋藤光明",hire:"2014年3月13日",hireIso:'2014-03-13'},
+'640':{name:"吉田勝義",hire:"2014年4月15日",hireIso:'2014-04-15'},
+'660':{name:"伊藤新之助",hire:"2015年9月15日",hireIso:'2015-09-15'},
+'661':{name:"中野雅春",hire:"2015年10月13日",hireIso:'2015-10-13'},
+'662':{name:"岩堀武男",hire:"2015年11月5日",hireIso:'2015-11-05'},
+'666':{name:"久木原博",hire:"2016年7月11日",hireIso:'2016-07-11'},
+'671':{name:"山口　誠",hire:"2016年9月20日",hireIso:'2016-09-20'},
+'675':{name:"香山浩司",hire:"2016年10月17日",hireIso:'2016-10-17'},
+'679':{name:"林　芳弘",hire:"2016年10月23日",hireIso:'2016-10-23'},
+'687':{name:"濱田紀文",hire:"2016年12月20日",hireIso:'2016-12-20'},
+'691':{name:"高山一広",hire:"2017年5月25日",hireIso:'2017-05-25'},
+'698':{name:"篠田大輔",hire:"2017年12月26日",hireIso:'2017-12-26'},
+'709':{name:"富田篤司ツカサ",hire:"2018年6月5日",hireIso:'2018-06-05'},
+'715':{name:"冨髙正義",hire:"2018年8月8日",hireIso:'2018-08-08'},
+'716':{name:"武井　勝",hire:"2018年8月22日",hireIso:'2018-08-22'},
+'719':{name:"小林利則",hire:"2018年9月3日",hireIso:'2018-09-03'},
+'720':{name:"大久保勉",hire:"2018年10月2日",hireIso:'2018-10-02'},
+'728':{name:"小林信夫",hire:"2018年11月6日",hireIso:'2018-11-06'},
+'730':{name:"小平正美",hire:"2018年11月20日",hireIso:'2018-11-20'},
+'735':{name:"宮入芳高",hire:"2019年1月31日",hireIso:'2019-01-31'},
+'742':{name:"杉山輝行",hire:"2019年4月1日",hireIso:'2019-04-01'},
+'743':{name:"澤　啓司",hire:"2019年3月15日",hireIso:'2019-03-15'},
+'752':{name:"西川友博",hire:"2019年8月7日",hireIso:'2019-08-07'},
+'755':{name:"浅川芳行",hire:"2019年10月14日",hireIso:'2019-10-14'},
+'766':{name:"山本　勲",hire:"2020年2月27日",hireIso:'2020-02-27'},
+'770':{name:"小池利生",hire:"2020年4月2日",hireIso:'2020-04-02'},
+'772':{name:"鳥山勝吉",hire:"2020年4月7日",hireIso:'2020-04-07'},
+'785':{name:"坂本将樹",hire:"2020年10月6日",hireIso:'2020-10-06'},
+'789':{name:"赤石明幸",hire:"2020年11月26日",hireIso:'2020-11-26'},
+'796':{name:"岡村　聡",hire:"2021年2月1日",hireIso:'2021-02-01'},
+'799':{name:"的場良介",hire:"2021年2月24日",hireIso:'2021-02-24'},
+'801':{name:"林　正美",hire:"2021年3月8日",hireIso:'2021-03-08'},
+'802':{name:"大宮研司",hire:"2021年3月21日",hireIso:'2021-03-21'},
+'814':{name:"上松勝巳",hire:"2021年7月21日",hireIso:'2021-07-21'},
+'826':{name:"山本秋信",hire:"2021年11月21日",hireIso:'2021-11-21'},
+'827':{name:"佐々木　優",hire:"2021年12月21日",hireIso:'2021-12-21'},
+'839':{name:"横山龍太郎",hire:"2022年10月4日",hireIso:'2022-10-04'},
+'843':{name:"吉澤颯太",hire:"2022年10月21日",hireIso:'2022-10-21'},
+'844':{name:"若井力",hire:"2022年10月26日",hireIso:'2022-10-26'},
+'846':{name:"鷲見俊樹",hire:"2022年11月18日",hireIso:'2022-11-18'},
+'848':{name:"樋口貴行",hire:"2022年11月21日",hireIso:'2022-11-21'},
+'851':{name:"山田俊輝",hire:"2022年12月26日",hireIso:'2022-12-26'},
+'852':{name:"下山武志",hire:"2023年1月1日",hireIso:'2023-01-01'},
+'853':{name:"山口真貴子",hire:"2023年1月6日",hireIso:'2023-01-06'},
+'855':{name:"大江賢生",hire:"2023年1月11日",hireIso:'2023-01-11'},
+'859':{name:"南　陽也",hire:"2023年2月7日",hireIso:'2023-02-07'},
+'860':{name:"松田雄介",hire:"2023年1月11日",hireIso:'2023-01-11'},
+'861':{name:"古城洋平",hire:"2023年1月11日",hireIso:'2023-01-11'},
+'862':{name:"谷俊弘",hire:"2023年2月21日",hireIso:'2023-02-21'},
+'863':{name:"戸島和美",hire:"2023年4月1日",hireIso:'2023-04-01'},
+'865':{name:"菊池一明",hire:"2023年4月6日",hireIso:'2023-04-06'},
+'866':{name:"村田陽子",hire:"2023年4月6日",hireIso:'2023-04-06'},
+'867':{name:"杉本幸二",hire:"2023年4月21日",hireIso:'2023-04-21'},
+'872':{name:"小野寺亘",hire:"2023年6月5日",hireIso:'2023-06-05'},
+'873':{name:"奥寺　平",hire:"2023年6月19日",hireIso:'2023-06-19'},
+'878':{name:"小松　誠",hire:"2023年8月1日",hireIso:'2023-08-01'},
+'882':{name:"渡邊隆浩",hire:"2023年8月21日",hireIso:'2023-08-21'},
+'884':{name:"島田智幸",hire:"2023年10月1日",hireIso:'2023-10-01'},
+'885':{name:"松岡裕佑",hire:"2023年10月1日",hireIso:'2023-10-01'},
+'886':{name:"杉本和教",hire:"2023年10月1日",hireIso:'2023-10-01'},
+'889':{name:"木村宗春",hire:"2023年12月10日",hireIso:'2023-12-10'},
+'891':{name:"本波和樹",hire:"2024年2月1日",hireIso:'2024-02-01'},
+'892':{name:"濱井和也",hire:"2024年2月5日",hireIso:'2024-02-05'},
+'893':{name:"玄番小次郎バン",hire:"2024年2月10日",hireIso:'2024-02-10'},
+'896':{name:"小島英弘",hire:"2024年4月8日",hireIso:'2024-04-08'},
+'897':{name:"京極　翼",hire:"2024年4月8日",hireIso:'2024-04-08'},
+'898':{name:"木村広",hire:"2024年4月8日",hireIso:'2024-04-08'},
+'899':{name:"門川　樹",hire:"2024年4月10日",hireIso:'2024-04-10'},
+'903':{name:"會田里未",hire:"2024年6月1日",hireIso:'2024-06-01'},
+'905':{name:"岸野和哉",hire:"2024年6月10日",hireIso:'2024-06-10'},
+'906':{name:"服部琴音",hire:"2024年6月10日",hireIso:'2024-06-10'},
+'908':{name:"大谷苑子",hire:"2024年6月21日",hireIso:'2024-06-21'},
+'910':{name:"水上雅人",hire:"2024年8月1日",hireIso:'2024-08-01'},
+'911':{name:"柳澤克則",hire:"2024年8月5日",hireIso:'2024-08-05'},
+'916':{name:"望月崇史",hire:"2024年10月1日",hireIso:'2024-10-01'},
+'917':{name:"内田洋平",hire:"2024年10月25日",hireIso:'2024-10-25'},
+'919':{name:"春日高政",hire:"2024年11月10日",hireIso:'2024-11-10'},
+'920':{name:"浅賀孝義",hire:"2024年12月1日",hireIso:'2024-12-01'},
+'921':{name:"金井知己",hire:"2024年12月5日",hireIso:'2024-12-05'},
+'922':{name:"神保勇樹",hire:"2024年12月15日",hireIso:'2024-12-15'},
+'923':{name:"霜山茶乙",hire:"2025年1月5日",hireIso:'2025-01-05'},
+'926':{name:"安富徳義ヤストミトクギ",hire:"2025年2月17日",hireIso:'2025-02-17'},
+'929':{name:"七五三掛勉",hire:"2025年3月1日",hireIso:'2025-03-01'},
+'931':{name:"久保田怜那",hire:"2025年5月5日",hireIso:'2025-05-05'},
+'933':{name:"鏑木　靖",hire:"2025年5月26日",hireIso:'2025-05-26'},
+'934':{name:"邑松　賢",hire:"2025年6月5日",hireIso:'2025-06-05'},
+'935':{name:"帯川晶彦",hire:"2025年6月5日",hireIso:'2025-06-05'},
+'936':{name:"下畑信貴",hire:"2025年6月6日",hireIso:'2025-06-06'},
+'937':{name:"波多野拓也",hire:"2025年6月6日",hireIso:'2025-06-06'},
+'938':{name:"石田竜也",hire:"2025年7月1日",hireIso:'2025-07-01'},
+'941':{name:"蘇　勒徳ソロクトク",hire:"2025年7月5日",hireIso:'2025-07-05'},
+'943':{name:"林　昭男",hire:"2025年8月4日",hireIso:'2025-08-04'},
+'944':{name:"久我昌弘",hire:"2025年8月4日",hireIso:'2025-08-04'},
+'945':{name:"野口明日香",hire:"2025年8月4日",hireIso:'2025-08-04'},
+'947':{name:"川島秀章",hire:"2025年8月4日",hireIso:'2025-08-04'},
+'948':{name:"木村雄太",hire:"2025年8月5日",hireIso:'2025-08-05'},
+'949':{name:"阿多川智宏",hire:"2025年8月12日",hireIso:'2025-08-12'},
+'950':{name:"田口峻也",hire:"2025年9月1日",hireIso:'2025-09-01'},
+'951':{name:"橋本紘志",hire:"2025年9月1日",hireIso:'2025-09-01'},
+'952':{name:"下山　明",hire:"2025年9月1日",hireIso:'2025-09-01'},
+'953':{name:"鈴木和政",hire:"2025年9月7日",hireIso:'2025-09-07'},
+'954':{name:"鈴木明日美",hire:"2025年9月7日",hireIso:'2025-09-07'},
+'955':{name:"吉原慎吾",hire:"2025年9月16日",hireIso:'2025-09-16'},
+'956':{name:"瀬川忠弘",hire:"2025年9月25日",hireIso:'2025-09-25'},
+'957':{name:"千須和　拓",hire:"2025年9月25日",hireIso:'2025-09-25'},
+'958':{name:"三原誉也",hire:"2025年10月1日",hireIso:'2025-10-01'},
+'959':{name:"今井研作",hire:"2025年10月1日",hireIso:'2025-10-01'},
+'960':{name:"彼ノ矢美香",hire:"2025年10月1日",hireIso:'2025-10-01'},
+'961':{name:"三改木翔眞",hire:"2025年10月5日",hireIso:'2025-10-05'},
+'962':{name:"五十嵐裕紀",hire:"2025年11月1日",hireIso:'2025-11-01'},
+'964':{name:"人見雅子",hire:"2025年11月10日",hireIso:'2025-11-10'},
+'965':{name:"鈴木麗央",hire:"2025年11月19日",hireIso:'2025-11-19'},
+'966':{name:"長嶺誠洋",hire:"2025年11月10日",hireIso:'2025-11-10'},
+'967':{name:"宮脇日向",hire:"2025年12月1日",hireIso:'2025-12-01'},
+'968':{name:"内山　浩",hire:"2025年12月1日",hireIso:'2025-12-01'},
+'969':{name:"古市真介",hire:"2025年12月15日",hireIso:'2025-12-15'},
+'970':{name:"中野謄也",hire:"2025年12月10日",hireIso:'2025-12-10'},
+'971':{name:"高橋博之",hire:"2025年12月15日",hireIso:'2025-12-15'},
+'972':{name:"阿部一輝",hire:"2026年1月5日",hireIso:'2026-01-05'},
+'973':{name:"国枝　航",hire:"2026年1月5日",hireIso:'2026-01-05'},
+'974':{name:"坂本龍哉",hire:"2026年1月5日",hireIso:'2026-01-05'},
+'975':{name:"清野絢太",hire:"2026年1月5日",hireIso:'2026-01-05'},
+'976':{name:"水越夏美",hire:"2026年1月21日",hireIso:'2026-01-21'},
+'978':{name:"小池貴士",hire:"2026年2月10日",hireIso:'2026-02-10'},
+'979':{name:"米川和行",hire:"2026年2月10日",hireIso:'2026-02-10'},
+'980':{name:"池田義典",hire:"2026年2月10日",hireIso:'2026-02-10'},
+'981':{name:"村田真也",hire:"2026年3月1日",hireIso:'2026-03-01'},
+'982':{name:"山内一真",hire:"2026年3月1日",hireIso:'2026-03-01'},
+'983':{name:"坂寄竜治",hire:"2026年3月12日",hireIso:'2026-03-12'},
+'984':{name:"松岡璃空",hire:"2026年4月1日",hireIso:'2026-04-01'},
+'985':{name:"渡辺一樹",hire:"2026年4月1日",hireIso:'2026-04-01'},
+'986':{name:"藤倉雷也",hire:"2026年4月1日",hireIso:'2026-04-01'},
+'987':{name:"山口璃音",hire:"2026年4月1日",hireIso:'2026-04-01'},
+'988':{name:"安井力也",hire:"2026年4月7日",hireIso:'2026-04-07'},
+'989':{name:"田尾祐作",hire:"2026年5月7日",hireIso:'2026-05-07'},
+'990':{name:"星野翠騎",hire:"2026年4月22日",hireIso:'2026-04-22'},
+'991':{name:"新藤　泰成",hire:"2026年6月1日",hireIso:'2026-06-01'},
+'992':{name:"鈴木龍斗スズキリュウト",hire:"2026年6月15日",hireIso:'2026-06-15'},
+'993':{name:"立花璃乙花タチバナリオツハナ",hire:"2026年6月15日",hireIso:'2026-06-15'},
+'994':{name:"吉田　健二",hire:"2026年6月21日",hireIso:'2026-06-21'},
+'995':{name:"大須賀嵩史オオスガシ",hire:"2026年7月1日",hireIso:'2026-07-01'},
+'996':{name:"古橋直也フルハシナオヤ",hire:"2026年7月10日",hireIso:'2026-07-10'},
+'997':{name:"石川隼人イシカワハヤト",hire:"2026年7月15日",hireIso:'2026-07-15'},
+'998':{name:"南昴之進ミナミスバルノススム",hire:"2026年7月21日",hireIso:'2026-07-21'},
+'999':{name:"谷崎　秀幸",hire:"2026年7月21日",hireIso:'2026-07-21'},
+'1000':{name:"江口祥太エグチショウタ",hire:"2026年8月10日",hireIso:'2026-08-10'},
+'1001':{name:"吉池雄樹ヨシイケユウキ",hire:"2026年8月15日",hireIso:'2026-08-15'},
+'1002':{name:"霜山丈二タケジ",hire:"2026年8月15日",hireIso:'2026-08-15'},
+'1003':{name:"花島紘月ハナシマコウツキ",hire:"2026年8月15日",hireIso:'2026-08-15'}
+};
+let current=null;
+function lookup(){
+ const key=String(document.getElementById('emp').value||'').trim();current=records[key];
+ document.getElementById('err').classList.toggle('hide',!!current);document.getElementById('result').classList.toggle('hide',!current);
+ if(!current)return;
+ document.getElementById('name').textContent=current.name+' さん';
+ document.getElementById('hire').textContent=current.hire;document.getElementById('tenure').textContent=calcTenure(current.hireIso);
+ const ent=entitlementFromHire(current.hireIso);
+ current.granted=ent.shifts; current.days=ent.days;
+ document.getElementById('granted').textContent=current.granted+'出番（'+current.days+'日）';document.getElementById('taken').value=0;
+ recalcLeave();document.getElementById('avg').value='';document.getElementById('pay').textContent='約 ― 円';
+ document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function entitlementFromHire(iso){
+ const [y,m,d]=iso.split('-').map(Number);
+ const now=new Date();
+ let months=(now.getFullYear()-y)*12 + ((now.getMonth()+1)-m);
+ if(now.getDate()<d) months--;
+ if(months>=78) return {shifts:10,days:20};
+ if(months>=54) return {shifts:7,days:15};
+ if(months>=30) return {shifts:6,days:12};
+ if(months>=6) return {shifts:5,days:10};
+ return {shifts:0,days:0};
+}
+
+function calcTenure(iso){
+ const [y,m,d]=iso.split('-').map(Number);
+ const now=new Date();
+ let years=now.getFullYear()-y;
+ let months=now.getMonth()+1-m;
+ if(now.getDate()<d) months--;
+ if(months<0){years--;months+=12;}
+ return years+'年'+months+'か月';
+}
+function recalcLeave(){if(!current)return;let t=parseFloat(document.getElementById('taken').value)||0;t=Math.max(0,t);const r=Math.max(0,current.granted-t);document.getElementById('takenView').textContent=fmt(t)+'出番';document.getElementById('remain').textContent=fmt(r)+'出番';}
+function fmt(n){return Number.isInteger(n)?String(n):n.toFixed(1)}
+function calcPay(){const v=parseFloat(document.getElementById('avg').value);document.getElementById('pay').textContent=(!v||v<0)?'約 ― 円':'約 '+Math.round(v/30*2).toLocaleString('ja-JP')+'円';}
+document.getElementById('emp').addEventListener('keydown',e=>{if(e.key==='Enter')lookup()});
+</script></body></html>
