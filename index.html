@@ -638,6 +638,199 @@ a{
     grid-template-columns:1fr 1fr;
   }
 }
+
+/* ===== 9月 最新情報 ===== */
+.latest-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-bottom:20px;
+}
+.latest-link{
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 5px 16px rgba(0,0,0,.08);
+  padding:14px 15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border-left:5px solid #0b63c7;
+}
+.latest-link strong{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+}
+.latest-link span{
+  display:block;
+  font-size:11px;
+  color:#666;
+  margin-top:2px;
+}
+.latest-link.money{border-left-color:#d9a400;}
+.latest-link.boat{border-left-color:#1f8da8;}
+.latest-link.minutes{border-left-color:#0b63c7;}
+.latest-link.budget{border-left-color:#7a4db3;}
+.latest-icon{font-size:25px;line-height:1;flex-shrink:0;}
+
+.notice-panel{
+  background:#f8fbff;
+  border:1px solid #d9e7f5;
+  border-radius:12px;
+  padding:14px;
+  margin-top:8px;
+}
+.notice-panel.money{background:#fffaf0;border-color:#f1d68a;}
+.notice-panel.budget{background:#fbf8ff;border-color:#dfd1ef;}
+.notice-panel.boat{background:#f3fbfd;border-color:#bfe2e9;}
+
+.refund-button{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  padding:13px 14px;
+  margin-top:12px;
+  background:#0b63c7;
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+.refund-button:hover{filter:brightness(.96);}
+
+.refund-box{
+  display:none;
+  margin-top:12px;
+  padding:14px;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid #d9e1ea;
+}
+.refund-box.open{display:block;}
+.refund-label{font-size:12px;color:#555;font-weight:700;margin-bottom:6px;}
+.refund-input{
+  width:100%;
+  padding:12px;
+  border:2px solid #cbd8e5;
+  border-radius:10px;
+  font-size:20px;
+  text-align:center;
+  outline:none;
+}
+.refund-input:focus{border-color:#0b63c7;}
+.refund-submit{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:12px;
+  margin-top:10px;
+  background:#17477d;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.refund-result{
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  border-radius:10px;
+  background:#f7fbff;
+  text-align:center;
+}
+.refund-result.show{display:block;}
+.refund-name{font-weight:800;font-size:16px;}
+.refund-amount{font-size:28px;font-weight:800;color:#c62828;margin-top:4px;}
+.refund-error{display:none;color:#b42318;font-size:12px;font-weight:700;margin-top:10px;text-align:center;}
+.refund-error.show{display:block;}
+.refund-warning{
+  margin-top:10px;
+  padding:10px;
+  border-radius:9px;
+  background:#fff3cd;
+  color:#9c5500;
+  font-size:12px;
+  font-weight:800;
+  text-align:center;
+}
+.demo-only{
+  margin-top:8px;
+  font-size:10px;
+  color:#777;
+  text-align:center;
+}
+.event-time{
+  font-weight:800;
+  color:#0b63c7;
+}
+
+
+.refund-close{
+  width:100%;
+  border:1px solid #c7d0d9;
+  border-radius:10px;
+  padding:11px;
+  margin-top:12px;
+  background:#f3f5f7;
+  color:#444;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.refund-close:hover{background:#e9edf1;}
+
+
+/* ===== 9月最新情報：重要アーカイブ風の統一カード ===== */
+.latest-simple{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-bottom:24px;
+}
+.latest-simple .latest-link{
+  min-height:82px;
+  background:#fff;
+  border:0;
+  border-left:0;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(24,67,115,.08);
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  color:inherit;
+  text-decoration:none;
+}
+.latest-simple .latest-main{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+}
+.latest-simple .latest-icon{
+  font-size:21px;
+  line-height:1;
+  flex:0 0 auto;
+}
+.latest-simple .latest-link strong{
+  display:block;
+  margin:0;
+  font-size:15px;
+  line-height:1.5;
+  color:#202020;
+}
+.latest-simple .latest-plus{
+  flex:0 0 auto;
+  font-size:24px;
+  font-weight:400;
+  line-height:1;
+  color:#0b63c7;
+}
+.latest-simple .latest-link:active{
+  transform:translateY(1px);
+}
+
 </style>
 </head>
 
@@ -670,8 +863,37 @@ a{
 
 <main class="container">
 
-  <!-- ===== 議事録 ===== -->
+
+  <!-- ===== 9月の最新情報 ===== -->
   <div class="section-head">
+    <div class="section-title">
+      <span class="material-icons">campaign</span>
+      9月の最新情報
+    </div>
+  </div>
+
+
+  <div class="latest-grid latest-simple">
+    <a class="latest-link" href="#refund-info">
+      <div class="latest-main"><span class="latest-icon">💰</span><strong>旅行積立金の返金日が決まりました</strong></div>
+      <div class="latest-plus">＋</div>
+    </a>
+    <a class="latest-link" href="#boat-info">
+      <div class="latest-main"><span class="latest-icon">🚢</span><strong>屋形船イベント当日のご案内</strong></div>
+      <div class="latest-plus">＋</div>
+    </a>
+    <a class="latest-link" href="#meeting18">
+      <div class="latest-main"><span class="latest-icon">📢</span><strong>第18回役員会議のご報告</strong></div>
+      <div class="latest-plus">＋</div>
+    </a>
+    <a class="latest-link" href="#budget-info">
+      <div class="latest-main"><span class="latest-icon">📊</span><strong>特別会計予算の利用について</strong></div>
+      <div class="latest-plus">＋</div>
+    </a>
+  </div>
+
+  <!-- ===== 議事録 ===== -->
+  <div class="section-head" id="meeting18">
     <div class="section-title">
       <span class="material-icons">description</span>
       議事録
@@ -680,10 +902,10 @@ a{
 
   <section class="card meeting-card">
     <div class="meeting-head">
-      <h2>第17回 役員会議（要約）</h2>
+      <h2>第18回 役員会議（要約）</h2>
       <div class="meeting-meta">
-        <span>令和8年8月1日(土) 10:00</span>
-        <span>2階応接室</span>
+        <span>令和8年8月31日(月) 11:00</span>
+        <span>3階講堂</span>
       </div>
     </div>
 
@@ -692,97 +914,140 @@ a{
 
         <div class="meeting-block">
           <div class="block-title">議題概要</div>
-          <p>
-            ・欠勤・退職者の確認<br>
-            ・新入社員紹介
-          </p>
+          <p>1．欠勤・退職者の確認<br>2．新入社員紹介</p>
           <ul>
-            <li><ruby>吉田 建二<rt>よしだ けんじ</rt></ruby>さん</li>
-            <li><ruby>谷崎 秀行<rt>たにざき ひでゆき</rt></ruby>さん</li>
-            <li><ruby>新藤 泰也<rt>しんどう やすなり</rt></ruby>さん</li>
+            <li><ruby>星野 翆騎<rt>ほしの すいき</rt></ruby>さん</li>
+            <li><ruby>鈴木 龍斗<rt>すずき りゅうと</rt></ruby>さん</li>
+            <li><ruby>大須賀 崇史<rt>おおすが たかふみ</rt></ruby>さん</li>
+            <li><ruby>古橋 直也<rt>ふるはし なおや</rt></ruby>さん</li>
           </ul>
         </div>
 
         <div class="meeting-block">
           <div class="block-title">出席者</div>
-          <p>会長、渉外部長、書記長</p>
+          <p>会長、渉外部長、厚生部長、会計部長、書記長</p>
         </div>
 
         <div class="meeting-block">
-          <div class="block-title">顔合わせ総括</div>
+          <div class="block-title">屋形船イベントについて</div>
           <p>
-            今回の会社との顔合わせでは、皆勤手当と無事故手当について会社側から回答がありました。<br><br>
-            皆勤手当については、支給する方向で検討されましたが、その条件として、これまで病院の領収書を提出すれば免除されていた病欠時の5,000円控除については、理由に関係なく控除するという考えが示されました。<br><br>
-            また、無事故手当については、会社の現状の経営状況を考えると毎月の現金支給は難しく、年賀式などで物品として支給する方向で考えたいとの回答でした。<br><br>
-            今回の話し合いを通じて改めて感じたことがあります。<br>
-            私たち乗務員は、会社へ要望を伝える際、一方的に要望を並べるだけではなく、会社の経営状況や現状も理解したうえで話し合う姿勢が大切ではないでしょうか。
+            参加申込は締め切りました。<br>
+            最終参加人数・金額を確認し、集合時間など当日の詳細については改めてご案内します。
           </p>
         </div>
 
         <div class="meeting-block">
-          <div class="block-title">優先して取り組む4つの要望</div>
+          <div class="block-title">要望書への回答</div>
           <p>
-            ・歩率改定<br>
-            ・有給休暇を取得しやすい環境づくり<br>
-            ・罰金制度の見直し<br>
-            ・高速帰路の取り扱い
-          </p>
-          <p style="margin-top:8px;">
-            要望を増やし過ぎると、本来実現したい重要な課題まで焦点がぼやけ、結果として皆勤手当や無事故手当のような要望も曖昧な回答になってしまう可能性があります。<br><br>
-            だからこそ、まずは会社と現状を共有し、お互いが努力しながら信頼関係を築いていくことが、本当の意味での良い労働環境につながるのではないでしょうか。
+            会社との話し合いの結果、<br>
+            ・帰庫時間変更 → 見送り<br>
+            ・会社負担による勉強会 → 見送り<br>
+            ・皆勤手当 → 見送り<br><br>
+            皆勤手当については、代替案として「無違反手当」の新設を検討しています。<br><br>
+            制服については、一律支給ではなく、傷みがある場合に会社へ申し出て交換する形となります。
           </p>
         </div>
 
         <div class="meeting-block">
-          <div class="block-title">私たちにもできること</div>
+          <div class="block-title">役員報酬・会費について</div>
           <p>
-            皆さんが日々売上向上のために努力していることは間違いありません。しかし、その一方で事故や違反が思うように減っていない現状があります。<br><br>
-            この事故や違反が、会社の経営に影響を与え、私たちの要望を実現するうえで足かせになっていることも事実です。<br><br>
-            だからこそ、まずは事故・違反を減らし、安全運転を徹底し、会社全体の成果を積み重ねていくことが大切です。
+            役員報酬制度を簡素化し、あわせて会費を約20％削減する案について協議しました。<br>
+            今後、内容を整理したうえで総会に諮る予定です。
           </p>
         </div>
 
         <div class="meeting-block">
-          <div class="block-title">要望実現に向けて</div>
+          <div class="block-title">選挙について</div>
           <p>
-            そして、その成果をもとに、<br>
-            「私たちはこれだけの結果を出しました。会社の経営状況も理解しています。そのうえで、この成果に見合う待遇改善をお願いします。」<br>
-            と、自信を持って会社へ伝えられる環境を皆でつくっていくことが、本当の意味で要望を実現する近道だと思います。<br><br>
-            小さな要望を増やしていくことが目的ではありません。<br>
-            本当に必要な要望を、皆で力を合わせ、一つひとつ着実に実現していく。<br>
-            その積み重ねが、より良い職場づくりにつながると考えます。<br><br>
-            皆さんで力を合わせ、本当に必要な要望を一つずつ勝ち取っていきましょう。
+            次期役員選挙に向け、選挙対象者の確認を進めます。<br>
+            また、候補者を分かりやすく確認できるよう、顔写真・氏名・ふりがな等を掲載した名簿を新たに作成します。
           </p>
         </div>
 
+        <div class="meeting-block">
+          <div class="block-title">その他</div>
+          <p>シフト変更、車内清掃、車両管理などについて意見交換を行いました。</p>
+        </div>
       </div>
 
       <div class="meeting-grid meeting-bottom">
-        <div class="meeting-block">
-          <div class="block-title">会計部より</div>
-          <p>
-            旅行積立金制度の廃止に伴い、給与天引きは8月分をもって終了します。積立金の返金については、後日ご案内します。
-          </p>
+
+        <div class="meeting-block" id="refund-info">
+          <div class="block-title">会計部より｜旅行積立金 返金のお知らせ</div>
+          <div class="notice-panel money">
+            <p>
+              返金日は <strong>9月20日・21日・22日</strong>、<br>
+              時間は <strong>午前5時30分～午前8時00分</strong> です。
+            </p>
+            <div class="refund-warning">⚠️ 必ず返金額をご確認ください。</div>
+            <button class="refund-button" type="button" onclick="toggleRefund()">💰 返金額を確認する</button>
+
+            <div class="refund-box" id="refundBox">
+              <div class="refund-label">社員番号を入力してください</div>
+              <input class="refund-input" id="employeeNo" inputmode="numeric" autocomplete="off" placeholder="例：133">
+              <button class="refund-submit" type="button" onclick="searchRefund()">確認する</button>
+              <div class="refund-error" id="refundError">社員番号が見つかりません。番号をご確認ください。</div>
+              <div class="refund-result" id="refundResult">
+                <div class="refund-name" id="refundName"></div>
+                <div style="font-size:12px;color:#666;margin-top:6px;">旅行積立金 返金額</div>
+                <div class="refund-amount" id="refundAmount"></div>
+              </div>
+              <button class="refund-close" type="button" onclick="closeRefund()">閉じる</button>
+              
+            </div>
+          </div>
         </div>
 
-        <div class="meeting-block">
-          <div class="block-title">渉外部より</div>
-          <p>
-            屋形船イベントでは特別会計予算を運用します。詳細は後日お知らせします。
-          </p>
+        <div class="meeting-block" id="budget-info">
+          <div class="block-title">渉外部より｜特別会計予算 利用のお知らせ</div>
+          <div class="notice-panel budget">
+            <p>
+              日頃より懇親会活動にご理解・ご協力いただき、ありがとうございます。<br><br>
+              これまで、皆さまが加入している団体保険に伴う還付金等を「特別会計」として積み立てており、現在の積立額は約38万円となっております。<br><br>
+              この特別会計の活用については総会でも皆さまと協議を行い、さまざまな観点から検討した結果、今回のイベント費用の一部として <strong>28万円</strong> を充当することとなりました。<br><br>
+              これにより、特別会計の残額は <strong>約10万円</strong> となりますので、ご報告いたします。<br><br>
+              今後も皆さまのために有効に活用してまいりますので、ご理解のほどよろしくお願いいたします。<br><br>
+              渉外部長　冨高 正義
+            </p>
+          </div>
         </div>
 
-        <div class="meeting-block">
-          <div class="block-title">厚生部より</div>
-          <p>
-            屋形船参加申込の締切は8月13日です。準備の都合上、期限までのご記入にご協力をお願いします。
-          </p>
+        <div class="meeting-block" id="boat-info">
+          <div class="block-title">厚生部より｜屋形船イベント 当日のご案内</div>
+          <div class="notice-panel boat">
+            <p>
+              <strong>9月15日（火）・16日（水）</strong><br><br>
+              <span class="event-time">10:00</span>　東京協同タクシー本社 集合<br>
+              会社から参加される方は、10:00までに集合してください。<br>
+              ※乗船場には待合所がありませんので、会社でトイレ等を済ませてから出発します。<br><br>
+
+              <span class="event-time">10:30</span>　観光バスで出発<br>
+              浅草・吾妻橋船着場へ向かいます。<br><br>
+
+              <strong>現地集合の方</strong><br>
+              11:45までを目安に「吾妻橋船着場」へお越しください。<br>
+              船宿「あみ清」吾妻橋乗船場<br>
+              東京都台東区雷門2-1-12<br>
+              浅草駅からも近い場所です。<br><br>
+
+              <span class="event-time">12:00</span>　屋形船「あみ清」出船<br>
+              隅田川～お台場方面を巡る屋形船をお楽しみください。船内には水洗トイレも完備されています。<br><br>
+
+              <span class="event-time">14:30</span>　周遊終了・吾妻橋へ帰着<br><br>
+
+              <span class="event-time">14:45頃</span>　観光バス出発<br>
+              東京協同タクシー本社へ戻ります。<br>
+              ※現地解散の方は、こちらで解散となります。<br><br>
+
+              <span class="event-time">16:00頃</span>　東京協同タクシー本社 到着・解散
+            </p>
+          </div>
         </div>
 
         <div class="meeting-block">
           <div class="block-title">お問い合わせ</div>
           <p>
-            ※配信内容についてご意見・ご質問は、お気軽に懇親会役員までお問い合わせください。<br>
+            ご意見・ご質問などございましたら、お気軽に懇親会役員までお問い合わせください。<br>
             懇親会 会長　須賀孝志
           </p>
         </div>
@@ -802,7 +1067,7 @@ a{
   </div>
 
   <section class="card article-card">
-    <img src="guide.jpg" alt="業務ガイド">
+    <img src="https://hummingbird4124-sys.github.io/guide.jpg" alt="業務ガイド">
     <div class="article-text">
       <div class="article-title">漫画でわかる業務・安全ガイド</div>
       <div class="article-desc">
@@ -1055,6 +1320,64 @@ a{
   </section>
 
 </main>
+
+
+<script>
+const refundRecords = [{"employeeNo": "133", "name": "端谷博史", "amount": 24000}, {"employeeNo": "136", "name": "塩野 明", "amount": 24000}, {"employeeNo": "166", "name": "永元正吾", "amount": 24000}, {"employeeNo": "213", "name": "加藤春義", "amount": 24000}, {"employeeNo": "332", "name": "吉本健次郎", "amount": 24000}, {"employeeNo": "387", "name": "栗原宏明", "amount": 24000}, {"employeeNo": "401", "name": "下国康二郎", "amount": 24000}, {"employeeNo": "418", "name": "山本金一", "amount": 24000}, {"employeeNo": "468", "name": "高村政衛", "amount": 24000}, {"employeeNo": "494", "name": "大塚吉昭", "amount": 24000}, {"employeeNo": "522", "name": "小岩 修", "amount": 24000}, {"employeeNo": "531", "name": "遠藤武彦", "amount": 24000}, {"employeeNo": "534", "name": "南部智昭", "amount": 24000}, {"employeeNo": "535", "name": "一花 肇", "amount": 24000}, {"employeeNo": "543", "name": "田島孝行", "amount": 24000}, {"employeeNo": "554", "name": "寺田勝", "amount": 24000}, {"employeeNo": "556", "name": "高見康義", "amount": 24000}, {"employeeNo": "564", "name": "坂口庄二", "amount": 24000}, {"employeeNo": "577", "name": "須賀孝志", "amount": 24000}, {"employeeNo": "592", "name": "浅若圭克", "amount": 24000}, {"employeeNo": "603", "name": "大塚幸光", "amount": 24000}, {"employeeNo": "621", "name": "山崎陽平", "amount": 24000}, {"employeeNo": "635", "name": "齋藤光明", "amount": 24000}, {"employeeNo": "640", "name": "吉田勝義", "amount": 24000}, {"employeeNo": "660", "name": "伊藤新之助", "amount": 24000}, {"employeeNo": "661", "name": "中野雅春", "amount": 24000}, {"employeeNo": "662", "name": "岩堀武男", "amount": 24000}, {"employeeNo": "666", "name": "久木原博", "amount": 24000}, {"employeeNo": "671", "name": "山口 誠", "amount": 24000}, {"employeeNo": "675", "name": "香山浩司", "amount": 24000}, {"employeeNo": "679", "name": "林 芳弘", "amount": 24000}, {"employeeNo": "687", "name": "濱田紀文", "amount": 24000}, {"employeeNo": "691", "name": "高山一広", "amount": 24000}, {"employeeNo": "698", "name": "篠田大輔", "amount": 24000}, {"employeeNo": "708", "name": "釈永 優", "amount": 24000}, {"employeeNo": "709", "name": "富田篤司", "amount": 24000}, {"employeeNo": "715", "name": "冨髙正義", "amount": 24000}, {"employeeNo": "716", "name": "武井 勝", "amount": 24000}, {"employeeNo": "719", "name": "小林利則", "amount": 4000}, {"employeeNo": "720", "name": "大久保勉", "amount": 24000}, {"employeeNo": "728", "name": "小林信夫", "amount": 24000}, {"employeeNo": "730", "name": "小平正美", "amount": 24000}, {"employeeNo": "735", "name": "宮入芳高", "amount": 24000}, {"employeeNo": "742", "name": "杉山輝行", "amount": 24000}, {"employeeNo": "743", "name": "澤 啓司", "amount": 24000}, {"employeeNo": "752", "name": "西川友博", "amount": 24000}, {"employeeNo": "753", "name": "新井 実", "amount": 24000}, {"employeeNo": "755", "name": "浅川芳行", "amount": 24000}, {"employeeNo": "766", "name": "山本 勲", "amount": 24000}, {"employeeNo": "770", "name": "小池利生", "amount": 24000}, {"employeeNo": "772", "name": "鳥山勝吉", "amount": 24000}, {"employeeNo": "785", "name": "坂本将樹", "amount": 24000}, {"employeeNo": "789", "name": "赤石明幸", "amount": 14000}, {"employeeNo": "796", "name": "岡村 聡", "amount": 24000}, {"employeeNo": "799", "name": "的場良介", "amount": 24000}, {"employeeNo": "801", "name": "林 正美", "amount": 24000}, {"employeeNo": "802", "name": "大宮研司", "amount": 24000}, {"employeeNo": "814", "name": "上松勝巳", "amount": 24000}, {"employeeNo": "826", "name": "山本秋信", "amount": 24000}, {"employeeNo": "827", "name": "佐々木 優", "amount": 24000}, {"employeeNo": "839", "name": "横山龍太郎", "amount": 24000}, {"employeeNo": "843", "name": "吉澤颯太", "amount": 24000}, {"employeeNo": "844", "name": "若井力", "amount": 24000}, {"employeeNo": "846", "name": "鷲見俊樹", "amount": 24000}, {"employeeNo": "848", "name": "樋口貴行", "amount": 24000}, {"employeeNo": "851", "name": "山田俊輝", "amount": 24000}, {"employeeNo": "852", "name": "下山武志", "amount": 24000}, {"employeeNo": "853", "name": "山口真貴子", "amount": 24000}, {"employeeNo": "855", "name": "大江賢生", "amount": 24000}, {"employeeNo": "859", "name": "南 陽也", "amount": 24000}, {"employeeNo": "860", "name": "松田雄介", "amount": 24000}, {"employeeNo": "861", "name": "古城洋平", "amount": 24000}, {"employeeNo": "862", "name": "谷俊弘", "amount": 24000}, {"employeeNo": "863", "name": "戸島和美", "amount": 24000}, {"employeeNo": "865", "name": "菊池一明", "amount": 24000}, {"employeeNo": "866", "name": "村田陽子", "amount": 24000}, {"employeeNo": "867", "name": "杉本幸二", "amount": 24000}, {"employeeNo": "872", "name": "小野寺亘", "amount": 24000}, {"employeeNo": "873", "name": "奥寺 平", "amount": 24000}, {"employeeNo": "878", "name": "小松 誠", "amount": 24000}, {"employeeNo": "882", "name": "渡邊隆浩", "amount": 24000}, {"employeeNo": "884", "name": "島田智幸", "amount": 24000}, {"employeeNo": "885", "name": "松岡裕佑", "amount": 24000}, {"employeeNo": "886", "name": "杉本和教", "amount": 24000}, {"employeeNo": "889", "name": "木村宗春", "amount": 24000}, {"employeeNo": "891", "name": "本波和樹", "amount": 24000}, {"employeeNo": "892", "name": "濱井和也", "amount": 24000}, {"employeeNo": "893", "name": "玄番小次郎", "amount": 24000}, {"employeeNo": "896", "name": "小島英弘", "amount": 24000}, {"employeeNo": "897", "name": "京極 翼", "amount": 24000}, {"employeeNo": "898", "name": "木村広", "amount": 24000}, {"employeeNo": "899", "name": "門川 樹", "amount": 24000}, {"employeeNo": "903", "name": "會田里未", "amount": 24000}, {"employeeNo": "905", "name": "岸野和哉", "amount": 24000}, {"employeeNo": "906", "name": "服部琴音", "amount": 24000}, {"employeeNo": "908", "name": "大谷苑子", "amount": 24000}, {"employeeNo": "910", "name": "水上雅人", "amount": 24000}, {"employeeNo": "911", "name": "柳澤克則", "amount": 24000}, {"employeeNo": "916", "name": "望月崇史", "amount": 24000}, {"employeeNo": "917", "name": "内田洋平", "amount": 24000}, {"employeeNo": "919", "name": "春日高政", "amount": 24000}, {"employeeNo": "920", "name": "浅賀孝義", "amount": 24000}, {"employeeNo": "921", "name": "金井知己", "amount": 14000}, {"employeeNo": "922", "name": "神保勇樹", "amount": 24000}, {"employeeNo": "923", "name": "霜山茶乙", "amount": 24000}, {"employeeNo": "926", "name": "安富徳義", "amount": 22000}, {"employeeNo": "929", "name": "七五三掛勉", "amount": 24000}, {"employeeNo": "931", "name": "久保田怜那", "amount": 22000}, {"employeeNo": "933", "name": "鏑木 靖", "amount": 22000}, {"employeeNo": "934", "name": "邑松 賢", "amount": 22000}, {"employeeNo": "935", "name": "帯川晶彦", "amount": 20000}, {"employeeNo": "936", "name": "下畑信貴", "amount": 14000}, {"employeeNo": "937", "name": "波多野拓也", "amount": 6000}, {"employeeNo": "938", "name": "石田竜也", "amount": 14000}, {"employeeNo": "939", "name": "赤間あみ", "amount": 14000}, {"employeeNo": "941", "name": "蘇 勒徳", "amount": 14000}, {"employeeNo": "943", "name": "林 昭男", "amount": 14000}, {"employeeNo": "944", "name": "久我昌弘", "amount": 8000}, {"employeeNo": "945", "name": "野口明日香", "amount": 6000}, {"employeeNo": "947", "name": "川島秀章", "amount": 6000}, {"employeeNo": "948", "name": "木村雄太", "amount": 14000}, {"employeeNo": "949", "name": "阿多川智宏", "amount": 14000}, {"employeeNo": "950", "name": "田口峻也", "amount": 0}, {"employeeNo": "951", "name": "橋本紘志", "amount": 0}, {"employeeNo": "952", "name": "下山 明", "amount": 12000}, {"employeeNo": "953", "name": "鈴木和政", "amount": 12000}, {"employeeNo": "954", "name": "鈴木明日美", "amount": 12000}, {"employeeNo": "955", "name": "吉原慎吾", "amount": 12000}, {"employeeNo": "956", "name": "瀬川忠弘", "amount": 12000}, {"employeeNo": "957", "name": "千須和 拓", "amount": 8000}, {"employeeNo": "958", "name": "三原誉也", "amount": 12000}, {"employeeNo": "959", "name": "今井研作", "amount": 12000}, {"employeeNo": "960", "name": "彼ノ矢美香", "amount": 8000}, {"employeeNo": "961", "name": "三改木翔眞", "amount": 8000}, {"employeeNo": "962", "name": "五十嵐裕紀", "amount": 8000}, {"employeeNo": "963", "name": "木村日向", "amount": 8000}, {"employeeNo": "964", "name": "人見雅子", "amount": 8000}, {"employeeNo": "965", "name": "鈴木麗央", "amount": 8000}, {"employeeNo": "966", "name": "長嶺誠洋", "amount": 8000}, {"employeeNo": "967", "name": "宮脇日向", "amount": 8000}, {"employeeNo": "968", "name": "内山 浩", "amount": 6000}, {"employeeNo": "969", "name": "古市真介", "amount": 6000}, {"employeeNo": "970", "name": "中野謄也", "amount": 6000}, {"employeeNo": "971", "name": "高橋博之", "amount": 6000}, {"employeeNo": "972", "name": "阿部一輝", "amount": 6000}, {"employeeNo": "973", "name": "国枝 航", "amount": 0}, {"employeeNo": "974", "name": "坂本龍哉", "amount": 0}, {"employeeNo": "975", "name": "清野絢太", "amount": 0}, {"employeeNo": "976", "name": "水越夏美", "amount": 0}, {"employeeNo": "977", "name": "村田悦正", "amount": 0}, {"employeeNo": "978", "name": "小池貴士", "amount": 0}, {"employeeNo": "979", "name": "米川和行", "amount": 0}, {"employeeNo": "980", "name": "池田義典", "amount": 0}, {"employeeNo": "981", "name": "村田真也", "amount": 0}, {"employeeNo": "982", "name": "山内一真", "amount": 0}, {"employeeNo": "983", "name": "坂寄竜治", "amount": 0}, {"employeeNo": "984", "name": "松岡璃空", "amount": 0}, {"employeeNo": "985", "name": "渡辺一樹", "amount": 0}, {"employeeNo": "986", "name": "藤倉雷也", "amount": 0}, {"employeeNo": "987", "name": "山口璃音", "amount": 0}, {"employeeNo": "988", "name": "安井力也", "amount": 0}, {"employeeNo": "989", "name": "田尾祐作", "amount": 0}, {"employeeNo": "990", "name": "星野翠騎", "amount": 0}, {"employeeNo": "991", "name": "新藤 泰成", "amount": 0}, {"employeeNo": "992", "name": "鈴木龍斗", "amount": 0}, {"employeeNo": "993", "name": "立花璃乙花", "amount": 0}, {"employeeNo": "994", "name": "吉田 健二", "amount": 0}, {"employeeNo": "995", "name": "大須賀嵩史", "amount": 0}, {"employeeNo": "996", "name": "古橋直也", "amount": 0}, {"employeeNo": "997", "name": "石川隼人", "amount": 0}, {"employeeNo": "998", "name": "南昴之進", "amount": 0}];
+const refundMap = new Map(refundRecords.map(r => [String(r.employeeNo).trim(), r]));
+
+function toggleRefund(){
+  const box = document.getElementById('refundBox');
+  box.classList.toggle('open');
+  if(box.classList.contains('open')){
+    setTimeout(() => document.getElementById('employeeNo').focus(), 50);
+  }
+}
+
+
+function closeRefund(){
+  const box = document.getElementById('refundBox');
+  const input = document.getElementById('employeeNo');
+  const result = document.getElementById('refundResult');
+  const error = document.getElementById('refundError');
+
+  box.classList.remove('open');
+  input.value = '';
+  result.classList.remove('show');
+  error.classList.remove('show');
+  document.getElementById('refundName').textContent = '';
+  document.getElementById('refundAmount').textContent = '';
+}
+
+function searchRefund(){
+  const input = document.getElementById('employeeNo');
+  const raw = input.value.trim();
+  const key = (raw.replace(/^0+/, '') || '0');
+  const item = refundMap.get(key);
+  const result = document.getElementById('refundResult');
+  const error = document.getElementById('refundError');
+
+  if(!item){
+    result.classList.remove('show');
+    error.classList.add('show');
+    return;
+  }
+
+  document.getElementById('refundName').textContent = item.name + ' さん';
+  document.getElementById('refundAmount').textContent = item.amount.toLocaleString('ja-JP') + '円';
+  error.classList.remove('show');
+  result.classList.add('show');
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  const input = document.getElementById('employeeNo');
+  if(input){
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter') searchRefund();
+    });
+  }
+});
+</script>
 
 </body>
 </html>
